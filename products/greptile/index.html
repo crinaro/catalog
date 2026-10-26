@@ -32,8 +32,10 @@
 <table class="lines facts" id="key-facts-table">
 <colgroup><col class="f-key"><col class="f-val"></colgroup>
 <tr><th>Fact</th><th>Answer</th></tr>
+<tr><td class="f-key">Type</td><td><span title="Our reading of its role, from the role record">Other</span></td></tr>
 <tr><td class="f-key">Layer</td><td><a class="src" href="../../views/by-layer/#l-code-review">Code review</a> (main layer), <a class="src" href="../../views/by-layer/#l-context-and-tools">Company knowledge for agents</a></td></tr>
 <tr><td class="f-key">Forms</td><td><span class="form-word" title="from our list of products; no page was read for this form">hosted service</span>, <span class="form-word" title="from our list of products; no page was read for this form">server you run</span></td></tr>
+<tr><td class="f-key"><span class="term" tabindex="0" data-term="models-run" aria-label="Models run: Where the maker&#x27;s own pages say its models run, not a limit: your machine, a container environment you run, the maker&#x27;s cloud (servers of the company that makes or serves the model), or a cloud provider&#x27;s model service. For a cloud, read the data and compliance lines of the company running it, linked by its name.">Models run<span class="tip" aria-hidden="true">Where the maker&#x27;s own pages say its models run, not a limit: your machine, a container environment you run, the maker&#x27;s cloud (servers of the company that makes or serves the model), or a cloud provider&#x27;s model service. For a cloud, read the data and compliance lines of the company running it, linked by its name.</span></span></td><td><span title="Where the vendor&#x27;s pages say its models run: no recorded vendor sentence says">Not stated</span></td></tr>
 </table>
 </div>
 
@@ -49,8 +51,41 @@
 </div>
 <h2 id="sources">Sources</h2>
 <ul>
+<li><a href="https://www.greptile.com/blog/how-to-build-a-code-review-agent" title="www.greptile.com/blog/how-to-build-a-code-review-agent" rel="noopener noreferrer">Greptile page: how to build a code review agent</a> <span class="claim-src">(read 2026-10-25)</span></li>
+<li><a href="https://www.greptile.com/content-library/self-hosted-ai-code-review" title="www.greptile.com/content-library/self-hosted-ai-code-review" rel="noopener noreferrer">Greptile page: self hosted ai code review</a> <span class="claim-src">(read 2026-10-25)</span></li>
+<li><a href="https://www.greptile.com/docs/code-review-bot/billing-seats.md" title="www.greptile.com/docs/code-review-bot/billing-seats.md" rel="noopener noreferrer">Greptile page: billing seats</a> <span class="claim-src">(read 2026-10-25)</span></li>
+<li><a href="https://www.greptile.com/docs/code-review/review-tiers.md" title="www.greptile.com/docs/code-review/review-tiers.md" rel="noopener noreferrer">Greptile page: review tiers</a> <span class="claim-src">(read 2026-10-25)</span></li>
+<li><a href="https://www.greptile.com/docs/docker-compose/manual-setup.md" title="www.greptile.com/docs/docker-compose/manual-setup.md" rel="noopener noreferrer">Greptile page: manual setup</a> <span class="claim-src">(read 2026-10-25)</span></li>
+<li><a href="https://www.greptile.com/enterprise.md" title="www.greptile.com/enterprise.md" rel="noopener noreferrer">Greptile page: enterprise</a> <span class="claim-src">(read 2026-10-25)</span></li>
+<li><a href="https://www.greptile.com/pricing.md" title="www.greptile.com/pricing.md" rel="noopener noreferrer">Greptile page: pricing</a> <span class="claim-src">(read 2026-10-25)</span></li>
 <li><a href="https://www.greptile.com" title="www.greptile.com" rel="noopener noreferrer">Greptile home page</a> <span class="claim-src">(the product's own site, from our list of products; not read for these lines)</span></li>
 </ul>
+<details class="readings" id="readings"><summary>The readings behind this page</summary>
+<p class="note page-note">Our summary of the maker&#x27;s pages as of 2026-10-25; confirm on the maker&#x27;s page.</p>
+<p class="eyebrow">Models from different providers in one session</p>
+<ul>
+<li class="claim" id="c-cov-greptile-q1-049" data-claim="cov-greptile-q1-049">Greptile&#x27;s blog post on building a code review agent says the company uses both frontier and open source models, selecting the right-sized model for each subtask in code review and testing workflows. <span class="claim-src">(<a href="https://www.greptile.com/blog/how-to-build-a-code-review-agent" rel="noopener noreferrer">www.greptile.com page</a>, read 2026-10-25)</span></li>
+</ul>
+<p class="eyebrow">Several endpoints, built in (no proxy)</p>
+<ul>
+<li class="claim" id="c-cov-greptile-q2-040" data-claim="cov-greptile-q2-040">Greptile&#x27;s guide to AI code review for GitLab and GitHub Enterprise servers a team hosts itself says Greptile, in that setup, uses the models the customer picks: AWS Bedrock, Anthropic, Azure OpenAI, OpenAI, or any endpoint compatible with OpenAI. <span class="claim-src">(<a href="https://www.greptile.com/content-library/self-hosted-ai-code-review" rel="noopener noreferrer">www.greptile.com page</a>, read 2026-10-25)</span></li>
+</ul>
+<p class="eyebrow">Plan, policy and billing</p>
+<ul>
+<li class="claim" id="c-cov-greptile-g1-036" data-claim="cov-greptile-g1-036">Greptile&#x27;s pricing page lists self-hosting in the customer&#x27;s own infrastructure among what the Enterprise plan adds to Pro. <span class="claim-src">(<a href="https://www.greptile.com/pricing.md" rel="noopener noreferrer">www.greptile.com page</a>, read 2026-10-25)</span></li>
+<li class="claim" id="c-cov-greptile-g1-046" data-claim="cov-greptile-g1-046">Greptile&#x27;s enterprise page says enterprise customers whose data privacy or compliance requirements are strict can have Greptile installed in their own infrastructure, by contacting Greptile&#x27;s team. <span class="claim-src">(<a href="https://www.greptile.com/enterprise.md" rel="noopener noreferrer">www.greptile.com page</a>, read 2026-10-25)</span></li>
+<li class="claim" id="c-cov-greptile-g2-047" data-claim="cov-greptile-g2-047">Greptile&#x27;s enterprise page says teams can define review configurations from the organization level down to individual developers, tailoring code review to each team&#x27;s standards. <span class="claim-src">(<a href="https://www.greptile.com/enterprise.md" rel="noopener noreferrer">www.greptile.com page</a>, read 2026-10-25)</span></li>
+<li class="claim" id="c-cov-greptile-g2-048" data-claim="cov-greptile-g2-048">Greptile&#x27;s review tiers page says an Auto rule lets the tool pick the tier for matching pull requests, even when the organization has pinned a tier. <span class="claim-src">(<a href="https://www.greptile.com/docs/code-review/review-tiers.md" rel="noopener noreferrer">www.greptile.com page</a>, read 2026-10-25)</span></li>
+<li class="claim" id="c-cov-greptile-g3-037" data-claim="cov-greptile-g3-037">Greptile&#x27;s pricing page says the Pro plan has no seat fees and charges $1 per credit, with credits shared across the whole organization. <span class="claim-src">(<a href="https://www.greptile.com/pricing.md" rel="noopener noreferrer">www.greptile.com page</a>, read 2026-10-25)</span></li>
+<li class="claim" id="c-cov-greptile-g3-038" data-claim="cov-greptile-g3-038">Greptile&#x27;s pricing page says the Starter plan costs nothing for a single developer and comes with 50 monthly credits. <span class="claim-src">(<a href="https://www.greptile.com/pricing.md" rel="noopener noreferrer">www.greptile.com page</a>, read 2026-10-25)</span></li>
+<li class="claim" id="c-cov-greptile-g3-043" data-claim="cov-greptile-g3-043">Greptile&#x27;s billing page says the company bills using prepaid credits. <span class="claim-src">(<a href="https://www.greptile.com/docs/code-review-bot/billing-seats.md" rel="noopener noreferrer">www.greptile.com page</a>, read 2026-10-25)</span></li>
+<li class="claim" id="c-cov-greptile-g3-045" data-claim="cov-greptile-g3-045">Greptile&#x27;s billing page says that with Auto, the customer pays for the review tier that ran. <span class="claim-src">(<a href="https://www.greptile.com/docs/code-review-bot/billing-seats.md" rel="noopener noreferrer">www.greptile.com page</a>, read 2026-10-25)</span></li>
+</ul>
+<p class="eyebrow">About the product</p>
+<ul>
+<li class="claim" id="c-cov-greptile-l3-042" data-claim="cov-greptile-l3-042">Greptile&#x27;s manual setup page for running Greptile with Docker Compose lists the server&#x27;s supported operating systems as Ubuntu 20.04 or later, Amazon Linux 2023, Debian 11 or later, and RHEL 8 or later. <span class="claim-src">(<a href="https://www.greptile.com/docs/docker-compose/manual-setup.md" rel="noopener noreferrer">www.greptile.com page</a>, read 2026-10-25)</span></li>
+</ul>
+</details>
 <div class="foot">
 <p class="linkrow"><a class="src" href="../../terms/">Terms</a><span class="sep">&middot;</span><a class="src" href="../../index.html">Catalog home</a></p>
 <p>Our reading of vendors' pages, as of the dates shown. Confirm on the vendor's page before relying on any line that cites it. To report an error write to <a class="src" href="mailto:report@crinaro.ai">report@crinaro.ai</a> <!-- privacy-ok: public business address, not a personal one --></p>
