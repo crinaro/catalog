@@ -3,172 +3,154 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Local and cloud models, by product, Crinaro catalogue</title>
-<style>body{font:16px/1.5 system-ui,sans-serif;max-width:60rem;margin:1rem auto;padding:0 1rem;color:#222}a{color:#0b5cad}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:.3rem .5rem;vertical-align:top;text-align:left}.src,.status{color:#555;font-size:.9em}.claim{margin:.4rem 0}.site-footer{margin-top:2rem;border-top:1px solid #ccc;font-size:.9em;color:#444}.attribution{border-left:3px solid #ccc;padding-left:.7rem;font-size:.9em;color:#333}</style>
+<title>Hybrid model setups: how the pieces fit · Crinaro.AI</title>
+<meta name="description" content="Our reading of what vendors&#x27; own pages say, as of the dates shown.">
+<meta property="og:title" content="Hybrid model setups: how the pieces fit">
+<meta property="og:description" content="Our reading of what vendors&#x27; own pages say, as of the dates shown.">
+<meta property="og:url" content="https://crinaro.ai/catalog/views/local-and-cloud/">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
-<h1>Local and cloud models, by product</h1>
-<p>Here, local and cloud models means a model whose weights run on the user's own machine or servers, used beside a model a vendor serves. It is not the option, named by some vendors, that moves where a tool runs.</p>
-<p><strong>Our reading as of the dates shown on each line; confirm on the vendor's page.</strong> A line says what the page states and never says that a product works or does not work. Not found in the pages we read means exactly that and never that the vendor is silent. A dash in the table means this build publishes no line in that column; it does not mean the product lacks the feature.</p>
-<h2>Lines by product</h2>
-<table>
-<tr><th>Product</th><th>Local models</th><th>Cloud models</th><th>Local and cloud models in one session</th><th>What you set up</th><th>One sentence naming both a local and a cloud path</th></tr>
-<tr><td><a href="../../products/ag2/">AG2</a></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>1</td></tr>
-<tr><td><a href="../../products/aider/">Aider</a></td><td>1</td><td>&mdash;</td><td>&mdash;</td><td>1</td><td>&mdash;</td></tr>
-<tr><td><a href="../../products/claude-code/">Claude Code</a></td><td>&mdash;</td><td>&mdash;</td><td>1</td><td>1</td><td>&mdash;</td></tr>
-<tr><td><a href="../../products/claude-desktop-through-ollama/">Claude Desktop (through Ollama)</a></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>1</td><td>1</td></tr>
-<tr><td><a href="../../products/cline/">Cline</a></td><td>&mdash;</td><td>&mdash;</td><td>1</td><td>1</td><td>&mdash;</td></tr>
-<tr><td><a href="../../products/continue/">Continue</a></td><td>1</td><td>1</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr><td><a href="../../products/cursor/">Cursor</a></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>1</td><td>&mdash;</td></tr>
-<tr><td><a href="../../products/github-copilot/">GitHub Copilot</a></td><td>&mdash;</td><td>&mdash;</td><td>1</td><td>1</td><td>&mdash;</td></tr>
-<tr><td><a href="../../products/kilo-code/">Kilo Code</a></td><td>1</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>1</td></tr>
-<tr><td><a href="../../products/librechat/">LibreChat</a></td><td>1</td><td>1</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr><td><a href="../../products/litellm/">LiteLLM</a></td><td>&mdash;</td><td>1</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr><td><a href="../../products/lm-studio/">LM Studio</a></td><td>2</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr><td><a href="../../products/ollama-app-and-cloud-models/">Ollama (app and cloud models)</a></td><td>&mdash;</td><td>1</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr><td><a href="../../products/open-webui/">Open WebUI</a></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>1</td></tr>
-<tr><td><a href="../../products/opencode/">OpenCode</a></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>2</td><td>&mdash;</td></tr>
-<tr><td><a href="../../products/openhands/">OpenHands</a></td><td>1</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>1</td></tr>
-<tr><td><a href="../../products/promptfoo/">promptfoo</a></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>1</td></tr>
-<tr><td><a href="../../products/vellum-assistant/">Vellum (assistant)</a></td><td>1</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-</table>
-<h2 id="p-ag2"><a href="../../products/ag2/">AG2</a></h2>
-<h3>One sentence naming both a local and a cloud path</h3>
+<div class="note-wrap">
+<a class="note-home" href="https://crinaro.ai/" aria-label="Crinaro.AI"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 86" width="680" height="86" role="img" aria-label="Crinaro">
+  <title>Crinaro.AI · horizontal</title>
+  <g transform="translate(10,4) scale(0.46)">
+    <path d="M52 132 L150 132 L212 86 L252 104 L320 38 L376 106 L416 84 L466 132 L568 132" fill="none" stroke="#1B5C46" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="212" cy="86" r="9.1" fill="#0B2545" stroke="#F2F6F8" stroke-width="4.55"/>
+  <circle cx="320" cy="38" r="13.65" fill="#0B2545" stroke="#F2F6F8" stroke-width="4.55"/>
+  <circle cx="416" cy="84" r="9.1" fill="#0B2545" stroke="#F2F6F8" stroke-width="4.55"/>
+  </g>
+  <text x="300" y="66" fill="#0B2545" font-family="Futura, 'Century Gothic', 'Avenir Next', Avenir, sans-serif" font-size="40" font-weight="500" letter-spacing="0.26em" dx="0 0 0 0 0 0 0 -5.20 -5.20 0">CRINARO<tspan fill="#1B5C46">.AI</tspan></text>
+</svg></a>
+<h1>Hybrid model setups: how the pieces fit</h1>
+<p class="standfirst">A harness, a proxy and a model are separate pieces, and each can run in a different place. Which of them you need depends on how many models you want to reach and where those models run.</p>
+<p class="written">Rendered 2026-10-25</p>
+<figure class="figure">
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1328" role="img" aria-labelledby="diagram-title diagram-desc">
+<title id="diagram-title">Where a product runs, and where its models run</title>
+<desc id="diagram-desc">Three diagrams, one for each place a product can run, and in each only the places a model can run for that product. In the first, the product runs on your machine: an app, a command-line tool or an editor. Its models can run in the model maker&#x27;s own cloud, such as Anthropic&#x27;s or OpenAI&#x27;s own service; in a cloud provider&#x27;s model service, such as Amazon Bedrock, Microsoft Foundry or Google Vertex AI; on your machine; or in a container environment you run. In the second, the product runs in a container environment you run, on your own server or in your own cloud account. Its models can run in the maker&#x27;s cloud, in a cloud provider&#x27;s model service, or in a container environment you run, and never on your machine. In the third, the product runs only as a cloud service its vendor runs. Its models run in the maker&#x27;s cloud or in a cloud provider&#x27;s model service, and in an environment you run only where a product&#x27;s pages say so, drawn dashed. In each, an optional proxy or gateway can sit between the product and its models. For a model in a cloud, the compliance items are those of the company the model runs in, the maker or the cloud provider.</desc>
+<defs><marker id="dg-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-head" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="dg-bg" x="0" y="0" width="360" height="1328"/>
+<rect class="dg-panel" x="8" y="8" width="344" height="428" rx="12"/>
+<text class="dg-label" x="22" y="32">On your machine</text>
+<rect class="dg-box" x="80" y="44" width="200" height="66" rx="10"/>
+<text class="dg-t" x="180" y="64">App, CLI or editor</text>
+<text class="dg-s" x="180" y="82">the product, installed</text>
+<text class="dg-s" x="180" y="100">on your machine</text>
+<rect class="dg-box dg-opt" x="105" y="132" width="150" height="46" rx="10"/>
+<text class="dg-t" x="180" y="151">Proxy or gateway</text>
+<text class="dg-s" x="180" y="169">optional</text>
+<path class="dg-arrow" d="M180,110 V130"/>
+<rect class="dg-box dg-ext" x="20" y="202" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="95" y="226">The maker&#x27;s cloud</text>
+<text class="dg-s" x="95" y="244">such as Anthropic</text>
+<text class="dg-s" x="95" y="262">or OpenAI</text>
+<path class="dg-arrow" d="M166,178 L104,200"/>
+<rect class="dg-box dg-ext" x="190" y="202" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="265" y="226">A cloud provider&#x27;s</text>
+<text class="dg-s" x="265" y="244">model service: Bedrock,</text>
+<text class="dg-s" x="265" y="262">Foundry, Vertex AI</text>
+<path class="dg-arrow" d="M194,178 L256,200"/>
+<rect class="dg-box" x="20" y="294" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="95" y="318">On your machine</text>
+<text class="dg-s" x="95" y="336">a model server</text>
+<text class="dg-s" x="95" y="354">you run there</text>
+<path class="dg-arrow" d="M174,178 V284 H95 V292"/>
+<rect class="dg-box" x="190" y="294" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="265" y="318">In a container</text>
+<text class="dg-s" x="265" y="336">environment you run,</text>
+<text class="dg-s" x="265" y="354">server or account</text>
+<path class="dg-arrow" d="M186,178 V284 H265 V292"/>
+<text class="dg-s dg-note" x="180" y="390">Top row: cloud models, under the compliance</text>
+<text class="dg-s dg-note" x="180" y="406">items of the company running them.</text>
+<text class="dg-s dg-note" x="180" y="422">Bottom row: models in an environment you run.</text>
+<rect class="dg-panel" x="8" y="448" width="344" height="428" rx="12"/>
+<text class="dg-label" x="22" y="472">In a container environment you run</text>
+<rect class="dg-box" x="80" y="484" width="200" height="66" rx="10"/>
+<text class="dg-t" x="180" y="504">Service you run</text>
+<text class="dg-s" x="180" y="522">in containers, on your</text>
+<text class="dg-s" x="180" y="540">server or cloud account</text>
+<rect class="dg-box dg-opt" x="105" y="572" width="150" height="46" rx="10"/>
+<text class="dg-t" x="180" y="591">Proxy or gateway</text>
+<text class="dg-s" x="180" y="609">optional</text>
+<path class="dg-arrow" d="M180,550 V570"/>
+<rect class="dg-box dg-ext" x="20" y="642" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="95" y="666">The maker&#x27;s cloud</text>
+<text class="dg-s" x="95" y="684">such as Anthropic</text>
+<text class="dg-s" x="95" y="702">or OpenAI</text>
+<path class="dg-arrow" d="M166,618 L104,640"/>
+<rect class="dg-box dg-ext" x="190" y="642" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="265" y="666">A cloud provider&#x27;s</text>
+<text class="dg-s" x="265" y="684">model service: Bedrock,</text>
+<text class="dg-s" x="265" y="702">Foundry, Vertex AI</text>
+<path class="dg-arrow" d="M194,618 L256,640"/>
+<rect class="dg-box" x="105" y="734" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="180" y="758">In a container</text>
+<text class="dg-s" x="180" y="776">environment you run,</text>
+<text class="dg-s" x="180" y="794">server or account</text>
+<path class="dg-arrow" d="M180,618 V732"/>
+<text class="dg-s dg-note" x="180" y="830">Top row: cloud models, under the compliance</text>
+<text class="dg-s dg-note" x="180" y="846">items of the company running them.</text>
+<text class="dg-s dg-note" x="180" y="862">Bottom row: a model in a container you run.</text>
+<rect class="dg-panel" x="8" y="888" width="344" height="428" rx="12"/>
+<text class="dg-label" x="22" y="912">As a cloud service</text>
+<rect class="dg-box" x="80" y="924" width="200" height="66" rx="10"/>
+<text class="dg-t" x="180" y="944">Cloud service</text>
+<text class="dg-s" x="180" y="962">only as a service</text>
+<text class="dg-s" x="180" y="980">the vendor runs</text>
+<rect class="dg-box dg-opt" x="105" y="1012" width="150" height="46" rx="10"/>
+<text class="dg-t" x="180" y="1031">Proxy or gateway</text>
+<text class="dg-s" x="180" y="1049">optional</text>
+<path class="dg-arrow" d="M180,990 V1010"/>
+<rect class="dg-box dg-ext" x="20" y="1082" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="95" y="1106">The maker&#x27;s cloud</text>
+<text class="dg-s" x="95" y="1124">such as Anthropic</text>
+<text class="dg-s" x="95" y="1142">or OpenAI</text>
+<path class="dg-arrow" d="M166,1058 L104,1080"/>
+<rect class="dg-box dg-ext" x="190" y="1082" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="265" y="1106">A cloud provider&#x27;s</text>
+<text class="dg-s" x="265" y="1124">model service: Bedrock,</text>
+<text class="dg-s" x="265" y="1142">Foundry, Vertex AI</text>
+<path class="dg-arrow" d="M194,1058 L256,1080"/>
+<rect class="dg-box dg-opt" x="105" y="1174" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="180" y="1198">Environment you run</text>
+<text class="dg-s" x="180" y="1216">only where a product&#x27;s</text>
+<text class="dg-s" x="180" y="1234">pages say so</text>
+<path class="dg-arrow dg-dash" d="M180,1058 V1172"/>
+<text class="dg-s dg-note" x="180" y="1270">Top row: cloud models, under the compliance</text>
+<text class="dg-s dg-note" x="180" y="1286">items of the company running them.</text>
+<text class="dg-s dg-note" x="180" y="1302">Dashed: only where a product&#x27;s pages say so.</text>
+</svg>
+<figcaption>The panels differ because a product can only reach the model places that make sense for where it runs: one on your machine can reach a model on your machine, in a container environment you run or in either cloud, one in a container environment you run reaches models there or in a cloud and never on your machine, and a cloud service reaches the two clouds and an environment you run only where its pages say so, which is why that box is dashed.</figcaption>
+</figure>
+<h2 id="pieces">The pieces</h2>
 <ul>
-<li class="claim" id="c-91027" data-claim="91027">AG2 supports using cloud-based intelligence or local machine execution. <span class="src">(<a href="https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/llm-configuration/" rel="noopener noreferrer">docs.ag2.ai page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
+<li><strong>Harness</strong>: the program that runs the agent. It holds the conversation, chooses which tools to call and sends each request to a model. It runs in one of three places: on your machine, in a container environment you run, or only as a cloud service its vendor runs.</li>
+<li><strong>Proxy</strong>: a program between the harness and the models, also called a gateway. The harness talks to it as if it were one provider, and it forwards each request to whichever provider or local server it is set up for.</li>
+<li><strong>Model server</strong>: a program that loads a model and answers requests at an address you control: on your own machine, or on a server or cloud account of yours. <a class="src" href="../../products/llama-cpp-server/">llama.cpp server</a>, <a class="src" href="../../products/lm-studio/">LM Studio</a>, <a class="src" href="../../products/mlx-lm-server/">MLX-LM server</a>, <a class="src" href="../../products/ollama-app-and-cloud-models/">Ollama (app and cloud models)</a>, <a class="src" href="../../products/omlx/">oMLX</a>, <a class="src" href="../../products/vllm/">vLLM</a> are model servers.</li>
+<li><strong>The maker's cloud</strong>: the model's maker runs it on its own servers and answers requests over the internet, through its own service: Anthropic's or OpenAI's, for example. The compliance items are the maker's.</li>
+<li><strong>A cloud provider's model service</strong>: a cloud provider runs another maker's models in its own service, such as Amazon Bedrock, Microsoft Foundry or Google Vertex AI, where an organization can set up private instances in its own cloud account. The compliance items are the cloud provider's.</li>
 </ul>
-<h2 id="p-aider"><a href="../../products/aider/">Aider</a></h2>
-<h3>Local models</h3>
+<h2 id="local-cloud-hybrid">Local, cloud and hybrid</h2>
+<p>A model runs in one of four places. Two are local, an environment you run: your own machine, or a container environment you run on your own server or in your own cloud account. Two are cloud: the maker's own cloud, or a cloud provider's model service. Hybrid, in this catalog, means local plus cloud: some work goes to a model you run and other work goes to a cloud model. Where the harness itself runs is a separate question with three answers, and the catalog has one page for each: on your own machine, in a container environment you run, or as a cloud service.</p>
+<h2 id="where-compliance-sits">Where the compliance items sit</h2>
+<p>For a cloud model, the compliance items are those of the company it runs in: the maker, for a model in the maker's cloud, or the cloud provider, for a model in a cloud provider's model service. A product page's key facts name the company beside each cloud place its vendor's pages state, and each name links the data and compliance section of that company's page in this catalog.</p>
+<h2 id="direct-or-proxy">One harness, several models: direct or through a proxy</h2>
+<p>Some harnesses hold several endpoints themselves. You add the address of a local model server and of a cloud provider, then choose which model each task or agent uses, and nothing sits between them. Other harnesses have room for one endpoint. For those, a proxy gives the harness a single address and does the routing behind it, on your machine or in the cloud. The grid on each of the next three pages shows which of these a product's pages describe.</p>
+<p id="what-a-proxy-does">A proxy such as <a class="src" href="../../products/litellm/">LiteLLM</a> sits between a tool and several providers, so a tool that has room for one endpoint can still reach many. <span class="claim-src">(<a href="https://github.com/BerriAI/litellm" rel="noopener noreferrer">LiteLLM's own page</a>, read 2026-10-20)</span></p>
+<h2 id="next">Where to go next</h2>
 <ul>
-<li class="claim" id="c-90013" data-claim="90013">Aider supports local models, including those accessed via Ollama or an API compatible with OpenAI. <span class="src">(<a href="https://aider.chat/docs/llms.html" rel="noopener noreferrer">aider.chat page</a>, read 2026-10-19. Our reading as of 2026-10-19; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording read by a second reviewer on 2026-10-20.</span></li>
+<li><a class="src" href="../where-everything-fits/">Where everything fits</a>: every layer of the stack in one picture, from you to a model, each box linking its layer's products.</li>
+<li><a class="src" href="../hybrid-local/">Hybrid on your own machine</a>: the apps, command-line tools and editors you install, with the model servers that come as one, and what their pages say about a local model beside a cloud one.</li>
+<li><a class="src" href="../hybrid-self-hosted/">Hybrid in a container environment you run</a>: the services you run in containers, on your own server or in your own cloud account, and the inference servers you host, such as those that run on a GPU server.</li>
+<li><a class="src" href="../hybrid-cloud/">Hybrid as a cloud service</a>: the products that run as a cloud service their vendor runs, and what their pages say about reaching several models.</li>
+<li><a class="src" href="../by-layer/">The products at each layer</a>: every product, at each layer it works at, grouped by the form it comes in.</li>
 </ul>
-<h3>What you set up</h3>
-<ul>
-<li class="claim" id="c-90017" data-claim="90017">The customer configures the Ollama API endpoint, which is usually the default. <span class="src">(<a href="https://aider.chat/docs/llms/ollama.html" rel="noopener noreferrer">aider.chat page</a>, read 2026-10-19. Our reading as of 2026-10-19; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording read by a second reviewer on 2026-10-20.</span></li>
-</ul>
-<h2 id="p-claude-code"><a href="../../products/claude-code/">Claude Code</a></h2>
-<h3>Local and cloud models in one session</h3>
-<ul>
-<li class="claim" id="c-90003" data-claim="90003">When model discovery is active, Claude Code contacts the gateway to retrieve available model names at startup, then lists them in the /model picker next to the built-in options. <span class="src">(<a href="https://code.claude.com/docs/en/llm-gateway-connect" rel="noopener noreferrer">code.claude.com page</a>, read 2026-10-19. Our reading as of 2026-10-19; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording read by a second reviewer on 2026-10-20.</span></li>
-</ul>
-<h3>What you set up</h3>
-<ul>
-<li class="claim" id="c-90005" data-claim="90005">Environment variables are set for the base URL of the gateway and the credential variable chosen earlier. <span class="src">(<a href="https://code.claude.com/docs/en/llm-gateway-connect" rel="noopener noreferrer">code.claude.com page</a>, read 2026-10-19. Our reading as of 2026-10-19; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording read by a second reviewer on 2026-10-20.</span></li>
-</ul>
-<h2 id="p-claude-desktop-through-ollama"><a href="../../products/claude-desktop-through-ollama/">Claude Desktop (through Ollama)</a></h2>
-<h3>What you set up</h3>
-<ul>
-<li class="claim" id="c-91018" data-claim="91018">When the customer turns Claude on, Ollama configures the third-party gateway for them. <span class="src">(<a href="https://ollama.com/blog/claude-desktop" rel="noopener noreferrer">ollama.com page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h3>One sentence naming both a local and a cloud path</h3>
-<ul>
-<li class="claim" id="c-91017" data-claim="91017">The customer may select any Ollama model, including those on Ollama&#x27;s cloud or local instances, while connected. <span class="src">(<a href="https://ollama.com/blog/claude-desktop" rel="noopener noreferrer">ollama.com page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h2 id="p-cline"><a href="../../products/cline/">Cline</a></h2>
-<h3>Local and cloud models in one session</h3>
-<ul>
-<li class="claim" id="c-90010" data-claim="90010">The customer can turn on a setting that lets Plan and Act modes use separate models. <span class="src">(<a href="https://docs.cline.bot/core-workflows/plan-and-act" rel="noopener noreferrer">docs.cline.bot page</a>, read 2026-10-19. Our reading as of 2026-10-19; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording read by a second reviewer on 2026-10-20.</span></li>
-</ul>
-<h3>What you set up</h3>
-<ul>
-<li class="claim" id="c-90012" data-claim="90012">The customer enters the base URL provided by their chosen provider. <span class="src">(<a href="https://docs.cline.bot/provider-config/openai-compatible" rel="noopener noreferrer">docs.cline.bot page</a>, read 2026-10-19. Our reading as of 2026-10-19; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording read by a second reviewer on 2026-10-20.</span></li>
-</ul>
-<h2 id="p-continue"><a href="../../products/continue/">Continue</a></h2>
-<h3>Local models</h3>
-<ul>
-<li class="claim" id="c-91031" data-claim="91031">Continue&#x27;s provider overview lists Ollama as a way to run open-source models locally. <span class="src">(<a href="https://docs.continue.dev/customize/model-providers/overview" rel="noopener noreferrer">docs.continue.dev page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h3>Cloud models</h3>
-<ul>
-<li class="claim" id="c-91032" data-claim="91032">Continue&#x27;s provider overview says it supports a wide range of model providers; the table lists Ollama beside hosted providers such as Amazon Bedrock and Google Gemini. <span class="src">(<a href="https://docs.continue.dev/customize/model-providers/overview" rel="noopener noreferrer">docs.continue.dev page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h2 id="p-cursor"><a href="../../products/cursor/">Cursor</a></h2>
-<h3>What you set up</h3>
-<ul>
-<li class="claim" id="c-90049" data-claim="90049">Cursor applies the customer&#x27;s key to models from that provider. <span class="src">(<a href="https://cursor.com/docs/settings/api-keys" rel="noopener noreferrer">cursor.com page</a>, read 2026-09-24. Our reading as of 2026-09-24; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording read by a second reviewer on 2026-10-20.</span></li>
-</ul>
-<h2 id="p-github-copilot"><a href="../../products/github-copilot/">GitHub Copilot</a></h2>
-<h3>Local and cloud models in one session</h3>
-<ul>
-<li class="claim" id="c-90043" data-claim="90043">The customer can configure Copilot CLI to use models from a chosen LLM provider via BYOK, in addition to GitHub-hosted models, including locally running models like Ollama. <span class="src">(<a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models" rel="noopener noreferrer">docs.github.com page</a>, read 2026-10-19. Our reading as of 2026-10-19; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording read by a second reviewer on 2026-10-20.</span></li>
-</ul>
-<h3>What you set up</h3>
-<ul>
-<li class="claim" id="c-90045" data-claim="90045">The customer sets environment variables to define the model provider before launching Copilot CLI. <span class="src">(<a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models" rel="noopener noreferrer">docs.github.com page</a>, read 2026-10-19. Our reading as of 2026-10-19; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording read by a second reviewer on 2026-10-20.</span></li>
-</ul>
-<h2 id="p-kilo-code"><a href="../../products/kilo-code/">Kilo Code</a></h2>
-<h3>Local models</h3>
-<ul>
-<li class="claim" id="c-91036" data-claim="91036">Kilo Code allows local model execution via Ollama. <span class="src">(<a href="https://kilo.ai/docs/ai-providers/ollama" rel="noopener noreferrer">kilo.ai page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h3>One sentence naming both a local and a cloud path</h3>
-<ul>
-<li class="claim" id="c-91035" data-claim="91035">Based on their requirements, the customer may pick among cloud providers, local models, and AI gateways. <span class="src">(<a href="https://kilo.ai/docs/ai-providers" rel="noopener noreferrer">kilo.ai page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h2 id="p-librechat"><a href="../../products/librechat/">LibreChat</a></h2>
-<h3>Local models</h3>
-<ul>
-<li class="claim" id="c-91037" data-claim="91037">Ollama can run open models locally and expose an OpenAI-compatible API, so the customer can point LibreChat at their own machine. <span class="src">(<a href="https://www.librechat.ai/docs/configuration/librechat_yaml/ai_endpoints/ollama" rel="noopener noreferrer">www.librechat.ai page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h3>Cloud models</h3>
-<ul>
-<li class="claim" id="c-91038" data-claim="91038">LibreChat&#x27;s custom-endpoints page says it supports OpenAI API-compatible services as custom endpoints, and Anthropic-compatible ones; its examples include OpenRouter and Anthropic-compatible gateways. <span class="src">(<a href="https://www.librechat.ai/docs/quick_start/custom_endpoints" rel="noopener noreferrer">www.librechat.ai page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h2 id="p-litellm"><a href="../../products/litellm/">LiteLLM</a></h2>
-<h3>Cloud models</h3>
-<ul>
-<li class="claim" id="c-91022" data-claim="91022">LiteLLM provides a single interface to call over 100 LLM providers, including OpenAI, Anthropic, Gemini, Bedrock, and Azure, using the OpenAI format. <span class="src">(<a href="https://github.com/BerriAI/litellm" rel="noopener noreferrer">github.com page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h2 id="p-lm-studio"><a href="../../products/lm-studio/">LM Studio</a></h2>
-<h3>Local models</h3>
-<ul>
-<li class="claim" id="c-91020" data-claim="91020">LM Studio offers guidance on executing Llama, DeepSeek, Qwen, Phi, and additional LLMs on local systems. <span class="src">(<a href="https://lmstudio.ai/docs/app" rel="noopener noreferrer">lmstudio.ai page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-<li class="claim" id="c-91021" data-claim="91021">LM Studio&#x27;s documentation says to build with its local REST API, OpenAI-compatible APIs and developer tooling. <span class="src">(<a href="https://lmstudio.ai/docs/app" rel="noopener noreferrer">lmstudio.ai page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h2 id="p-ollama-app-and-cloud-models"><a href="../../products/ollama-app-and-cloud-models/">Ollama (app and cloud models)</a></h2>
-<h3>Cloud models</h3>
-<ul>
-<li class="claim" id="c-91015" data-claim="91015">To use a cloud model, the customer signs in to Ollama and enables cloud models. <span class="src">(<a href="https://docs.ollama.com/integrations/claude-desktop" rel="noopener noreferrer">docs.ollama.com page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h2 id="p-open-webui"><a href="../../products/open-webui/">Open WebUI</a></h2>
-<h3>One sentence naming both a local and a cloud path</h3>
-<ul>
-<li class="claim" id="c-91030" data-claim="91030">Open WebUI lets users connect to Ollama, OpenAI, Anthropic, or compatible services, and supports local, cloud, or mixed execution. <span class="src">(<a href="https://openwebui.com/" rel="noopener noreferrer">openwebui.com page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h2 id="p-opencode"><a href="../../products/opencode/">OpenCode</a></h2>
-<h3>What you set up</h3>
-<ul>
-<li class="claim" id="c-90023" data-claim="90023">The options.baseURL setting points to the local server&#x27;s endpoint. <span class="src">(<a href="https://opencode.ai/docs/providers/" rel="noopener noreferrer">opencode.ai page</a>, read 2026-10-19. Our reading as of 2026-10-19; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording read by a second reviewer on 2026-10-20.</span></li>
-<li class="claim" id="c-90024" data-claim="90024">The customer can set a model as the default by setting the model key in the OpenCode config. <span class="src">(<a href="https://opencode.ai/docs/models/" rel="noopener noreferrer">opencode.ai page</a>, read 2026-10-19. Our reading as of 2026-10-19; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording read by a second reviewer on 2026-10-20.</span></li>
-</ul>
-<h2 id="p-openhands"><a href="../../products/openhands/">OpenHands</a></h2>
-<h3>Local models</h3>
-<ul>
-<li class="claim" id="c-91007" data-claim="91007">OpenHands allows the use of local model servers, including Ollama, LM Studio, vLLM, or SGLang. <span class="src">(<a href="https://docs.openhands.dev/openhands/usage/llms/llms" rel="noopener noreferrer">docs.openhands.dev page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h3>One sentence naming both a local and a cloud path</h3>
-<ul>
-<li class="claim" id="c-91006" data-claim="91006">OpenHands executes both proprietary and open-weight models, including Kimi, DeepSeek, and Qwen, across local, cloud, or VPC environments. <span class="src">(<a href="https://www.openhands.dev/" rel="noopener noreferrer">www.openhands.dev page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h2 id="p-promptfoo"><a href="../../products/promptfoo/">promptfoo</a></h2>
-<h3>One sentence naming both a local and a cloud path</h3>
-<ul>
-<li class="claim" id="c-91028" data-claim="91028">promptfoo allows comparing models side-by-side, including OpenAI, Anthropic, Azure, Bedrock, and Ollama. <span class="src">(<a href="https://github.com/promptfoo/promptfoo" rel="noopener noreferrer">github.com page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h2 id="p-vellum-assistant"><a href="../../products/vellum-assistant/">Vellum (assistant)</a></h2>
-<h3>Local models</h3>
-<ul>
-<li class="claim" id="c-91009" data-claim="91009">Vellum&#x27;s page says the assistant runs locally by default, as against Vellum Cloud, where it runs in an isolated container; the sentence does not say where the model runs. <span class="src">(<a href="https://www.vellum.ai/" rel="noopener noreferrer">www.vellum.ai page</a>, read 2026-10-20. Our reading as of 2026-10-20; confirm on the vendor&#x27;s page.)</span> <span class="status">Wording not yet read by a second reviewer.</span></li>
-</ul>
-<h2>Attribution</h2>
-<section class="attribution" data-host="docs.github.com">
-<p>The lines here that cite docs.github.com restate pages of that host in the catalogue's own words. The publisher licenses those pages under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer">Creative Commons Attribution 4.0 International</a>, as it states at <a href="https://github.com/github/docs" rel="noopener noreferrer">https://github.com/github/docs</a>, which we read on 2026-09-27; the licence applies as that address states it.</p>
-<p>Changes: our lines are summaries and are not the publisher's text. The publisher does not endorse them.</p>
-</section>
-<p class="src">68 reading(s) were left out of this build for want of a second read, an age past 90 days, or a check; they are not listed here.</p>
-<footer class="site-footer">
-<p><a href="../../terms/">Terms</a> &middot; <a href="../../index.html">Catalogue home</a></p>
-<p>Our reading of vendors' pages, as of the dates shown. Confirm on the vendor's page before relying on any line. To report an error write to <a href="mailto:report@crinaro.ai">report@crinaro.ai</a> <!-- privacy-ok: deliberate public business address named by the owner on 2026-10-20 for error reports, not a personal address --></p>
-</footer>
+<div class="foot">
+<p class="linkrow"><a class="src" href="../../terms/">Terms</a><span class="sep">&middot;</span><a class="src" href="../../index.html">Catalog home</a></p>
+<p>Our reading of vendors' pages, as of the dates shown. Confirm on the vendor's page before relying on any line that cites it. To report an error write to <a class="src" href="mailto:report@crinaro.ai">report@crinaro.ai</a> <!-- privacy-ok: public business address, not a personal one --></p>
+</div>
+</div>
 </body>
 </html>
