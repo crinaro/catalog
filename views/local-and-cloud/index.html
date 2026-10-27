@@ -25,13 +25,14 @@
 </svg></a>
 <h1>Hybrid model setups: how the pieces fit</h1>
 <p class="standfirst">A harness, a proxy and a model are separate pieces, and each can run in a different place. Which of them you need depends on how many models you want to reach and where those models run.</p>
-<p class="written">Rendered 2026-10-25</p>
-<figure class="figure">
-<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1328" role="img" aria-labelledby="diagram-title diagram-desc">
-<title id="diagram-title">Where a product runs, and where its models run</title>
-<desc id="diagram-desc">Three diagrams, one for each place a product can run, and in each only the places a model can run for that product. In the first, the product runs on your machine: an app, a command-line tool or an editor. Its models can run in the model maker&#x27;s own cloud, such as Anthropic&#x27;s or OpenAI&#x27;s own service; in a cloud provider&#x27;s model service, such as Amazon Bedrock, Microsoft Foundry or Google Vertex AI; on your machine; or in a container environment you run. In the second, the product runs in a container environment you run, on your own server or in your own cloud account. Its models can run in the maker&#x27;s cloud, in a cloud provider&#x27;s model service, or in a container environment you run, and never on your machine. In the third, the product runs only as a cloud service its vendor runs. Its models run in the maker&#x27;s cloud or in a cloud provider&#x27;s model service, and in an environment you run only where a product&#x27;s pages say so, drawn dashed. In each, an optional proxy or gateway can sit between the product and its models. For a model in a cloud, the compliance items are those of the company the model runs in, the maker or the cloud provider.</desc>
+<p class="written">Rendered 2026-10-26</p>
+<figure class="figure panels-fig">
+<div class="panels">
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440" role="img" aria-labelledby="sc0-title sc0-desc">
+<title id="sc0-title">A product on your machine: where its models run</title>
+<desc id="sc0-desc">A diagram of a product that runs on your machine: an app, a command-line tool or an editor. Its models can run in the model maker&#x27;s own cloud, such as Anthropic&#x27;s or OpenAI&#x27;s own service; in a cloud provider&#x27;s model service, such as Amazon Bedrock, Microsoft Foundry or Google Vertex AI; on your machine; or in a container environment you run. An optional proxy or gateway can sit between the product and its models. For a model in a cloud, the compliance items are those of the company the model runs in, the model company or the cloud provider.</desc>
 <defs><marker id="dg-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-head" d="M0,0 L10,5 L0,10 z"/></marker></defs>
-<rect class="dg-bg" x="0" y="0" width="360" height="1328"/>
+<rect class="dg-bg" x="0" y="0" width="360" height="440"/>
 <rect class="dg-panel" x="8" y="8" width="344" height="428" rx="12"/>
 <text class="dg-label" x="22" y="32">On your machine</text>
 <rect class="dg-box" x="80" y="44" width="200" height="66" rx="10"/>
@@ -43,9 +44,9 @@
 <text class="dg-s" x="180" y="169">optional</text>
 <path class="dg-arrow" d="M180,110 V130"/>
 <rect class="dg-box dg-ext" x="20" y="202" width="150" height="74" rx="10"/>
-<text class="dg-tb" x="95" y="226">The maker&#x27;s cloud</text>
-<text class="dg-s" x="95" y="244">such as Anthropic</text>
-<text class="dg-s" x="95" y="262">or OpenAI</text>
+<text class="dg-tb" x="95" y="226">The model company&#x27;s</text>
+<text class="dg-s" x="95" y="244">cloud: Anthropic,</text>
+<text class="dg-s" x="95" y="262">OpenAI or Ollama</text>
 <path class="dg-arrow" d="M166,178 L104,200"/>
 <rect class="dg-box dg-ext" x="190" y="202" width="150" height="74" rx="10"/>
 <text class="dg-tb" x="265" y="226">A cloud provider&#x27;s</text>
@@ -65,63 +66,76 @@
 <text class="dg-s dg-note" x="180" y="390">Top row: cloud models, under the compliance</text>
 <text class="dg-s dg-note" x="180" y="406">items of the company running them.</text>
 <text class="dg-s dg-note" x="180" y="422">Bottom row: models in an environment you run.</text>
-<rect class="dg-panel" x="8" y="448" width="344" height="428" rx="12"/>
-<text class="dg-label" x="22" y="472">In a container environment you run</text>
-<rect class="dg-box" x="80" y="484" width="200" height="66" rx="10"/>
-<text class="dg-t" x="180" y="504">Service you run</text>
-<text class="dg-s" x="180" y="522">in containers, on your</text>
-<text class="dg-s" x="180" y="540">server or cloud account</text>
-<rect class="dg-box dg-opt" x="105" y="572" width="150" height="46" rx="10"/>
-<text class="dg-t" x="180" y="591">Proxy or gateway</text>
-<text class="dg-s" x="180" y="609">optional</text>
-<path class="dg-arrow" d="M180,550 V570"/>
-<rect class="dg-box dg-ext" x="20" y="642" width="150" height="74" rx="10"/>
-<text class="dg-tb" x="95" y="666">The maker&#x27;s cloud</text>
-<text class="dg-s" x="95" y="684">such as Anthropic</text>
-<text class="dg-s" x="95" y="702">or OpenAI</text>
-<path class="dg-arrow" d="M166,618 L104,640"/>
-<rect class="dg-box dg-ext" x="190" y="642" width="150" height="74" rx="10"/>
-<text class="dg-tb" x="265" y="666">A cloud provider&#x27;s</text>
-<text class="dg-s" x="265" y="684">model service: Bedrock,</text>
-<text class="dg-s" x="265" y="702">Foundry, Vertex AI</text>
-<path class="dg-arrow" d="M194,618 L256,640"/>
-<rect class="dg-box" x="105" y="734" width="150" height="74" rx="10"/>
-<text class="dg-tb" x="180" y="758">In a container</text>
-<text class="dg-s" x="180" y="776">environment you run,</text>
-<text class="dg-s" x="180" y="794">server or account</text>
-<path class="dg-arrow" d="M180,618 V732"/>
-<text class="dg-s dg-note" x="180" y="830">Top row: cloud models, under the compliance</text>
-<text class="dg-s dg-note" x="180" y="846">items of the company running them.</text>
-<text class="dg-s dg-note" x="180" y="862">Bottom row: a model in a container you run.</text>
-<rect class="dg-panel" x="8" y="888" width="344" height="428" rx="12"/>
-<text class="dg-label" x="22" y="912">As a cloud service</text>
-<rect class="dg-box" x="80" y="924" width="200" height="66" rx="10"/>
-<text class="dg-t" x="180" y="944">Cloud service</text>
-<text class="dg-s" x="180" y="962">only as a service</text>
-<text class="dg-s" x="180" y="980">the vendor runs</text>
-<rect class="dg-box dg-opt" x="105" y="1012" width="150" height="46" rx="10"/>
-<text class="dg-t" x="180" y="1031">Proxy or gateway</text>
-<text class="dg-s" x="180" y="1049">optional</text>
-<path class="dg-arrow" d="M180,990 V1010"/>
-<rect class="dg-box dg-ext" x="20" y="1082" width="150" height="74" rx="10"/>
-<text class="dg-tb" x="95" y="1106">The maker&#x27;s cloud</text>
-<text class="dg-s" x="95" y="1124">such as Anthropic</text>
-<text class="dg-s" x="95" y="1142">or OpenAI</text>
-<path class="dg-arrow" d="M166,1058 L104,1080"/>
-<rect class="dg-box dg-ext" x="190" y="1082" width="150" height="74" rx="10"/>
-<text class="dg-tb" x="265" y="1106">A cloud provider&#x27;s</text>
-<text class="dg-s" x="265" y="1124">model service: Bedrock,</text>
-<text class="dg-s" x="265" y="1142">Foundry, Vertex AI</text>
-<path class="dg-arrow" d="M194,1058 L256,1080"/>
-<rect class="dg-box dg-opt" x="105" y="1174" width="150" height="74" rx="10"/>
-<text class="dg-tb" x="180" y="1198">Environment you run</text>
-<text class="dg-s" x="180" y="1216">only where a product&#x27;s</text>
-<text class="dg-s" x="180" y="1234">pages say so</text>
-<path class="dg-arrow dg-dash" d="M180,1058 V1172"/>
-<text class="dg-s dg-note" x="180" y="1270">Top row: cloud models, under the compliance</text>
-<text class="dg-s dg-note" x="180" y="1286">items of the company running them.</text>
-<text class="dg-s dg-note" x="180" y="1302">Dashed: only where a product&#x27;s pages say so.</text>
 </svg>
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440" role="img" aria-labelledby="sc1-title sc1-desc">
+<title id="sc1-title">A product in a container environment you run: where its models run</title>
+<desc id="sc1-desc">A diagram of a product that runs in a container environment you run, on your own server or in your own cloud account. Its models can run in the model company&#x27;s cloud, in a cloud provider&#x27;s model service, or in a container environment you run, and never on your machine. An optional proxy or gateway can sit between the product and its models. For a model in a cloud, the compliance items are those of the company the model runs in, the model company or the cloud provider.</desc>
+<defs><marker id="dg-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-head" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="dg-bg" x="0" y="0" width="360" height="440"/>
+<rect class="dg-panel" x="8" y="8" width="344" height="428" rx="12"/>
+<text class="dg-label" x="22" y="32">In a container environment you run</text>
+<rect class="dg-box" x="80" y="44" width="200" height="66" rx="10"/>
+<text class="dg-t" x="180" y="64">Service you run</text>
+<text class="dg-s" x="180" y="82">in containers, on your</text>
+<text class="dg-s" x="180" y="100">server or cloud account</text>
+<rect class="dg-box dg-opt" x="105" y="132" width="150" height="46" rx="10"/>
+<text class="dg-t" x="180" y="151">Proxy or gateway</text>
+<text class="dg-s" x="180" y="169">optional</text>
+<path class="dg-arrow" d="M180,110 V130"/>
+<rect class="dg-box dg-ext" x="20" y="202" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="95" y="226">The model company&#x27;s</text>
+<text class="dg-s" x="95" y="244">cloud: Anthropic,</text>
+<text class="dg-s" x="95" y="262">OpenAI or Ollama</text>
+<path class="dg-arrow" d="M166,178 L104,200"/>
+<rect class="dg-box dg-ext" x="190" y="202" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="265" y="226">A cloud provider&#x27;s</text>
+<text class="dg-s" x="265" y="244">model service: Bedrock,</text>
+<text class="dg-s" x="265" y="262">Foundry, Vertex AI</text>
+<path class="dg-arrow" d="M194,178 L256,200"/>
+<rect class="dg-box" x="105" y="294" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="180" y="318">In a container</text>
+<text class="dg-s" x="180" y="336">environment you run,</text>
+<text class="dg-s" x="180" y="354">server or account</text>
+<path class="dg-arrow" d="M180,178 V292"/>
+<text class="dg-s dg-note" x="180" y="390">Top row: cloud models, under the compliance</text>
+<text class="dg-s dg-note" x="180" y="406">items of the company running them.</text>
+<text class="dg-s dg-note" x="180" y="422">Bottom row: a model in a container you run.</text>
+</svg>
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440" role="img" aria-labelledby="sc2-title sc2-desc">
+<title id="sc2-title">A product that is a cloud service: where its models run</title>
+<desc id="sc2-desc">A diagram of a product that runs only as a cloud service its vendor runs. Its models run in the model company&#x27;s cloud or in a cloud provider&#x27;s model service, and in an environment you run only where a product&#x27;s pages say so, drawn dashed. An optional proxy or gateway can sit between the product and its models. For a model in a cloud, the compliance items are those of the company the model runs in, the model company or the cloud provider.</desc>
+<defs><marker id="dg-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-head" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="dg-bg" x="0" y="0" width="360" height="440"/>
+<rect class="dg-panel" x="8" y="8" width="344" height="428" rx="12"/>
+<text class="dg-label" x="22" y="32">As a cloud service</text>
+<rect class="dg-box" x="80" y="44" width="200" height="66" rx="10"/>
+<text class="dg-t" x="180" y="64">Cloud service</text>
+<text class="dg-s" x="180" y="82">only as a service</text>
+<text class="dg-s" x="180" y="100">the vendor runs</text>
+<rect class="dg-box dg-opt" x="105" y="132" width="150" height="46" rx="10"/>
+<text class="dg-t" x="180" y="151">Proxy or gateway</text>
+<text class="dg-s" x="180" y="169">optional</text>
+<path class="dg-arrow" d="M180,110 V130"/>
+<rect class="dg-box dg-ext" x="20" y="202" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="95" y="226">The model company&#x27;s</text>
+<text class="dg-s" x="95" y="244">cloud: Anthropic,</text>
+<text class="dg-s" x="95" y="262">OpenAI or Ollama</text>
+<path class="dg-arrow" d="M166,178 L104,200"/>
+<rect class="dg-box dg-ext" x="190" y="202" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="265" y="226">A cloud provider&#x27;s</text>
+<text class="dg-s" x="265" y="244">model service: Bedrock,</text>
+<text class="dg-s" x="265" y="262">Foundry, Vertex AI</text>
+<path class="dg-arrow" d="M194,178 L256,200"/>
+<rect class="dg-box dg-opt" x="105" y="294" width="150" height="74" rx="10"/>
+<text class="dg-tb" x="180" y="318">Environment you run</text>
+<text class="dg-s" x="180" y="336">only where a product&#x27;s</text>
+<text class="dg-s" x="180" y="354">pages say so</text>
+<path class="dg-arrow dg-dash" d="M180,178 V292"/>
+<text class="dg-s dg-note" x="180" y="390">Top row: cloud models, under the compliance</text>
+<text class="dg-s dg-note" x="180" y="406">items of the company running them.</text>
+<text class="dg-s dg-note" x="180" y="422">Dashed: only where a product&#x27;s pages say so.</text>
+</svg>
+</div>
 <figcaption>The panels differ because a product can only reach the model places that make sense for where it runs: one on your machine can reach a model on your machine, in a container environment you run or in either cloud, one in a container environment you run reaches models there or in a cloud and never on your machine, and a cloud service reaches the two clouds and an environment you run only where its pages say so, which is why that box is dashed.</figcaption>
 </figure>
 <h2 id="pieces">The pieces</h2>
@@ -129,13 +143,13 @@
 <li><strong>Harness</strong>: the program that runs the agent. It holds the conversation, chooses which tools to call and sends each request to a model. It runs in one of three places: on your machine, in a container environment you run, or only as a cloud service its vendor runs.</li>
 <li><strong>Proxy</strong>: a program between the harness and the models, also called a gateway. The harness talks to it as if it were one provider, and it forwards each request to whichever provider or local server it is set up for.</li>
 <li><strong>Model server</strong>: a program that loads a model and answers requests at an address you control: on your own machine, or on a server or cloud account of yours. <a class="src" href="../../products/llama-cpp-server/">llama.cpp server</a>, <a class="src" href="../../products/lm-studio/">LM Studio</a>, <a class="src" href="../../products/mlx-lm-server/">MLX-LM server</a>, <a class="src" href="../../products/ollama-app-and-cloud-models/">Ollama (app and cloud models)</a>, <a class="src" href="../../products/omlx/">oMLX</a>, <a class="src" href="../../products/vllm/">vLLM</a> are model servers.</li>
-<li><strong>The maker's cloud</strong>: the model's maker runs it on its own servers and answers requests over the internet, through its own service: Anthropic's or OpenAI's, for example. The compliance items are the maker's.</li>
+<li><strong>The model company's cloud</strong>: the company that makes or serves the model runs it on its own servers and answers requests over the internet, through its own service: Anthropic's, OpenAI's or Ollama's cloud models, for example. The company named beside it is the one running the servers, and the compliance items are that company's.</li>
 <li><strong>A cloud provider's model service</strong>: a cloud provider runs another maker's models in its own service, such as Amazon Bedrock, Microsoft Foundry or Google Vertex AI, where an organization can set up private instances in its own cloud account. The compliance items are the cloud provider's.</li>
 </ul>
 <h2 id="local-cloud-hybrid">Local, cloud and hybrid</h2>
-<p>A model runs in one of four places. Two are local, an environment you run: your own machine, or a container environment you run on your own server or in your own cloud account. Two are cloud: the maker's own cloud, or a cloud provider's model service. Hybrid, in this catalog, means local plus cloud: some work goes to a model you run and other work goes to a cloud model. Where the harness itself runs is a separate question with three answers, and the catalog has one page for each: on your own machine, in a container environment you run, or as a cloud service.</p>
+<p>A model runs in one of four places. Two are local, an environment you run: your own machine, or a container environment you run on your own server or in your own cloud account. Two are cloud: the model company's own cloud, or a cloud provider's model service. Hybrid, in this catalog, means local plus cloud: some work goes to a model you run and other work goes to a cloud model. Where the harness itself runs is a separate question with three answers, and the catalog has one page for each: on your own machine, in a container environment you run, or as a cloud service.</p>
 <h2 id="where-compliance-sits">Where the compliance items sit</h2>
-<p>For a cloud model, the compliance items are those of the company it runs in: the maker, for a model in the maker's cloud, or the cloud provider, for a model in a cloud provider's model service. A product page's key facts name the company beside each cloud place its vendor's pages state, and each name links the data and compliance section of that company's page in this catalog.</p>
+<p>For a cloud model, the compliance items are those of the company it runs in: the model company, for a model in the model company's cloud, or the cloud provider, for a model in a cloud provider's model service. A product page's key facts name the company beside each cloud place its vendor's pages state, and each name links the data and compliance section of that company's page in this catalog.</p>
 <h2 id="direct-or-proxy">One harness, several models: direct or through a proxy</h2>
 <p>Some harnesses hold several endpoints themselves. You add the address of a local model server and of a cloud provider, then choose which model each task or agent uses, and nothing sits between them. Other harnesses have room for one endpoint. For those, a proxy gives the harness a single address and does the routing behind it, on your machine or in the cloud. The grid on each of the next three pages shows which of these a product's pages describe.</p>
 <p id="what-a-proxy-does">A proxy such as <a class="src" href="../../products/litellm/">LiteLLM</a> sits between a tool and several providers, so a tool that has room for one endpoint can still reach many. <span class="claim-src">(<a href="https://github.com/BerriAI/litellm" rel="noopener noreferrer">LiteLLM's own page</a>, read 2026-10-20)</span></p>

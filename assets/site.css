@@ -739,3 +739,48 @@ CwAA") format('woff2')}
   .lt col.c-read { width:17%; }
   .lt td { overflow-wrap:anywhere; }
   .lt td.nm a.src, .lt td.ty, .lt td.ty .form-word, .lt td.sg { white-space:normal; }
+  /* The by-layer page (owner, 2026-10-26). "The separation between the sections is hard to see": each layer is a block of its own, a band with
+     the layer's name over its groups and tables, and a group's name is smaller and set apart by a rule. The diagram is the navigator: beside
+     the list and sticky where the screen is wide, above the list where it is not, in a <details> so a phone can close it. The hybrid pages use
+     the same panel with their own drawing in it. */
+  .lv-nav { margin:0 0 1.6rem; }
+  .lv-nav summary { cursor:pointer; font-weight:500; color:var(--ink); padding:.35rem 0; }
+  .lv-nav .figure { margin:.4rem 0 .6rem; overflow:visible; }
+  .note-wrap .lv-key { margin:0 0 1rem; font-size:.88rem; }
+  details.rs-rep > summary { cursor:pointer; }
+  .lv-more { margin:.2rem 0 1rem; padding-left:1.1rem; font-size:.88rem; }
+  .lv-more li { margin:.3rem 0; }
+  .lv-nav a.src.is-current { font-weight:700; border-bottom-color:var(--green); }
+  .lv-layer { margin:0 0 2.2rem; border:1px solid var(--hair); border-top:5px solid var(--green); border-radius:8px; background:var(--ground); }
+  .lv-head { background:var(--paper); padding:1rem 1.2rem .9rem; border-bottom:1px solid var(--hair); }
+  .lv-head h2 { margin:0; font-size:1.45rem; }
+  .note-wrap .lv-sub { margin:.25rem 0 0; font-size:.95rem; color:var(--ink-2); }
+  .note-wrap .lv-n { margin:.35rem 0 0; font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; color:var(--muted); }
+  .lv-body { padding:.1rem 1.2rem 1rem; }
+  .lv-layer h3 { margin:1.5rem 0 .6rem; padding-left:.7rem; border-left:3px solid var(--rgreen); font-family:var(--mono); font-size:.72rem;
+                 font-weight:400; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+  .lv-layer .tbl { margin:0 0 .6rem; }
+  .note-wrap .lv-layer .empty { margin:1rem 0 .4rem; }
+  .lv-layer .also { margin:1.5rem 0 .4rem; padding-top:1rem; border-top:1px dashed var(--hair); font-size:.92rem; }
+  .lv-layer .also h3 { display:inline; margin:0 .4rem 0 0; padding:0; border:0; font-family:var(--body); font-size:.92rem; font-weight:700;
+                       letter-spacing:0; text-transform:none; color:var(--ink); }
+  .note-wrap .lv-layer .also p { display:inline; margin:0; color:var(--ink-2); }
+  .also-in { color:var(--muted); }
+  @media (min-width:641px) { .lv-layer table.lt { min-width:46rem; } }
+  .lv-layer h2, .lv-layer h3 { scroll-margin-top:1rem; }
+  a.dg-link.is-current .dg-box { stroke:#0B2545; stroke-width:4; fill:#DCEBE4; }
+  @media (prefers-color-scheme: dark) { a.dg-link.is-current .dg-box { stroke:#F2F6F8; fill:#1F5A44; } }
+  @media (min-width:76rem) {
+    .note-wrap:has(.lv) { max-width:86rem; }
+    .lv { display:grid; grid-template-columns:21rem minmax(0, 1fr); gap:0 2rem; align-items:start; }
+    .lv-nav { position:sticky; top:1rem; max-height:calc(100vh - 2rem); overflow-y:auto; margin:0; padding-right:.2rem; }
+    .lv-nav summary { display:none; }
+  }
+  /* The scenario drawings (owner, 2026-10-26): "resize and stack side by side on a larger browser". A column on a narrow screen; on a wide
+     one a row, set a little wider than the text column so each keeps a legible size. */
+  .panels { display:grid; grid-template-columns:1fr; gap:1rem; }
+  .figure.panels-fig { overflow:visible; }
+  .figure.scenario figcaption { max-width:27rem; margin:.6rem auto 0; }
+  @media (min-width:64rem) {
+    .panels { grid-template-columns:repeat(3, minmax(0, 1fr)); width:min(100vw - 3rem, 72rem); margin-left:calc((100% - min(100vw - 3rem, 72rem)) / 2); }
+  }
