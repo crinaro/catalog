@@ -723,6 +723,27 @@ CwAA") format('woff2')}
   table.facts col.f-val { width:62%; }
   table.facts td, table.facts th { min-width:0; overflow-wrap:anywhere; white-space:normal; }
   table.facts td.f-key { font-weight:500; }
+  /* The customer-data page (branding's review of 2026-10-29): the answer first, its source small under it, the location collapsed; the
+     tier table left-aligned with row rules like every other table here, and fitting a phone column. */
+  .table-wrap table.cd-tiers { min-width:0; table-layout:fixed; }
+  table.cd-tiers td, table.cd-tiers th { overflow-wrap:anywhere; white-space:normal; }
+  table.cd-qa col.f-key { width:30%; }
+  table.cd-qa col.f-val { width:70%; }
+  .cd-limits { border-left:3px solid var(--green); padding:.4rem 0 .4rem 1.4rem; margin:0 0 2rem; }
+  .cd-limits li { margin:.3rem 0; }
+  .cd-key { margin:0 0 2rem; font-size:.95rem; }
+  .cd-key p { margin:.5rem 0; }
+  .cd-applies { font-size:.8rem; color:var(--muted); margin:.6rem 0 .2rem; }
+  .cd-applies:first-child { margin-top:0; }
+  .cd-ans p { margin:0; }
+  .cd-ans { margin:0 0 .6rem; }
+  .cd-src { font-size:.8rem; color:var(--muted); margin-top:.15rem; }
+  .cd-src a.src, .cd-pages a.src, .cd-ans a.src { white-space:normal; overflow-wrap:anywhere; }
+  .cd-src details, details.cd-broader { font-size:.8rem; color:var(--muted); }
+  .cd-src details p { margin:.2rem 0 0; }
+  details.cd-broader { margin:.2rem 0 .6rem; }
+  details.cd-broader .cd-ans { margin:.4rem 0 .4rem .8rem; }
+  .cd-pages { font-size:.85rem; color:var(--muted); }
   ul.needs { padding-left:1.2rem; margin:0 0 1.2rem; }
   ul.needs li { margin:.35rem 0; color:var(--ink-2); }
   details.readings { margin:2rem 0; }
