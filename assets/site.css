@@ -756,7 +756,23 @@ CwAA") format('woff2')}
     table.cd-qa td + td { padding-top:0; }
   }
   .cd-combos-h { font-size:.85rem; font-weight:500; margin:1rem 0 .2rem; }
-  .cd-combos { font-size:.85rem; color:var(--ink-2); }
+  .cd-combos { font-size:.85rem; color:var(--ink-2); list-style:none; padding-left:0; margin:0 0 1rem; }
+  .cd-combos li { margin:.2rem 0; }
+  .cd-letter { display:inline-block; min-width:1.4rem; padding:0 .3rem; margin-right:.35rem; border-radius:.3rem; text-align:center;
+               font-family:var(--mono); font-size:.72rem; background:var(--paper); border:1px solid var(--hair); color:var(--ink); }
+  .cd-same p { color:var(--muted); font-size:.9rem; }
+  .cd-tolimits { font-size:.85rem; margin:-1.4rem 0 2rem; }
+  /* one header style on the page (branding's second pass): the questions' header as the grid's */
+  table.cd-qa th { text-transform:none; letter-spacing:0; font-size:.72rem; }
+  @media (max-width:640px) {
+    /* the tier table stacks on a phone: each cloud a block, each grouping a labeled line, no word broken partway */
+    table.cd-tiers, table.cd-tiers tbody, table.cd-tiers tr, table.cd-tiers td { display:block; width:auto; }
+    table.cd-tiers tr:first-child { display:none; }
+    table.cd-tiers td { overflow-wrap:normal; word-break:normal; border-bottom:0; padding:.15rem 0; }
+    table.cd-tiers td:first-child { font-weight:500; padding-top:.8rem; }
+    table.cd-tiers td[data-l]::before { content:attr(data-l) ": "; color:var(--muted); }
+    table.cd-tiers tr { border-bottom:1px solid var(--hair); padding-bottom:.6rem; }
+  }
   details.cd-more { font-size:.9rem; margin:.4rem 0 .8rem; }
   details.cd-more summary { cursor:pointer; font-weight:500; }
   .cd-about .cd-limits { padding-left:1.2rem; margin:.3rem 0 .8rem; }
