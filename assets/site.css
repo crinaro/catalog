@@ -729,10 +729,38 @@ CwAA") format('woff2')}
   table.cd-tiers td, table.cd-tiers th { overflow-wrap:anywhere; white-space:normal; }
   table.cd-qa col.f-key { width:30%; }
   table.cd-qa col.f-val { width:70%; }
-  .cd-limits { border-left:3px solid var(--green); padding:.4rem 0 .4rem 1.4rem; margin:0 0 2rem; }
-  .cd-limits li { margin:.3rem 0; }
-  .cd-key { margin:0 0 2rem; font-size:.95rem; }
-  .cd-key p { margin:.5rem 0; }
+  /* owner, 2026-10-29: the content first and grouped the way the layer view groups it; the limits and the key in small print at the
+     foot, each state word's definition also its tooltip */
+  .table-wrap table.cd-glance { min-width:0; table-layout:fixed; }
+  table.cd-glance col.f-key { width:34%; }
+  @media (max-width:640px) { .cd-chip { font-size:.66rem; padding:.12rem .3rem; } table.cd-glance th { font-size:.66rem; } }
+  table.cd-glance th { font-size:.72rem; letter-spacing:0; text-transform:none; padding-left:.25rem; padding-right:.25rem; }
+  table.cd-glance td { padding-left:.25rem; padding-right:.25rem; }
+  table.cd-glance td, table.cd-glance th { white-space:normal; overflow-wrap:normal; vertical-align:middle; }
+  table.cd-glance td.f-key, table.cd-qa td.f-key { font-weight:500; overflow-wrap:normal; word-break:normal; hyphens:manual; }
+  .cd-chip { display:inline-block; max-width:100%; padding:.15rem .4rem; border-radius:.7rem; font-size:.72rem; overflow-wrap:normal; word-break:normal; line-height:1.3; text-decoration:none;
+             border:1px solid var(--hair); color:var(--ink); background:var(--paper); }
+  .cd-chip.g-yes { background:var(--green); border-color:var(--green); color:#fff; }
+  .cd-chip.g-mixed { border-color:var(--green); color:var(--ink); }
+  .cd-chip.g-none { color:var(--muted); border-style:dashed; }
+  .cd-cloud { margin-top:2rem; }
+  .cd-cloud .lv-head h2 { scroll-margin-top:1rem; }
+  .cd-cloud .lv-n { margin:.35rem 0 0; font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; color:var(--muted); }
+  .cd-cloud .lv-body { padding-top:1rem; }
+  .cd-qa tr { scroll-margin-top:1rem; }
+  @media (max-width:640px) {
+    /* on a phone each question sits above its answer rather than in a narrow column beside it */
+    table.cd-qa, table.cd-qa tbody, table.cd-qa tr, table.cd-qa td { display:block; width:auto; }
+    table.cd-qa colgroup, table.cd-qa tr:first-child { display:none; }
+    table.cd-qa td.f-key { padding-bottom:.2rem; border-bottom:0; }
+    table.cd-qa td + td { padding-top:0; }
+  }
+  .cd-combos-h { font-size:.85rem; font-weight:500; margin:1rem 0 .2rem; }
+  .cd-combos { font-size:.85rem; color:var(--ink-2); }
+  details.cd-more { font-size:.9rem; margin:.4rem 0 .8rem; }
+  details.cd-more summary { cursor:pointer; font-weight:500; }
+  .cd-about .cd-limits { padding-left:1.2rem; margin:.3rem 0 .8rem; }
+  .cd-about .cd-key p { margin:.35rem 0; }
   .cd-applies { font-size:.8rem; color:var(--muted); margin:.6rem 0 .2rem; }
   .cd-applies:first-child { margin-top:0; }
   .cd-ans p { margin:0; }
