@@ -743,6 +743,21 @@ CwAA") format('woff2')}
   .cd-chip.g-yes { background:var(--green); border-color:var(--green); color:#fff; }
   .cd-chip.g-mixed { border-color:var(--green); color:var(--ink); }
   .cd-chip.g-none { color:var(--muted); border-style:dashed; }
+  /* the short answer (branding's second pass, point 1): the answer's words, a colored edge for how much the pages answer */
+  .cd-short { display:block; padding:.1rem 0 .1rem .5rem; border-left:3px solid var(--hair); color:var(--ink); text-decoration:none;
+              font-size:.84rem; line-height:1.35; }
+  .cd-short.g-yes { border-left-color:var(--green); }
+  .cd-short.g-mixed { border-left-color:var(--rgreen); border-left-style:dashed; }
+  table.cd-glance td { vertical-align:top; }
+  @media (max-width:640px) {
+    /* on a phone the grid stacks: each question a block, each cloud a labeled line */
+    table.cd-glance, table.cd-glance tbody, table.cd-glance tr, table.cd-glance td { display:block; width:auto; }
+    table.cd-glance colgroup, table.cd-glance tr:first-child { display:none; }
+    table.cd-glance td { border-bottom:0; padding:.2rem 0; }
+    table.cd-glance td.f-key { padding-top:.8rem; }
+    table.cd-glance td[data-l]::before { content:attr(data-l); display:block; font-size:.7rem; color:var(--muted); margin-bottom:.1rem; }
+    table.cd-glance tr { border-bottom:1px solid var(--hair); padding-bottom:.5rem; }
+  }
   .cd-cloud { margin-top:2rem; }
   .cd-cloud .lv-head h2 { scroll-margin-top:1rem; }
   .cd-cloud .lv-n { margin:.35rem 0 0; font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; color:var(--muted); }
