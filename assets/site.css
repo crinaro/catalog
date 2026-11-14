@@ -716,6 +716,7 @@ CwAA") format('woff2')}
   .lines.grid th[colspan] { text-align:center; border-left:1px solid var(--hair); }
   a.setup-link { display:block; margin-top:.15rem; font-size:.72rem; color:var(--muted); text-decoration:underline dotted; }
   .not-covered { margin:-1.2rem 0 2rem; font-size:.9rem; color:var(--muted); }
+  .not-applicable { margin:0 0 2rem; font-size:.9rem; color:var(--muted); }
   /* The key-facts table fits a phone column (branding's preview of 2026-10-22: its answer column was clipped at 390px): no minimum width,
      fixed columns that split the table, and a long word allowed to break. check_catalog (FACTS-TABLE-NOWRAP) holds the stylesheet to it. */
   .table-wrap table.facts { min-width:0; table-layout:fixed; }
