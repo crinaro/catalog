@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://crinaro.ai/catalog/</loc><lastmod>2026-11-17</lastmod></url>
+<url><loc>https://crinaro.ai/catalog/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/products/adk-python/</loc><lastmod>2026-10-28</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/products/ag2/</loc><lastmod>2026-10-28</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/products/agent-skills/</loc><lastmod>2026-10-28</lastmod></url>
@@ -159,6 +159,7 @@
 <url><loc>https://crinaro.ai/catalog/products/sglang/</loc><lastmod>2026-10-28</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/products/smithery/</loc><lastmod>2026-10-28</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/products/sourcegraph-cody/</loc><lastmod>2026-11-18</lastmod></url>
+<url><loc>https://crinaro.ai/catalog/products/sourcegraph/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/products/sourcery/</loc><lastmod>2026-10-28</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/products/spec-kit/</loc><lastmod>2026-10-28</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/products/stack-ai/</loc><lastmod>2026-11-18</lastmod></url>
@@ -182,9 +183,9 @@
 <url><loc>https://crinaro.ai/catalog/terms/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/views/by-layer/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/views/customer-data/</loc><lastmod>2026-11-12</lastmod></url>
-<url><loc>https://crinaro.ai/catalog/views/hybrid-cloud/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://crinaro.ai/catalog/views/hybrid-cloud/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/views/hybrid-local/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/views/hybrid-self-hosted/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://crinaro.ai/catalog/views/local-and-cloud/</loc><lastmod>2026-10-28</lastmod></url>
-<url><loc>https://crinaro.ai/catalog/views/where-everything-fits/</loc><lastmod>2026-11-17</lastmod></url>
+<url><loc>https://crinaro.ai/catalog/views/where-everything-fits/</loc><lastmod>2026-11-18</lastmod></url>
 </urlset>
