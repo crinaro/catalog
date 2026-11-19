@@ -865,3 +865,172 @@ CwAA") format('woff2')}
   @media (min-width:64rem) {
     .panels { grid-template-columns:repeat(3, minmax(0, 1fr)); width:min(100vw - 3rem, 72rem); margin-left:calc((100% - min(100vw - 3rem, 72rem)) / 2); }
   }
+  /* The pattern page's data-protection figures (owner, 2026-11-19: "a visual with flow. How you protect your data.", then "make the page
+     work similar to the catalog, highlight the sections of the digrams and have the requirments to the right of it"): each flow a section,
+     its drawing on the left and the requirements its steps cite on the right, stacked on a phone. A dashed outline is a refusal, a tinted
+     band a stage, and a selected step or requirement is marked by the generated rules below. */
+  .flow-pairs { margin:0 0 1rem; }
+  .flow-pair { display:grid; grid-template-columns:1fr; gap:.6rem 2rem; align-items:start; margin:0 0 2.6rem;
+               --fl-hi:#0B2545; --fl-hi-fill:#CDE5D8; }
+  .flow-pair > h3 { grid-column:1 / -1; margin:1rem 0 .4rem; }
+  .flow-pair .flow-fig { margin:0; overflow:visible; }
+  .flow-pair svg.diagram { max-width:24rem; }
+  .flow-fig svg text { pointer-events:none; }
+  .flow-fig svg a.dg-req-link text, .flow-fig svg a.dg-req-link tspan { pointer-events:auto; }
+  .dg-deny { stroke:#A6452F; stroke-dasharray:5 4; }
+  .dg-req { fill:#1B5C46; font-weight:600; text-decoration:underline; }
+  .dg-req-off { fill:#5E7186; }
+  .dg-band-a { fill:#E3EFE8; }
+  .dg-band-b { fill:#E3EAF3; }
+  .dg-band-l { font-family:var(--head); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; fill:#1B5C46;
+               text-anchor:end; }
+  a.dg-req-link:hover .dg-req, a.dg-req-link:focus .dg-req { fill:#0B2545; }
+  a.dg-step { cursor:pointer; }
+  a.dg-step:hover > rect { stroke-width:3.5; }
+  a.dg-step:focus { outline:none; }
+  a.dg-step:focus-visible > rect { stroke:var(--fl-hi); stroke-width:3.5; }
+  @media (prefers-color-scheme: dark) {
+    .flow-pair { --fl-hi:#F2F6F8; --fl-hi-fill:#1F5A44; }
+    .dg-deny { stroke:#E8907C; } .dg-req { fill:#7FD1B0; } .dg-req-off { fill:#9FB3C6; }
+    .dg-band-a { fill:#0F3340; } .dg-band-b { fill:#16365E; } .dg-band-l { fill:#7FD1B0; }
+    a.dg-req-link:hover .dg-req, a.dg-req-link:focus .dg-req { fill:#F2F6F8; }
+  }
+  .flow-side { min-width:0; }
+  .note-wrap .fp-band { margin:.2rem 0 .4rem; }
+  .fp-step { margin:0 0 .7rem; padding:.55rem .9rem .35rem; border-left:4px solid var(--rgreen); border-radius:0 8px 8px 0;
+             background:#F1F7F3; scroll-margin-top:1rem; }
+  .fp-step.fp-band-b { border-left-color:var(--rblue); background:#F0F4F9; }
+  .fp-step + .fp-band { margin-top:1rem; }
+  .note-wrap .fp-step h4 { margin:0 0 .3rem; font-size:1rem; }
+  .fp-step h4 a { color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(27,92,70,.3); }
+  .note-wrap .fp-reqs { list-style:none; margin:0 0 .3rem; padding:0; }
+  .note-wrap .fp-req { margin:.2rem -.35rem; padding:.2rem .35rem; border-radius:6px; font-size:.92rem; scroll-margin-top:1rem; }
+  .fp-n { font-family:var(--mono); font-size:.82rem; font-weight:700; color:var(--green); margin-right:.25rem; }
+  .fp-row { font-size:.8rem; white-space:nowrap; }
+  .note-wrap .fp-held { margin:.2rem 0 .3rem; font-size:.8rem; color:var(--muted); }
+  .fp-step:target { background:#DCEBE4; box-shadow:0 0 0 2px var(--green); }
+  .note-wrap .fp-req:target { background:#CDE5D8; box-shadow:0 0 0 2px var(--green); }
+  @media (min-width:48rem) { .flow-pair { grid-template-columns:minmax(0, 24rem) minmax(0, 1fr); } .flow-pair .flow-fig { position:sticky; top:1rem; } }
+  @media (max-width:640px) { .flow-pair { grid-template-columns:1fr; } .flow-pair .flow-fig { position:static; } }
+  /* the marking rules, generated from FLOWS */
+  .flow-pair:has(#fp-access-idp:target) #fs-access-idp > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-access-proxy:target) #fs-access-proxy > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-access-filter:target) #fs-access-filter > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-access-page:target) #fs-access-page > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-access-mcp:target) #fs-access-mcp > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-access-handoff:target) #fs-access-handoff > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-access-source:target) #fs-access-source > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-idp-r1-1:target) :is(#fs-access-idp) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-idp-r1-14:target) :is(#fs-access-idp) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-proxy-r1-4:target) :is(#fs-access-proxy) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-filter-r1-2:target) :is(#fs-access-filter) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-filter-r1-5:target) :is(#fs-access-filter) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-filter-r1-6:target) :is(#fs-access-filter) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-filter-r2-2:target) :is(#fs-access-filter) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-page-r2-5:target) :is(#fs-access-page) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-page-r2-6:target) :is(#fs-access-page) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-mcp-r5-1:target) :is(#fs-access-mcp, #fs-access-handoff) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-mcp-r5-3:target) :is(#fs-access-mcp) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-handoff-r5-1:target) :is(#fs-access-mcp, #fs-access-handoff) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-handoff-r5-2:target) :is(#fs-access-handoff) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-handoff-r5-8:target) :is(#fs-access-handoff) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-handoff-r8-7:target) :is(#fs-access-handoff, #fs-access-source) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-source-r8-5:target) :is(#fs-access-source) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-access-source-r8-7:target) :is(#fs-access-handoff, #fs-access-source) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-egress-spoke:target) #fs-egress-spoke > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-egress-ingress:target) #fs-egress-ingress > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-egress-front:target) #fs-egress-front > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-egress-emcp:target) #fs-egress-emcp > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-egress-hub:target) #fs-egress-hub > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-egress-list:target) #fs-egress-list > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-egress-model:target) #fs-egress-model > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-egress-cloud:target) #fs-egress-cloud > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-egress-store:target) #fs-egress-store > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-spoke-r3-13:target) :is(#fs-egress-spoke) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-spoke-r4-2:target) :is(#fs-egress-spoke) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-ingress-r8-8:target) :is(#fs-egress-ingress, #fs-egress-emcp, #fs-egress-model, #fs-egress-cloud, #fs-egress-store) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-front-r1-4:target) :is(#fs-egress-front) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-front-r1-5:target) :is(#fs-egress-front) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-emcp-r5-9:target) :is(#fs-egress-emcp) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-emcp-r8-5:target) :is(#fs-egress-emcp, #fs-egress-hub) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-emcp-r8-8:target) :is(#fs-egress-ingress, #fs-egress-emcp, #fs-egress-model, #fs-egress-cloud, #fs-egress-store) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-hub-r8-5:target) :is(#fs-egress-emcp, #fs-egress-hub) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-list-r8-6:target) :is(#fs-egress-list, #fs-egress-cloud) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-list-r3-15:target) :is(#fs-egress-list) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-model-r7-1:target) :is(#fs-egress-model) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-model-r7-2:target) :is(#fs-egress-model) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-model-r7-3:target) :is(#fs-egress-model) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-model-r8-8:target) :is(#fs-egress-ingress, #fs-egress-emcp, #fs-egress-model, #fs-egress-cloud, #fs-egress-store) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-cloud-r8-6:target) :is(#fs-egress-list, #fs-egress-cloud) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-cloud-r8-8:target) :is(#fs-egress-ingress, #fs-egress-emcp, #fs-egress-model, #fs-egress-cloud, #fs-egress-store) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-store-r8-7:target) :is(#fs-egress-store) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-store-r3-14:target) :is(#fs-egress-store) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-egress-store-r8-8:target) :is(#fs-egress-ingress, #fs-egress-emcp, #fs-egress-model, #fs-egress-cloud, #fs-egress-store) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-event-caller:target) #fs-event-caller > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-event-vmcp:target) #fs-event-vmcp > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-event-envelope:target) #fs-event-envelope > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-event-bus:target) #fs-event-bus > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-event-verify:target) #fs-event-verify > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-event-identity:target) #fs-event-identity > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-event-team:target) #fs-event-team > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-event-definition:target) #fs-event-definition > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fp-event-cascade:target) #fs-event-cascade > rect { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-event-caller-r5-9:target) :is(#fs-event-caller) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-event-vmcp-r1-5:target) :is(#fs-event-vmcp) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-event-envelope-r5-10:target) :is(#fs-event-envelope, #fs-event-bus) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-event-bus-r5-10:target) :is(#fs-event-envelope, #fs-event-bus) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-event-bus-r8-5:target) :is(#fs-event-bus) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-event-verify-r5-5:target) :is(#fs-event-verify) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-event-identity-r5-7:target) :is(#fs-event-identity) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-event-team-r9-14:target) :is(#fs-event-team, #fs-event-definition) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-event-definition-r9-4:target) :is(#fs-event-definition) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-event-definition-r9-14:target) :is(#fs-event-team, #fs-event-definition) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }
+  .flow-pair:has(#fq-event-cascade-r9-11:target) :is(#fs-event-cascade) > rect
+    { stroke:var(--fl-hi); stroke-width:4; fill:var(--fl-hi-fill); }

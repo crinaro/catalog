@@ -27,49 +27,560 @@
 <p class="standfirst">A reference pattern for a governed engineering platform: the requirements it has to meet, numbered, and for each part of the platform the cloud services, catalog products and parts built in-house that can fill it.</p>
 <p>Use this page to look things up. A list of requirements says what a platform has to do; it does not say how to build one, in what order, or whether to.</p>
 <div class="pattern">
+<h2 id="protects">How the platform protects your data</h2>
+<div class="flow-pairs">
+<div class="flow-pair" id="flow-access" role="group" aria-labelledby="fh-access">
+<h3 id="fh-access">The access path: how a request reaches a page, a tool or data</h3>
+<figure class="figure flow-fig">
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 982" role="img" aria-labelledby="fl0-title fl0-desc">
+<title id="fl0-title">The access path: how a request reaches a page, a tool or data</title>
+<desc id="fl0-desc">A diagram of the access path: how a request reaches a page, a tool or data. A person or their agent: asks for a page, a tool or data. Identity provider: signs the person in, in their tier (requirements R1.1, R1.14). Front-door proxy: validates the token; the only way in (requirements R1.4); otherwise refused, no valid token. Access filter: reads the item&#x27;s or tool&#x27;s allow-list (requirements R1.2, R1.5, R1.6, R2.2); otherwise denied, not on the allow-list. Published: page or app, on its own domain (requirements R2.5, R2.6). Governed MCP: its own token audience (requirements R5.1, R5.3). The identity hand-off: The person&#x27;s identity travels with the request: the MCP accepts only a token issued for it (R5.1), and where a data source accepts the person&#x27;s identity it receives it from the MCP (R5.2, R5.8), so the source&#x27;s own permissions decide what comes back (R8.7). Data source: reached through the hub firewall; takes the person&#x27;s identity; its own permissions decide (requirements R8.5, R8.7); otherwise denied, the person has no right. Its stages, from the top, are sign-in, decision, destination and identity hand-off.</desc>
+<defs><marker id="dg-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-head" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="dg-bg" x="0" y="0" width="360" height="982"/>
+<rect class="dg-band dg-band-a" x="3" y="18" width="354" height="184" rx="12"/>
+<text class="dg-band-l" x="348" y="32">Sign-in</text>
+<rect class="dg-band dg-band-b" x="3" y="222" width="354" height="202" rx="12"/>
+<text class="dg-band-l" x="348" y="236">Decision</text>
+<rect class="dg-band dg-band-a" x="3" y="444" width="354" height="120" rx="12"/>
+<text class="dg-band-l" x="348" y="458">Destination</text>
+<rect class="dg-band dg-band-b" x="3" y="584" width="354" height="392" rx="12"/>
+<text class="dg-band-l" x="348" y="598">Identity hand-off</text>
+<path class="dg-arrow" d="M121,94 V118"/>
+<path class="dg-arrow" d="M121,194 V240"/>
+<path class="dg-arrow dg-dash" d="M232,279 H254"/>
+<path class="dg-arrow" d="M121,316 V340"/>
+<text class="dg-s" x="161" y="333">allowed</text>
+<path class="dg-arrow dg-dash" d="M232,379 H254"/>
+<path class="dg-arrow" d="M63,416 V462"/>
+<text class="dg-s" x="103" y="433">allowed</text>
+<path class="dg-arrow" d="M179,416 V462"/>
+<path class="dg-arrow" d="M181,556 V602"/>
+<path class="dg-arrow" d="M93,750 V774"/>
+<path class="dg-arrow dg-dash" d="M93,886 V910"/>
+<rect class="dg-box dg-ext" x="10" y="38" width="222" height="56" rx="10"/>
+<text class="dg-t" x="121" y="62">A person or their agent</text>
+<text class="dg-s" x="121" y="80">asks for a page, a tool or data</text>
+<a class="dg-step" id="fs-access-idp" href="#fp-access-idp" aria-label="Identity provider: the requirements it enforces">
+<rect class="dg-box" x="10" y="120" width="222" height="74" rx="10"/>
+<text class="dg-t" x="121" y="144">Identity provider</text>
+<text class="dg-s" x="121" y="162">signs the person in, in their tier</text>
+</a>
+<a class="dg-req-link" href="#fq-access-idp-r1-1" aria-label="Requirement R1.1"><text class="dg-s dg-req" x="98" y="180">R1.1</text></a>
+<a class="dg-req-link" href="#fq-access-idp-r1-14" aria-label="Requirement R1.14"><text class="dg-s dg-req" x="144" y="180">R1.14</text></a>
+<a class="dg-step" id="fs-access-proxy" href="#fp-access-proxy" aria-label="Front-door proxy: the requirements it enforces">
+<rect class="dg-box" x="10" y="242" width="222" height="74" rx="10"/>
+<text class="dg-t" x="121" y="266">Front-door proxy</text>
+<text class="dg-s" x="121" y="284">validates the token; the only way in</text>
+</a>
+<a class="dg-req-link" href="#fq-access-proxy-r1-4" aria-label="Requirement R1.4"><text class="dg-s dg-req" x="121" y="302">R1.4</text></a>
+<rect class="dg-box dg-deny" x="256" y="242" width="96" height="74" rx="10"/>
+<text class="dg-tb" x="304" y="266">Refused</text>
+<text class="dg-s" x="304" y="284">no valid</text>
+<text class="dg-s" x="304" y="302">token</text>
+<a class="dg-step" id="fs-access-filter" href="#fp-access-filter" aria-label="Access filter: the requirements it enforces">
+<rect class="dg-box" x="10" y="342" width="222" height="74" rx="10"/>
+<text class="dg-t" x="121" y="366">Access filter</text>
+<text class="dg-s" x="121" y="384">reads the item&#x27;s or tool&#x27;s allow-list</text>
+</a>
+<a class="dg-req-link" href="#fq-access-filter-r1-2" aria-label="Requirement R1.2"><text class="dg-s dg-req" x="52" y="402">R1.2</text></a>
+<a class="dg-req-link" href="#fq-access-filter-r1-5" aria-label="Requirement R1.5"><text class="dg-s dg-req" x="98" y="402">R1.5</text></a>
+<a class="dg-req-link" href="#fq-access-filter-r1-6" aria-label="Requirement R1.6"><text class="dg-s dg-req" x="144" y="402">R1.6</text></a>
+<a class="dg-req-link" href="#fq-access-filter-r2-2" aria-label="Requirement R2.2"><text class="dg-s dg-req" x="190" y="402">R2.2</text></a>
+<rect class="dg-box dg-deny" x="256" y="342" width="96" height="74" rx="10"/>
+<text class="dg-tb" x="304" y="366">Denied</text>
+<text class="dg-s" x="304" y="384">not on the</text>
+<text class="dg-s" x="304" y="402">allow-list</text>
+<a class="dg-step" id="fs-access-page" href="#fp-access-page" aria-label="Published: the requirements it enforces">
+<rect class="dg-box" x="10" y="464" width="106" height="92" rx="10"/>
+<text class="dg-tb" x="63" y="488">Published</text>
+<text class="dg-s" x="63" y="506">page or app, on</text>
+<text class="dg-s" x="63" y="524">its own domain</text>
+</a>
+<a class="dg-req-link" href="#fq-access-page-r2-5" aria-label="Requirement R2.5"><text class="dg-s dg-req" x="40" y="542">R2.5</text></a>
+<a class="dg-req-link" href="#fq-access-page-r2-6" aria-label="Requirement R2.6"><text class="dg-s dg-req" x="86" y="542">R2.6</text></a>
+<a class="dg-step" id="fs-access-mcp" href="#fp-access-mcp" aria-label="Governed MCP: the requirements it enforces">
+<rect class="dg-box" x="126" y="464" width="106" height="92" rx="10"/>
+<text class="dg-tb" x="179" y="488">Governed MCP</text>
+<text class="dg-s" x="179" y="506">its own token</text>
+<text class="dg-s" x="179" y="524">audience</text>
+</a>
+<a class="dg-req-link" href="#fq-access-mcp-r5-1" aria-label="Requirement R5.1"><text class="dg-s dg-req" x="156" y="542">R5.1</text></a>
+<a class="dg-req-link" href="#fq-access-mcp-r5-3" aria-label="Requirement R5.3"><text class="dg-s dg-req" x="202" y="542">R5.3</text></a>
+<a class="dg-step" id="fs-access-handoff" href="#fp-access-handoff" aria-label="The identity hand-off: the requirements it enforces">
+<rect class="dg-panel" x="10" y="604" width="342" height="146" rx="10"/>
+<text class="dg-tb" x="181" y="628">The identity hand-off</text>
+</a>
+<text class="dg-s" x="181" y="646">The person&#x27;s identity travels with the request:</text>
+<text class="dg-s" x="181" y="664">the MCP accepts only a token issued for it (<a class="dg-req-link" href="#fq-access-handoff-r5-1" aria-label="Requirement R5.1"><tspan class="dg-req">R5.1</tspan></a>),</text>
+<text class="dg-s" x="181" y="682">and where a data source accepts the person&#x27;s</text>
+<text class="dg-s" x="181" y="700">identity it receives it from the MCP (<a class="dg-req-link" href="#fq-access-handoff-r5-2" aria-label="Requirement R5.2"><tspan class="dg-req">R5.2</tspan></a>, <tspan class="dg-req-off">R5.8</tspan>),</text>
+<text class="dg-s" x="181" y="718">so the source&#x27;s own permissions decide what comes</text>
+<text class="dg-s" x="181" y="736">back (<a class="dg-req-link" href="#fq-access-handoff-r8-7" aria-label="Requirement R8.7"><tspan class="dg-req">R8.7</tspan></a>).</text>
+<a class="dg-step" id="fs-access-source" href="#fp-access-source" aria-label="Data source: the requirements it enforces">
+<rect class="dg-box" x="10" y="776" width="166" height="110" rx="10"/>
+<text class="dg-t" x="93" y="800">Data source</text>
+<text class="dg-s" x="93" y="818">reached through the hub firewall;</text>
+<text class="dg-s" x="93" y="836">takes the person&#x27;s identity;</text>
+<text class="dg-s" x="93" y="854">its own permissions decide</text>
+</a>
+<text class="dg-s dg-req-off" x="70" y="872">R8.5</text>
+<a class="dg-req-link" href="#fq-access-source-r8-7" aria-label="Requirement R8.7"><text class="dg-s dg-req" x="116" y="872">R8.7</text></a>
+<rect class="dg-box dg-deny" x="10" y="912" width="166" height="56" rx="10"/>
+<text class="dg-t" x="93" y="936">Denied</text>
+<text class="dg-s" x="93" y="954">the person has no right</text>
+</svg>
+</figure>
+<div class="flow-side">
+<p class="eyebrow fp-band">Sign-in</p>
+<div class="fp-step fp-band-a" id="fp-access-idp">
+<h4><a href="#fp-access-idp">Identity provider</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-access-idp-r1-1"><a class="fp-n" href="#fq-access-idp-r1-1">R1.1</a> Every request to a page, app, tool or data source carries a validated identity. <a class="src fp-row" href="#req-r1-1">In the table</a></li>
+<li class="fp-req" id="fq-access-idp-r1-14"><a class="fp-n" href="#fq-access-idp-r1-14">R1.14</a> Identity tiers are split by population: an employee tier (dashboard, pages, apps, MCP) and an engineer tier (workspaces, GitOps). <a class="src fp-row" href="#req-r1-14">In the table</a></li>
+</ul>
+</div>
+<p class="eyebrow fp-band">Decision</p>
+<div class="fp-step fp-band-b" id="fp-access-proxy">
+<h4><a href="#fp-access-proxy">Front-door proxy</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-access-proxy-r1-4"><a class="fp-n" href="#fq-access-proxy-r1-4">R1.4</a> It is the only path in: network policy admits traffic only from the proxy. <a class="src fp-row" href="#req-r1-4">In the table</a></li>
+</ul>
+</div>
+<div class="fp-step fp-band-b" id="fp-access-filter">
+<h4><a href="#fp-access-filter">Access filter</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-access-filter-r1-2"><a class="fp-n" href="#fq-access-filter-r1-2">R1.2</a> One decision point, the access filter, allows or denies pages, apps and MCP tools, and keeps one log. <a class="src fp-row" href="#req-r1-2">In the table</a></li>
+<li class="fp-req" id="fq-access-filter-r1-5"><a class="fp-n" href="#fq-access-filter-r1-5">R1.5</a> For the MCP it reads the tools/call body, trims tools/list, and denies by default. <a class="src fp-row" href="#req-r1-5">In the table</a></li>
+<li class="fp-req" id="fq-access-filter-r1-6"><a class="fp-n" href="#fq-access-filter-r1-6">R1.6</a> Allow-lists only, no deny rules. <a class="src fp-row" href="#req-r1-6">In the table</a></li>
+<li class="fp-req" id="fq-access-filter-r2-2"><a class="fp-n" href="#fq-access-filter-r2-2">R2.2</a> Only the publish service writes access lists, only owners and co-owners can change them, and every change is logged. <a class="src fp-row" href="#req-r2-2">In the table</a></li>
+</ul>
+</div>
+<p class="eyebrow fp-band">Destination</p>
+<div class="fp-step fp-band-a" id="fp-access-page">
+<h4><a href="#fp-access-page">Published</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-access-page-r2-5"><a class="fp-n" href="#fq-access-page-r2-5">R2.5</a> User content sits on a registrable domain separate from the dashboard, the MCP and the approval page (tier 1), with a subdomain per root on that domain (tier 2) where content is sensitive. <a class="src fp-row" href="#req-r2-5">In the table</a></li>
+<li class="fp-req" id="fq-access-page-r2-6"><a class="fp-n" href="#fq-access-page-r2-6">R2.6</a> The serving layer, not the author, sets the content security policy and headers. <a class="src fp-row" href="#req-r2-6">In the table</a></li>
+</ul>
+</div>
+<div class="fp-step fp-band-a" id="fp-access-mcp">
+<h4><a href="#fp-access-mcp">Governed MCP</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-access-mcp-r5-1"><a class="fp-n" href="#fq-access-mcp-r5-1">R5.1</a> The MCP is its own token audience, with no passthrough. <a class="src fp-row" href="#req-r5-1">In the table</a></li>
+<li class="fp-req" id="fq-access-mcp-r5-3"><a class="fp-n" href="#fq-access-mcp-r5-3">R5.3</a> Reachable only through the proxy; per-tool decisions come from the access filter. <a class="src fp-row" href="#req-r5-3">In the table</a></li>
+</ul>
+</div>
+<p class="eyebrow fp-band">Identity hand-off</p>
+<div class="fp-step fp-band-b" id="fp-access-handoff">
+<h4><a href="#fp-access-handoff">The identity hand-off</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-access-handoff-r5-1"><a class="fp-n" href="#fq-access-handoff-r5-1">R5.1</a> The MCP is its own token audience, with no passthrough. <a class="src fp-row" href="#req-r5-1">In the table</a></li>
+<li class="fp-req" id="fq-access-handoff-r5-2"><a class="fp-n" href="#fq-access-handoff-r5-2">R5.2</a> An on-behalf-of exchange per downstream, where the downstream accepts one, so a data source sees the person. <a class="src fp-row" href="#req-r5-2">In the table</a></li>
+<li class="fp-req" id="fq-access-handoff-r8-7"><a class="fp-n" href="#fq-access-handoff-r8-7">R8.7</a> Where a service accepts the caller&#x27;s own identity, access is also authorized by that identity, so a destination the firewall admits still refuses a caller without the right. <a class="src fp-row" href="#req-r8-7">In the table</a></li>
+</ul>
+<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
+</div>
+<div class="fp-step fp-band-b" id="fp-access-source">
+<h4><a href="#fp-access-source">Data source</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-access-source-r8-7"><a class="fp-n" href="#fq-access-source-r8-7">R8.7</a> Where a service accepts the caller&#x27;s own identity, access is also authorized by that identity, so a destination the firewall admits still refuses a caller without the right. <a class="src fp-row" href="#req-r8-7">In the table</a></li>
+</ul>
+<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
+</div>
+</div>
+</div>
+<div class="flow-pair" id="flow-egress" role="group" aria-labelledby="fh-egress">
+<h3 id="fh-egress">The egress path: calls inside the cluster, and traffic that leaves it</h3>
+<figure class="figure flow-fig">
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 946" role="img" aria-labelledby="fl1-title fl1-desc">
+<title id="fl1-title">The egress path: calls inside the cluster, and traffic that leaves it</title>
+<desc id="fl1-desc">A diagram of the egress path: calls inside the cluster, and traffic that leaves it. Workspaces and apps: agents and published apps run in the cluster spoke (requirements R3.13, R4.2). Cluster ingress: calls inside the cluster enter here, not by the firewall (requirements R8.8). Proxy and filter: the only way to the MCP; deny by default (requirements R1.4, R1.5). Governed MCP: reported as likely in the cluster; its own calls out leave by the firewall (requirements R5.9, R8.5, R8.8). Hub firewall: all traffic leaving the cluster, from apps and from the MCP (requirements R8.5). Firewall rules: state what can be reached, by network, host and port (requirements R8.6, R3.15); otherwise refused, any host not named. Model services: same cloud, by the narrowest endpoint (requirements R7.1, R7.2, R7.3, R8.8). Cloud services: the message bus and office suites (requirements R8.6, R8.8). Internal services: databases, blob storage, data lake; by identity where accepted (requirements R8.7, R3.14, R8.8). Its stages, from the top, are inside the cluster and leaving the cluster.</desc>
+<defs><marker id="dg-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-head" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="dg-bg" x="0" y="0" width="360" height="946"/>
+<rect class="dg-band dg-band-a" x="3" y="18" width="354" height="510" rx="12"/>
+<text class="dg-band-l" x="348" y="32">Inside the cluster</text>
+<rect class="dg-band dg-band-b" x="3" y="548" width="354" height="392" rx="12"/>
+<text class="dg-band-l" x="348" y="562">Leaving the cluster</text>
+<path class="dg-arrow" d="M220,130 V143 H240 V154"/>
+<path class="dg-arrow" d="M269,266 V290"/>
+<path class="dg-arrow" d="M269,384 V408"/>
+<path class="dg-arrow" d="M121,130 V566"/>
+<path class="dg-arrow" d="M198,520 V533 H178 V566"/>
+<path class="dg-arrow" d="M121,660 V684"/>
+<path class="dg-arrow dg-dash" d="M232,732 H254"/>
+<path class="dg-arrow" d="M64,778 V802"/>
+<text class="dg-s" x="104" y="795">allowed</text>
+<path class="dg-arrow" d="M180,778 V802"/>
+<path class="dg-arrow" d="M220,778 V791 H256 V802"/>
+<a class="dg-step" id="fs-egress-spoke" href="#fp-egress-spoke" aria-label="Workspaces and apps: the requirements it enforces">
+<rect class="dg-box dg-ext" x="10" y="38" width="222" height="92" rx="10"/>
+<text class="dg-t" x="121" y="62">Workspaces and apps</text>
+<text class="dg-s" x="121" y="80">agents and published apps run</text>
+<text class="dg-s" x="121" y="98">in the cluster spoke</text>
+</a>
+<a class="dg-req-link" href="#fq-egress-spoke-r3-13" aria-label="Requirement R3.13"><text class="dg-s dg-req" x="98" y="116">R3.13</text></a>
+<a class="dg-req-link" href="#fq-egress-spoke-r4-2" aria-label="Requirement R4.2"><text class="dg-s dg-req" x="144" y="116">R4.2</text></a>
+<a class="dg-step" id="fs-egress-ingress" href="#fp-egress-ingress" aria-label="Cluster ingress: the requirements it enforces">
+<rect class="dg-box" x="186" y="156" width="166" height="110" rx="10"/>
+<text class="dg-t" x="269" y="180">Cluster ingress</text>
+<text class="dg-s" x="269" y="198">calls inside the cluster</text>
+<text class="dg-s" x="269" y="216">enter here, not by</text>
+<text class="dg-s" x="269" y="234">the firewall</text>
+</a>
+<text class="dg-s dg-req-off" x="269" y="252">R8.8</text>
+<a class="dg-step" id="fs-egress-front" href="#fp-egress-front" aria-label="Proxy and filter: the requirements it enforces">
+<rect class="dg-box" x="186" y="292" width="166" height="92" rx="10"/>
+<text class="dg-t" x="269" y="316">Proxy and filter</text>
+<text class="dg-s" x="269" y="334">the only way to the MCP;</text>
+<text class="dg-s" x="269" y="352">deny by default</text>
+</a>
+<a class="dg-req-link" href="#fq-egress-front-r1-4" aria-label="Requirement R1.4"><text class="dg-s dg-req" x="246" y="370">R1.4</text></a>
+<a class="dg-req-link" href="#fq-egress-front-r1-5" aria-label="Requirement R1.5"><text class="dg-s dg-req" x="292" y="370">R1.5</text></a>
+<a class="dg-step" id="fs-egress-emcp" href="#fp-egress-emcp" aria-label="Governed MCP: the requirements it enforces">
+<rect class="dg-box" x="186" y="410" width="166" height="110" rx="10"/>
+<text class="dg-t" x="269" y="434">Governed MCP</text>
+<text class="dg-s" x="269" y="452">reported as likely in the</text>
+<text class="dg-s" x="269" y="470">cluster; its own calls out</text>
+<text class="dg-s" x="269" y="488">leave by the firewall</text>
+</a>
+<a class="dg-req-link" href="#fq-egress-emcp-r5-9" aria-label="Requirement R5.9"><text class="dg-s dg-req" x="223" y="506">R5.9</text></a>
+<text class="dg-s dg-req-off" x="269" y="506">R8.5</text>
+<text class="dg-s dg-req-off" x="315" y="506">R8.8</text>
+<a class="dg-step" id="fs-egress-hub" href="#fp-egress-hub" aria-label="Hub firewall: the requirements it enforces">
+<rect class="dg-box" x="10" y="568" width="222" height="92" rx="10"/>
+<text class="dg-t" x="121" y="592">Hub firewall</text>
+<text class="dg-s" x="121" y="610">all traffic leaving the cluster,</text>
+<text class="dg-s" x="121" y="628">from apps and from the MCP</text>
+</a>
+<text class="dg-s dg-req-off" x="121" y="646">R8.5</text>
+<a class="dg-step" id="fs-egress-list" href="#fp-egress-list" aria-label="Firewall rules: the requirements it enforces">
+<rect class="dg-box" x="10" y="686" width="222" height="92" rx="10"/>
+<text class="dg-t" x="121" y="710">Firewall rules</text>
+<text class="dg-s" x="121" y="728">state what can be reached,</text>
+<text class="dg-s" x="121" y="746">by network, host and port</text>
+</a>
+<text class="dg-s dg-req-off" x="98" y="764">R8.6</text>
+<a class="dg-req-link" href="#fq-egress-list-r3-15" aria-label="Requirement R3.15"><text class="dg-s dg-req" x="144" y="764">R3.15</text></a>
+<rect class="dg-box dg-deny" x="256" y="686" width="96" height="92" rx="10"/>
+<text class="dg-tb" x="304" y="719">Refused</text>
+<text class="dg-s" x="304" y="737">any host</text>
+<text class="dg-s" x="304" y="755">not named</text>
+<a class="dg-step" id="fs-egress-model" href="#fp-egress-model" aria-label="Model services: the requirements it enforces">
+<rect class="dg-box" x="10" y="804" width="108" height="128" rx="10"/>
+<text class="dg-tb" x="64" y="846">Model services</text>
+<text class="dg-s" x="64" y="864">same cloud, by the</text>
+<text class="dg-s" x="64" y="882">narrowest endpoint</text>
+</a>
+<a class="dg-req-link" href="#fq-egress-model-r7-1" aria-label="Requirement R7.1"><text class="dg-s dg-req" x="26" y="900">R7.1</text></a>
+<a class="dg-req-link" href="#fq-egress-model-r7-2" aria-label="Requirement R7.2"><text class="dg-s dg-req" x="51" y="900">R7.2</text></a>
+<a class="dg-req-link" href="#fq-egress-model-r7-3" aria-label="Requirement R7.3"><text class="dg-s dg-req" x="76" y="900">R7.3</text></a>
+<text class="dg-s dg-req-off" x="101" y="900">R8.8</text>
+<a class="dg-step" id="fs-egress-cloud" href="#fp-egress-cloud" aria-label="Cloud services: the requirements it enforces">
+<rect class="dg-box" x="126" y="804" width="108" height="128" rx="10"/>
+<text class="dg-tb" x="180" y="846">Cloud services</text>
+<text class="dg-s" x="180" y="864">the message bus</text>
+<text class="dg-s" x="180" y="882">and office suites</text>
+</a>
+<text class="dg-s dg-req-off" x="157" y="900">R8.6</text>
+<text class="dg-s dg-req-off" x="203" y="900">R8.8</text>
+<a class="dg-step" id="fs-egress-store" href="#fp-egress-store" aria-label="Internal services: the requirements it enforces">
+<rect class="dg-box" x="244" y="804" width="108" height="128" rx="10"/>
+<text class="dg-tb" x="298" y="828">Internal services</text>
+<text class="dg-s" x="298" y="846">databases, blob</text>
+<text class="dg-s" x="298" y="864">storage, data lake;</text>
+<text class="dg-s" x="298" y="882">by identity where</text>
+<text class="dg-s" x="298" y="900">accepted</text>
+</a>
+<a class="dg-req-link" href="#fq-egress-store-r8-7" aria-label="Requirement R8.7"><text class="dg-s dg-req" x="264" y="918">R8.7</text></a>
+<a class="dg-req-link" href="#fq-egress-store-r3-14" aria-label="Requirement R3.14"><text class="dg-s dg-req" x="297" y="918">R3.14</text></a>
+<text class="dg-s dg-req-off" x="330" y="918">R8.8</text>
+</svg>
+</figure>
+<div class="flow-side">
+<p class="eyebrow fp-band">Inside the cluster</p>
+<div class="fp-step fp-band-a" id="fp-egress-spoke">
+<h4><a href="#fp-egress-spoke">Workspaces and apps</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-egress-spoke-r3-13"><a class="fp-n" href="#fq-egress-spoke-r3-13">R3.13</a> A namespace per app, default-deny both ways, a separate node pool, and the metadata service blocked. <a class="src fp-row" href="#req-r3-13">In the table</a></li>
+<li class="fp-req" id="fq-egress-spoke-r4-2"><a class="fp-n" href="#fq-egress-spoke-r4-2">R4.2</a> Workspaces cannot reach app namespaces or storage, and hold no standing renderer, GitOps or MCP credential. <a class="src fp-row" href="#req-r4-2">In the table</a></li>
+</ul>
+</div>
+<div class="fp-step fp-band-a" id="fp-egress-ingress">
+<h4><a href="#fp-egress-ingress">Cluster ingress</a></h4>
+<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
+</div>
+<div class="fp-step fp-band-a" id="fp-egress-front">
+<h4><a href="#fp-egress-front">Proxy and filter</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-egress-front-r1-4"><a class="fp-n" href="#fq-egress-front-r1-4">R1.4</a> It is the only path in: network policy admits traffic only from the proxy. <a class="src fp-row" href="#req-r1-4">In the table</a></li>
+<li class="fp-req" id="fq-egress-front-r1-5"><a class="fp-n" href="#fq-egress-front-r1-5">R1.5</a> For the MCP it reads the tools/call body, trims tools/list, and denies by default. <a class="src fp-row" href="#req-r1-5">In the table</a></li>
+</ul>
+</div>
+<div class="fp-step fp-band-a" id="fp-egress-emcp">
+<h4><a href="#fp-egress-emcp">Governed MCP</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-egress-emcp-r5-9"><a class="fp-n" href="#fq-egress-emcp-r5-9">R5.9</a> Workspace apps also call the MCP, and one MCP request, internal or external, may cascade into several authenticated events. <a class="src fp-row" href="#req-r5-9">In the table</a></li>
+</ul>
+<p class="fp-held">2 more at this step are not shown yet: no second reader has read them.</p>
+</div>
+<p class="eyebrow fp-band">Leaving the cluster</p>
+<div class="fp-step fp-band-b" id="fp-egress-hub">
+<h4><a href="#fp-egress-hub">Hub firewall</a></h4>
+<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
+</div>
+<div class="fp-step fp-band-b" id="fp-egress-list">
+<h4><a href="#fp-egress-list">Firewall rules</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-egress-list-r3-15"><a class="fp-n" href="#fq-egress-list-r3-15">R3.15</a> Egress only through the firewall, to hosts the manifest declares. <a class="src fp-row" href="#req-r3-15">In the table</a></li>
+</ul>
+<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
+</div>
+<div class="fp-step fp-band-b" id="fp-egress-model">
+<h4><a href="#fp-egress-model">Model services</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-egress-model-r7-1"><a class="fp-n" href="#fq-egress-model-r7-1">R7.1</a> Native identity to the model endpoint; no stored provider keys. <a class="src fp-row" href="#req-r7-1">In the table</a></li>
+<li class="fp-req" id="fq-egress-model-r7-2"><a class="fp-n" href="#fq-egress-model-r7-2">R7.2</a> No cross-cloud model call (Foundry on Azure, Bedrock on AWS); the rule keeps the call in one cloud and does not say where processing happens. <a class="src fp-row" href="#req-r7-2">In the table</a></li>
+<li class="fp-req" id="fq-egress-model-r7-3"><a class="fp-n" href="#fq-egress-model-r7-3">R7.3</a> Egress uses the narrowest endpoint address or endpoint policy. <a class="src fp-row" href="#req-r7-3">In the table</a></li>
+</ul>
+<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
+</div>
+<div class="fp-step fp-band-b" id="fp-egress-cloud">
+<h4><a href="#fp-egress-cloud">Cloud services</a></h4>
+<p class="fp-held">2 more at this step are not shown yet: no second reader has read them.</p>
+</div>
+<div class="fp-step fp-band-b" id="fp-egress-store">
+<h4><a href="#fp-egress-store">Internal services</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-egress-store-r8-7"><a class="fp-n" href="#fq-egress-store-r8-7">R8.7</a> Where a service accepts the caller&#x27;s own identity, access is also authorized by that identity, so a destination the firewall admits still refuses a caller without the right. <a class="src fp-row" href="#req-r8-7">In the table</a></li>
+<li class="fp-req" id="fq-egress-store-r3-14"><a class="fp-n" href="#fq-egress-store-r3-14">R3.14</a> A workload identity per app, scoped to its storage prefix. <a class="src fp-row" href="#req-r3-14">In the table</a></li>
+</ul>
+<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
+</div>
+</div>
+</div>
+<div class="flow-pair" id="flow-event" role="group" aria-labelledby="fh-event">
+<h3 id="fh-event">The event path: one request, many events</h3>
+<figure class="figure flow-fig">
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1090" role="img" aria-labelledby="fl2-title fl2-desc">
+<title id="fl2-title">The event path: one request, many events</title>
+<desc id="fl2-desc">A diagram of the event path: one request, many events. An MCP request: internal or external; one may cascade into several events (requirements R5.9). Governed MCP: authorizes the request per tool; deny by default (requirements R1.5); otherwise denied, tool not allowed. The envelope: carried through the MCP; its message travels on the bus (requirements R5.10). Message bus: carries the envelope&#x27;s message; a cloud service, reached from the cluster through the firewall (requirements R5.10, R8.5). Signature check: a subscriber checks the signature R5.5 requires (requirements R5.5); otherwise refused, signature fails. Which identity runs it: an open question: the identity a cascaded step runs under (requirements R5.7). Agent team: subscribes to events through the MCP (requirements R9.14). Definition: in the fact and decision layer (requirements R9.4, R9.14). Further events: back to the bus; cascade and loop detection, a rate limit per trigger (requirements R9.11); these return to the message bus. Its stages, from the top, are request, envelope and bus, at each subscriber and cascade.</desc>
+<defs><marker id="dg-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-head" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="dg-bg" x="0" y="0" width="360" height="1090"/>
+<rect class="dg-band dg-band-a" x="3" y="18" width="354" height="238" rx="12"/>
+<text class="dg-band-l" x="348" y="32">Request</text>
+<rect class="dg-band dg-band-b" x="3" y="276" width="354" height="256" rx="12"/>
+<text class="dg-band-l" x="348" y="290">Envelope and bus</text>
+<rect class="dg-band dg-band-a" x="3" y="552" width="354" height="374" rx="12"/>
+<text class="dg-band-l" x="348" y="566">At each subscriber</text>
+<rect class="dg-band dg-band-b" x="3" y="946" width="354" height="138" rx="12"/>
+<text class="dg-band-l" x="348" y="960">Cascade</text>
+<path class="dg-arrow" d="M121,130 V154"/>
+<path class="dg-arrow dg-dash" d="M232,202 H250"/>
+<path class="dg-arrow" d="M121,248 V294"/>
+<text class="dg-s" x="161" y="265">allowed</text>
+<path class="dg-arrow" d="M121,388 V412"/>
+<path class="dg-arrow" d="M121,524 V570"/>
+<path class="dg-arrow dg-dash" d="M232,618 H250"/>
+<path class="dg-arrow" d="M121,664 V688"/>
+<text class="dg-s" x="161" y="681">allowed</text>
+<path class="dg-arrow" d="M63,782 V806"/>
+<path class="dg-arrow" d="M179,782 V806"/>
+<path class="dg-arrow" d="M63,918 V964"/>
+<path class="dg-arrow" d="M179,918 V964"/>
+<path class="dg-arrow" d="M232,1021 H351 V469 H234"/>
+<a class="dg-step" id="fs-event-caller" href="#fp-event-caller" aria-label="An MCP request: the requirements it enforces">
+<rect class="dg-box dg-ext" x="10" y="38" width="222" height="92" rx="10"/>
+<text class="dg-t" x="121" y="62">An MCP request</text>
+<text class="dg-s" x="121" y="80">internal or external; one may</text>
+<text class="dg-s" x="121" y="98">cascade into several events</text>
+</a>
+<a class="dg-req-link" href="#fq-event-caller-r5-9" aria-label="Requirement R5.9"><text class="dg-s dg-req" x="121" y="116">R5.9</text></a>
+<a class="dg-step" id="fs-event-vmcp" href="#fp-event-vmcp" aria-label="Governed MCP: the requirements it enforces">
+<rect class="dg-box" x="10" y="156" width="222" height="92" rx="10"/>
+<text class="dg-t" x="121" y="180">Governed MCP</text>
+<text class="dg-s" x="121" y="198">authorizes the request</text>
+<text class="dg-s" x="121" y="216">per tool; deny by default</text>
+</a>
+<a class="dg-req-link" href="#fq-event-vmcp-r1-5" aria-label="Requirement R1.5"><text class="dg-s dg-req" x="121" y="234">R1.5</text></a>
+<rect class="dg-box dg-deny" x="252" y="156" width="88" height="92" rx="10"/>
+<text class="dg-tb" x="296" y="189">Denied</text>
+<text class="dg-s" x="296" y="207">tool not</text>
+<text class="dg-s" x="296" y="225">allowed</text>
+<a class="dg-step" id="fs-event-envelope" href="#fp-event-envelope" aria-label="The envelope: the requirements it enforces">
+<rect class="dg-box" x="10" y="296" width="222" height="92" rx="10"/>
+<text class="dg-t" x="121" y="320">The envelope</text>
+<text class="dg-s" x="121" y="338">carried through the MCP; its</text>
+<text class="dg-s" x="121" y="356">message travels on the bus</text>
+</a>
+<text class="dg-s dg-req-off" x="121" y="374">R5.10</text>
+<a class="dg-step" id="fs-event-bus" href="#fp-event-bus" aria-label="Message bus: the requirements it enforces">
+<rect class="dg-box" x="10" y="414" width="222" height="110" rx="10"/>
+<text class="dg-t" x="121" y="438">Message bus</text>
+<text class="dg-s" x="121" y="456">carries the envelope&#x27;s message;</text>
+<text class="dg-s" x="121" y="474">a cloud service, reached from</text>
+<text class="dg-s" x="121" y="492">the cluster through the firewall</text>
+</a>
+<text class="dg-s dg-req-off" x="98" y="510">R5.10</text>
+<text class="dg-s dg-req-off" x="144" y="510">R8.5</text>
+<a class="dg-step" id="fs-event-verify" href="#fp-event-verify" aria-label="Signature check: the requirements it enforces">
+<rect class="dg-box" x="10" y="572" width="222" height="92" rx="10"/>
+<text class="dg-t" x="121" y="596">Signature check</text>
+<text class="dg-s" x="121" y="614">a subscriber checks the</text>
+<text class="dg-s" x="121" y="632">signature R5.5 requires</text>
+</a>
+<a class="dg-req-link" href="#fq-event-verify-r5-5" aria-label="Requirement R5.5"><text class="dg-s dg-req" x="121" y="650">R5.5</text></a>
+<rect class="dg-box dg-deny" x="252" y="572" width="88" height="92" rx="10"/>
+<text class="dg-tb" x="296" y="605">Refused</text>
+<text class="dg-s" x="296" y="623">signature</text>
+<text class="dg-s" x="296" y="641">fails</text>
+<a class="dg-step" id="fs-event-identity" href="#fp-event-identity" aria-label="Which identity runs it: the requirements it enforces">
+<rect class="dg-box" x="10" y="690" width="222" height="92" rx="10"/>
+<text class="dg-t" x="121" y="714">Which identity runs it</text>
+<text class="dg-s" x="121" y="732">an open question: the identity</text>
+<text class="dg-s" x="121" y="750">a cascaded step runs under</text>
+</a>
+<a class="dg-req-link" href="#fq-event-identity-r5-7" aria-label="Requirement R5.7"><text class="dg-s dg-req" x="121" y="768">R5.7</text></a>
+<a class="dg-step" id="fs-event-team" href="#fp-event-team" aria-label="Agent team: the requirements it enforces">
+<rect class="dg-box" x="10" y="808" width="106" height="110" rx="10"/>
+<text class="dg-tb" x="63" y="832">Agent team</text>
+<text class="dg-s" x="63" y="850">subscribes to</text>
+<text class="dg-s" x="63" y="868">events through</text>
+<text class="dg-s" x="63" y="886">the MCP</text>
+</a>
+<a class="dg-req-link" href="#fq-event-team-r9-14" aria-label="Requirement R9.14"><text class="dg-s dg-req" x="63" y="904">R9.14</text></a>
+<a class="dg-step" id="fs-event-definition" href="#fp-event-definition" aria-label="Definition: the requirements it enforces">
+<rect class="dg-box" x="126" y="808" width="106" height="110" rx="10"/>
+<text class="dg-tb" x="179" y="841">Definition</text>
+<text class="dg-s" x="179" y="859">in the fact and</text>
+<text class="dg-s" x="179" y="877">decision layer</text>
+</a>
+<text class="dg-s dg-req-off" x="156" y="895">R9.4</text>
+<a class="dg-req-link" href="#fq-event-definition-r9-14" aria-label="Requirement R9.14"><text class="dg-s dg-req" x="202" y="895">R9.14</text></a>
+<a class="dg-step" id="fs-event-cascade" href="#fp-event-cascade" aria-label="Further events: the requirements it enforces">
+<rect class="dg-box" x="10" y="966" width="222" height="110" rx="10"/>
+<text class="dg-t" x="121" y="990">Further events</text>
+<text class="dg-s" x="121" y="1008">back to the bus; cascade and</text>
+<text class="dg-s" x="121" y="1026">loop detection, a rate limit</text>
+<text class="dg-s" x="121" y="1044">per trigger</text>
+</a>
+<text class="dg-s dg-req-off" x="121" y="1062">R9.11</text>
+</svg>
+</figure>
+<div class="flow-side">
+<p class="eyebrow fp-band">Request</p>
+<div class="fp-step fp-band-a" id="fp-event-caller">
+<h4><a href="#fp-event-caller">An MCP request</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-event-caller-r5-9"><a class="fp-n" href="#fq-event-caller-r5-9">R5.9</a> Workspace apps also call the MCP, and one MCP request, internal or external, may cascade into several authenticated events. <a class="src fp-row" href="#req-r5-9">In the table</a></li>
+</ul>
+</div>
+<div class="fp-step fp-band-a" id="fp-event-vmcp">
+<h4><a href="#fp-event-vmcp">Governed MCP</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-event-vmcp-r1-5"><a class="fp-n" href="#fq-event-vmcp-r1-5">R1.5</a> For the MCP it reads the tools/call body, trims tools/list, and denies by default. <a class="src fp-row" href="#req-r1-5">In the table</a></li>
+</ul>
+</div>
+<p class="eyebrow fp-band">Envelope and bus</p>
+<div class="fp-step fp-band-b" id="fp-event-envelope">
+<h4><a href="#fp-event-envelope">The envelope</a></h4>
+<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
+</div>
+<div class="fp-step fp-band-b" id="fp-event-bus">
+<h4><a href="#fp-event-bus">Message bus</a></h4>
+<p class="fp-held">2 more at this step are not shown yet: no second reader has read them.</p>
+</div>
+<p class="eyebrow fp-band">At each subscriber</p>
+<div class="fp-step fp-band-a" id="fp-event-verify">
+<h4><a href="#fp-event-verify">Signature check</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-event-verify-r5-5"><a class="fp-n" href="#fq-event-verify-r5-5">R5.5</a> Agent-to-agent messages are signed by the tool layer (person, agent, audience, expiry, replay ID) and typed. <a class="src fp-row" href="#req-r5-5">In the table</a></li>
+</ul>
+</div>
+<div class="fp-step fp-band-a" id="fp-event-identity">
+<h4><a href="#fp-event-identity">Which identity runs it</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-event-identity-r5-7"><a class="fp-n" href="#fq-event-identity-r5-7">R5.7</a> The identity of unattended runs. <a class="src fp-row" href="#req-r5-7">In the table</a></li>
+</ul>
+</div>
+<div class="fp-step fp-band-a" id="fp-event-team">
+<h4><a href="#fp-event-team">Agent team</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-event-team-r9-14"><a class="fp-n" href="#fq-event-team-r9-14">R9.14</a> Agents and teams subscribe to Fact events through the governed MCP and the message bus. <a class="src fp-row" href="#req-r9-14">In the table</a></li>
+</ul>
+</div>
+<div class="fp-step fp-band-a" id="fp-event-definition">
+<h4><a href="#fp-event-definition">Definition</a></h4>
+<ul class="fp-reqs">
+<li class="fp-req" id="fq-event-definition-r9-14"><a class="fp-n" href="#fq-event-definition-r9-14">R9.14</a> Agents and teams subscribe to Fact events through the governed MCP and the message bus. <a class="src fp-row" href="#req-r9-14">In the table</a></li>
+</ul>
+<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
+</div>
+<p class="eyebrow fp-band">Cascade</p>
+<div class="fp-step fp-band-b" id="fp-event-cascade">
+<h4><a href="#fp-event-cascade">Further events</a></h4>
+<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="small-print flow-notes">
+<p>These diagrams are the pattern&#x27;s design, worked out from its requirements, and not a measured build.</p>
+<p>Select a step in a diagram to mark it and the requirements it enforces, listed beside it; select a requirement&#x27;s number there to mark every step that cites it. A tinted band groups the steps of one stage, and a box with a dashed outline is where a request is refused.</p>
+<p>7 of the 31 requirement numbers in the diagrams are shown without a link, because their rows are not on this page yet: no second reader has read them. Each step beside a diagram counts its own.</p>
+</div>
 <h2 id="requirements">The requirements</h2>
 <h3 id="cap-r1">R1. Identity and one access decision</h3>
 <div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r1-1" data-req="R1.1"><td>R1.1</td><td>Every request to a page, app, tool or data source carries a validated identity.</td><td></td><td><a class="src" href="#slot-identity-provider">Identity provider</a>, <a class="src" href="#slot-front-door-proxy">Front-door proxy</a></td></tr>
+<tr id="req-r1-2" data-req="R1.2"><td>R1.2</td><td>One decision point, the access filter, allows or denies pages, apps and MCP tools, and keeps one log.</td><td></td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
 <tr id="req-r1-3" data-req="R1.3"><td>R1.3</td><td>It fails closed: if the filter, the list store or token validation is down, the request is refused.</td><td>Structural</td><td><a class="src" href="#slot-front-door-proxy">Front-door proxy</a></td></tr>
 <tr id="req-r1-4" data-req="R1.4"><td>R1.4</td><td>It is the only path in: network policy admits traffic only from the proxy.</td><td>Structural</td><td><a class="src" href="#slot-front-door-proxy">Front-door proxy</a></td></tr>
 <tr id="req-r1-5" data-req="R1.5"><td>R1.5</td><td>For the MCP it reads the tools/call body, trims tools/list, and denies by default.</td><td>Structural</td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
 <tr id="req-r1-6" data-req="R1.6"><td>R1.6</td><td>Allow-lists only, no deny rules.</td><td>Structural</td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
+<tr id="req-r1-7" data-req="R1.7"><td>R1.7</td><td>Tokens carry only the groups assigned to the app; groups are flat and disjoint per tier.</td><td>Structural</td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
 <tr id="req-r1-8" data-req="R1.8"><td>R1.8</td><td>Users are matched by object ID and groups by ID, with names kept for display.</td><td>Structural</td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
 <tr id="req-r1-9" data-req="R1.9"><td>R1.9</td><td>MCP tool entitlements are app roles, not groups.</td><td>Structural</td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
 <tr id="req-r1-10" data-req="R1.10"><td>R1.10</td><td>Session groups are reconciled against the directory.</td><td>Detective</td><td>None recorded</td></tr>
 <tr id="req-r1-11" data-req="R1.11"><td>R1.11</td><td>Maximum decision and session lifetimes, which set the revocation delay.</td><td>Policy</td><td>None recorded</td></tr>
 <tr id="req-r1-12" data-req="R1.12"><td>R1.12</td><td>The proxy is pinned to a release with a named owner, and has no routes that skip authentication.</td><td>Policy</td><td><a class="src" href="#slot-front-door-proxy">Front-door proxy</a></td></tr>
 <tr id="req-r1-13" data-req="R1.13"><td>R1.13</td><td>Directory-read consent for the people and group picker is recorded.</td><td>Policy</td><td>None recorded</td></tr>
+<tr id="req-r1-14" data-req="R1.14"><td>R1.14</td><td>Identity tiers are split by population: an employee tier (dashboard, pages, apps, MCP) and an engineer tier (workspaces, GitOps).</td><td></td><td><a class="src" href="#slot-identity-provider">Identity provider</a></td></tr>
 </tbody></table></div>
 <h3 id="cap-r2">R2. Per-item publishing</h3>
 <div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r2-1" data-req="R2.1"><td>R2.1</td><td>The unit is a unique root directory with one owner set and one access list.</td><td></td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
 <tr id="req-r2-2" data-req="R2.2"><td>R2.2</td><td>Only the publish service writes access lists, only owners and co-owners can change them, and every change is logged.</td><td>Structural</td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
-<tr id="req-r2-3" data-req="R2.3"><td>R2.3</td><td>Adding a co-owner, widening an audience, or making an item public returns pending plus step-up.</td><td>Structural</td><td></td></tr>
+<tr id="req-r2-3" data-req="R2.3"><td>R2.3</td><td>Adding a co-owner, widening an audience, or making an item public returns pending plus step-up.</td><td>Structural</td><td><a class="src" href="#slot-dashboard-and-hub">Dashboard and hub</a></td></tr>
 <tr id="req-r2-4" data-req="R2.4"><td>R2.4</td><td>Public is refused by default and needs a second approver.</td><td>Structural</td><td>None recorded</td></tr>
+<tr id="req-r2-5" data-req="R2.5"><td>R2.5</td><td>User content sits on a registrable domain separate from the dashboard, the MCP and the approval page (tier 1), with a subdomain per root on that domain (tier 2) where content is sensitive.</td><td>Structural</td><td><a class="src" href="#slot-item-store-and-pages-host">Item store and pages host</a></td></tr>
 <tr id="req-r2-6" data-req="R2.6"><td>R2.6</td><td>The serving layer, not the author, sets the content security policy and headers.</td><td>Structural</td><td><a class="src" href="#slot-item-store-and-pages-host">Item store and pages host</a></td></tr>
 <tr id="req-r2-7" data-req="R2.7"><td>R2.7</td><td>No presigned or SAS links for scoped access.</td><td>Structural</td><td><a class="src" href="#slot-item-store-and-pages-host">Item store and pages host</a></td></tr>
 <tr id="req-r2-8" data-req="R2.8"><td>R2.8</td><td>An owner fallback when the last owner leaves.</td><td>Policy</td><td>None recorded</td></tr>
-<tr id="req-r2-9" data-req="R2.9"><td>R2.9</td><td>A hub view of what is running and who published what, as a query over the item records.</td><td></td><td></td></tr>
+<tr id="req-r2-9" data-req="R2.9"><td>R2.9</td><td>A hub view of what is running and who published what, as a query over the item records.</td><td></td><td><a class="src" href="#slot-dashboard-and-hub">Dashboard and hub</a></td></tr>
 </tbody></table></div>
 <h3 id="cap-r3">R3. Apps, from a folder to a running app</h3>
 <div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r3-1" data-req="R3.1"><td>R3.1</td><td>Allowed shapes only: a scheduled job writing its own prefix, or a single-page app reading its own path.</td><td></td><td>None recorded</td></tr>
 <tr id="req-r3-2" data-req="R3.2"><td>R3.2</td><td>Two repositories, user code with no secrets and GitOps; the uploader&#x27;s identity cannot deploy or edit workflows.</td><td>Structural</td><td></td></tr>
+<tr id="req-r3-3" data-req="R3.3"><td>R3.3</td><td>Deploy only when all checks pass, on the commit they ran on, which is structural only where the deploy identity verifies the check result for that commit.</td><td>Structural</td><td><a class="src" href="#slot-image-and-iac-scan">Image and IaC scan</a></td></tr>
 <tr id="req-r3-4" data-req="R3.4"><td>R3.4</td><td>An isolated builder with no credentials, and a signer outside it.</td><td>Structural</td><td><a class="src" href="#slot-signing-and-admission">Signing and admission</a></td></tr>
 <tr id="req-r3-5" data-req="R3.5"><td>R3.5</td><td>Only the platform renderer writes the GitOps repository, from templates.</td><td>Structural</td><td></td></tr>
-<tr id="req-r3-6" data-req="R3.6"><td>R3.6</td><td>One GitOps project per app, pinned to its namespace, with no cluster-scoped resources.</td><td>Structural</td><td></td></tr>
+<tr id="req-r3-6" data-req="R3.6"><td>R3.6</td><td>One GitOps project per app, pinned to its namespace, with no cluster-scoped resources.</td><td>Structural</td><td><a class="src" href="#slot-gitops-controller">GitOps controller</a></td></tr>
 <tr id="req-r3-7" data-req="R3.7"><td>R3.7</td><td>Admission verifies image signatures.</td><td>Structural</td><td><a class="src" href="#slot-signing-and-admission">Signing and admission</a></td></tr>
 <tr id="req-r3-8" data-req="R3.8"><td>R3.8</td><td>An update requires owning the record.</td><td>Structural</td><td>None recorded</td></tr>
 <tr id="req-r3-9" data-req="R3.9"><td>R3.9</td><td>Strip .env, .git and local settings; refuse on a secret hit.</td><td>Structural</td><td><a class="src" href="#slot-secret-scan">Secret scan</a></td></tr>
+<tr id="req-r3-10" data-req="R3.10"><td>R3.10</td><td>A load-time check refuses a secret name written in the code that does not match &lt;root&gt;-&lt;name&gt;, and the workload identity is authorized to read only its own root&#x27;s secrets.</td><td>Structural</td><td><a class="src" href="#slot-secrets">Secrets</a></td></tr>
+<tr id="req-r3-11" data-req="R3.11"><td>R3.11</td><td>Secret values are write-only in the user interface, which holds only while the dashboard&#x27;s service writes with its own identity and nothing returns a stored value to the page.</td><td>Structural</td><td><a class="src" href="#slot-secrets">Secrets</a></td></tr>
 <tr id="req-r3-12" data-req="R3.12"><td>R3.12</td><td>A heuristic scan for code reaching other apps&#x27; secrets.</td><td>Policy</td><td><a class="src" href="#slot-secret-scan">Secret scan</a></td></tr>
-<tr id="req-r3-13" data-req="R3.13"><td>R3.13</td><td>A namespace per app, default-deny both ways, a separate node pool, and the metadata service blocked.</td><td>Structural</td><td></td></tr>
-<tr id="req-r3-14" data-req="R3.14"><td>R3.14</td><td>A workload identity per app, scoped to its storage prefix.</td><td>Structural</td><td></td></tr>
-<tr id="req-r3-15" data-req="R3.15"><td>R3.15</td><td>Egress only through the firewall, to hosts the manifest declares.</td><td>Structural</td><td></td></tr>
+<tr id="req-r3-13" data-req="R3.13"><td>R3.13</td><td>A namespace per app, default-deny both ways, a separate node pool, and the metadata service blocked.</td><td>Structural</td><td><a class="src" href="#slot-network-isolation-and-egress">Network isolation and egress</a></td></tr>
+<tr id="req-r3-14" data-req="R3.14"><td>R3.14</td><td>A workload identity per app, scoped to its storage prefix.</td><td>Structural</td><td><a class="src" href="#slot-per-app-workload-identity">Per-app workload identity</a></td></tr>
+<tr id="req-r3-15" data-req="R3.15"><td>R3.15</td><td>Egress only through the firewall, to hosts the manifest declares.</td><td>Structural</td><td><a class="src" href="#slot-network-isolation-and-egress">Network isolation and egress</a></td></tr>
 <tr id="req-r3-16" data-req="R3.16"><td>R3.16</td><td>The person&#x27;s bearer token is never forwarded to a published app.</td><td>Structural</td><td>None recorded</td></tr>
-<tr id="req-r3-18" data-req="R3.18"><td>R3.18</td><td>Check results are shown to the publisher without echoing secrets or naming other roots.</td><td>Structural</td><td></td></tr>
+<tr id="req-r3-18" data-req="R3.18"><td>R3.18</td><td>Check results are shown to the publisher without echoing secrets or naming other roots.</td><td>Structural</td><td><a class="src" href="#slot-dashboard-and-hub">Dashboard and hub</a></td></tr>
 </tbody></table></div>
 <h3 id="cap-r4">R4. Spec workspaces</h3>
 <div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
-<tr id="req-r4-1" data-req="R4.1"><td>R4.1</td><td>Template-built workspaces for editing spec, context and tests, and running tests concurrently; the same template serves unattended runs.</td><td></td><td><a class="src" href="#slot-spec-workspaces">Spec workspaces</a></td></tr>
+<tr id="req-r4-1" data-req="R4.1"><td>R4.1</td><td>Template-built workspaces for editing spec, context and tests, and running tests concurrently; the same template serves unattended runs.</td><td></td><td><a class="src" href="#slot-spec-workspaces">Spec workspaces</a>, <a class="src" href="#slot-agent-evaluation-and-tracing">Agent evaluation and tracing</a></td></tr>
 <tr id="req-r4-2" data-req="R4.2"><td>R4.2</td><td>Workspaces cannot reach app namespaces or storage, and hold no standing renderer, GitOps or MCP credential.</td><td>Structural</td><td><a class="src" href="#slot-spec-workspaces">Spec workspaces</a></td></tr>
 <tr id="req-r4-3" data-req="R4.3"><td>R4.3</td><td>Never open an uploaded folder with a live agent.</td><td>Policy</td><td>None recorded</td></tr>
 <tr id="req-r4-4" data-req="R4.4"><td>R4.4</td><td>A chat front end that exercises agents against the platform&#x27;s model path.</td><td></td><td><a class="src" href="#slot-chat-front-end-for-agent-testing">Chat front end for agent testing</a></td></tr>
@@ -77,46 +588,77 @@
 <h3 id="cap-r5">R5. Governed MCP</h3>
 <div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
 <tr id="req-r5-1" data-req="R5.1"><td>R5.1</td><td>The MCP is its own token audience, with no passthrough.</td><td>Structural</td><td><a class="src" href="#slot-mcp-server-framework">MCP server framework</a></td></tr>
+<tr id="req-r5-2" data-req="R5.2"><td>R5.2</td><td>An on-behalf-of exchange per downstream, where the downstream accepts one, so a data source sees the person.</td><td>Structural</td><td><a class="src" href="#slot-mcp-server-framework">MCP server framework</a></td></tr>
 <tr id="req-r5-3" data-req="R5.3"><td>R5.3</td><td>Reachable only through the proxy; per-tool decisions come from the access filter.</td><td>Structural</td><td><a class="src" href="#slot-mcp-server-framework">MCP server framework</a></td></tr>
+<tr id="req-r5-4" data-req="R5.4"><td>R5.4</td><td>Engineer-tier calls use the MCP&#x27;s own workload identity, scoped to invoking the named team, with the person as a signed claim; for those calls the access filter alone limits what the MCP does for that person.</td><td>Structural</td><td>None recorded</td></tr>
 <tr id="req-r5-5" data-req="R5.5"><td>R5.5</td><td>Agent-to-agent messages are signed by the tool layer (person, agent, audience, expiry, replay ID) and typed.</td><td>Structural</td><td><a class="src" href="#slot-agent-to-agent-messaging">Agent-to-agent messaging</a></td></tr>
 <tr id="req-r5-6" data-req="R5.6"><td>R5.6</td><td>No second resolver, made checkable with a two-caller test.</td><td>Policy</td><td>None recorded</td></tr>
 <tr id="req-r5-7" data-req="R5.7"><td>R5.7</td><td>The identity of unattended runs.</td><td>Open question</td><td>None recorded</td></tr>
+<tr id="req-r5-9" data-req="R5.9"><td>R5.9</td><td>Workspace apps also call the MCP, and one MCP request, internal or external, may cascade into several authenticated events.</td><td></td><td><a class="src" href="#slot-event-envelope">Event envelope</a></td></tr>
 </tbody></table></div>
 <h3 id="cap-r6">R6. Knowledge-base endpoint and other content areas</h3>
 <div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
 <tr id="req-r6-1" data-req="R6.1"><td>R6.1</td><td>The knowledge base is an MCP endpoint with its own resolver; the platform only routes.</td><td></td><td><a class="src" href="#slot-knowledge-base-endpoint">Knowledge-base endpoint</a></td></tr>
 <tr id="req-r6-2" data-req="R6.2"><td>R6.2</td><td>Other content areas plug in the same way (asserted, not shown).</td><td></td><td>None recorded</td></tr>
+<tr id="req-r6-3" data-req="R6.3"><td>R6.3</td><td>A metadata catalog is a candidate added endpoint, signaled when questions about data assets arrive unserved, and only if its access check resolves the caller as every other endpoint does.</td><td></td><td><a class="src" href="#slot-metadata-catalog-optional-endpoint">Metadata catalog (optional endpoint)</a></td></tr>
 </tbody></table></div>
 <h3 id="cap-r7">R7. Model path</h3>
 <div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
 <tr id="req-r7-1" data-req="R7.1"><td>R7.1</td><td>Native identity to the model endpoint; no stored provider keys.</td><td>Structural</td><td><a class="src" href="#slot-model-service">Model service</a></td></tr>
+<tr id="req-r7-2" data-req="R7.2"><td>R7.2</td><td>No cross-cloud model call (Foundry on Azure, Bedrock on AWS); the rule keeps the call in one cloud and does not say where processing happens.</td><td>Structural</td><td><a class="src" href="#slot-model-service">Model service</a></td></tr>
 <tr id="req-r7-3" data-req="R7.3"><td>R7.3</td><td>Egress uses the narrowest endpoint address or endpoint policy.</td><td>Structural</td><td>None recorded</td></tr>
 <tr id="req-r7-4" data-req="R7.4"><td>R7.4</td><td>The choice of model, platform, region, tier and retention per data class.</td><td>Policy</td><td>None recorded</td></tr>
 <tr id="req-r7-5" data-req="R7.5"><td>R7.5</td><td>A native gateway or a gateway product, decided by per-team budgets.</td><td>Policy</td><td><a class="src" href="#slot-model-gateway">Model gateway</a></td></tr>
 </tbody></table></div>
 <h3 id="cap-r8">R8. Network, landing zone and secrets</h3>
 <div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
-<tr id="req-r8-2" data-req="R8.2"><td>R8.2</td><td>One chain of model egress, a per-app egress allow-list, default-deny, and DNS through the firewall.</td><td>Structural</td><td></td></tr>
+<tr id="req-r8-1" data-req="R8.1"><td>R8.1</td><td>Data, the compute that runs untrusted output, and the path to production are kept apart.</td><td></td><td><a class="src" href="#slot-network-isolation-and-egress">Network isolation and egress</a></td></tr>
+<tr id="req-r8-2" data-req="R8.2"><td>R8.2</td><td>One chain of model egress, a per-app egress allow-list, default-deny, and DNS through the firewall.</td><td>Structural</td><td><a class="src" href="#slot-network-isolation-and-egress">Network isolation and egress</a></td></tr>
 <tr id="req-r8-3" data-req="R8.3"><td>R8.3</td><td>No long-lived secret in a workload&#x27;s environment.</td><td>Structural</td><td><a class="src" href="#slot-secrets">Secrets</a></td></tr>
 <tr id="req-r8-4" data-req="R8.4"><td>R8.4</td><td>Design rule: the cloud&#x27;s own service first, and a third party only where none exists.</td><td></td><td>None recorded</td></tr>
+<tr id="req-r8-7" data-req="R8.7"><td>R8.7</td><td>Where a service accepts the caller&#x27;s own identity, access is also authorized by that identity, so a destination the firewall admits still refuses a caller without the right.</td><td>Structural</td><td><a class="src" href="#slot-private-service-access">Private service access</a>, <a class="src" href="#slot-identity-based-access-at-the-service">Identity-based access at the service</a></td></tr>
+</tbody></table></div>
+<h3 id="cap-r9">R9. Fact and decision layer</h3>
+<div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r9-1" data-req="R9.1"><td>R9.1</td><td>Each Definition declares its sources: an external source or another Definition&#x27;s Facts. A source carries a contract stating its known defects and normalization rules, and a join that returns nothing is an error, not an empty result.</td><td></td><td><a class="src" href="#slot-fact-sources-and-lineage">Fact sources and lineage</a></td></tr>
+<tr id="req-r9-6" data-req="R9.6"><td>R9.6</td><td>When a named set of Facts holds for an anchor and a period, the declared Actions run.</td><td></td><td></td></tr>
+<tr id="req-r9-7" data-req="R9.7"><td>R9.7</td><td>An outcome is data (a new Fact) or an action (a tool call, agent task, workflow, work item or notification). Actions are versioned separately, and every Action run is recorded with who acted, under which identity, against which versions and with which context.</td><td></td><td><a class="src" href="#slot-actions-and-approval-stages">Actions and approval stages</a></td></tr>
+<tr id="req-r9-9" data-req="R9.9"><td>R9.9</td><td>Owners state sources, rule and outcome in plain language and an agent may draft the Definition. Before approval, a dry run replays recorded snapshots and shows which Facts and Actions would change, and the owner&#x27;s approval is the version record.</td><td></td><td><a class="src" href="#slot-definition-engine">Definition engine</a></td></tr>
+<tr id="req-r9-14" data-req="R9.14"><td>R9.14</td><td>Agents and teams subscribe to Fact events through the governed MCP and the message bus.</td><td></td><td><a class="src" href="#slot-triggers-and-event-delivery">Triggers and event delivery</a></td></tr>
+<tr id="req-r9-15" data-req="R9.15"><td>R9.15</td><td>A Fact is verified, contradicted or unverifiable, an unverifiable Fact is not carried forward, and a Fact derived from a modeled or agent-inferred source cannot satisfy a designated condition.</td><td></td><td></td></tr>
 </tbody></table></div>
 <h2 id="options">What can fill each part</h2>
+<h3 id="slot-identity-provider">Identity provider</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r1-1">R1.1</a>, <a class="src" href="#req-r1-14">R1.14</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O1"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra" title="learn.microsoft.com/en-us/entra/fundamentals/what-is-entra, read 2026-11-18" rel="noopener noreferrer">Entra ID (two enterprise apps)</a></td><td></td><td></td></tr>
+<tr data-option="O2"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html" title="docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html, read 2026-11-18" rel="noopener noreferrer">IAM Identity Center</a></td><td></td><td></td></tr>
+<tr data-option="O3"><td>Run it yourself</td><td><a class="src" href="../../products/dex/">Dex</a></td><td><a class="form-word" href="https://github.com/dexidp/dex/blob/8b89fe0ae9cc41ff2bd5ecdc82756d42cac53d21/README.md" title="github.com/dexidp/dex/blob/8b89fe0ae9cc41ff2bd5ecdc82756d42cac53d21/README.md, read 2026-11-18" rel="noopener noreferrer">A container environment you run</a></td><td>An OIDC broker, where there is more than one identity provider.</td></tr>
+</tbody></table></div>
 <h3 id="slot-front-door-proxy">Front-door proxy</h3>
-<p class="claim-src">Meets <a class="src" href="#req-r1-3">R1.3</a>, <a class="src" href="#req-r1-4">R1.4</a>, <a class="src" href="#req-r1-12">R1.12</a></p>
+<p class="claim-src">Meets <a class="src" href="#req-r1-1">R1.1</a>, <a class="src" href="#req-r1-3">R1.3</a>, <a class="src" href="#req-r1-4">R1.4</a>, <a class="src" href="#req-r1-12">R1.12</a></p>
 <div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
 <tr data-option="O6"><td>Run it yourself</td><td><a class="src" href="../../products/oauth2-proxy/">OAuth2 Proxy</a> <span class="claim-src">Reported in use</span></td><td><a class="form-word" href="https://oauth2-proxy.github.io/oauth2-proxy/installation" title="oauth2-proxy.github.io/oauth2-proxy/installation, read 2026-11-18" rel="noopener noreferrer">A container environment you run</a></td><td></td></tr>
 <tr data-option="O7"><td>Run it yourself</td><td><a class="src" href="../../products/pomerium/">Pomerium</a></td><td><a class="form-word" href="https://www.pomerium.com/docs/deploy/core" title="www.pomerium.com/docs/deploy/core, read 2026-11-18" rel="noopener noreferrer">A container environment you run</a></td><td></td></tr>
 <tr data-option="O8"><td>Hosted</td><td><a class="src" href="../../products/pomerium-zero/">Pomerium Zero</a></td><td><a class="form-word" href="https://www.pomerium.com/docs" title="www.pomerium.com/docs, read 2026-11-18" rel="noopener noreferrer">A container environment you run</a> and <a class="form-word" href="https://www.pomerium.com/docs" title="www.pomerium.com/docs, read 2026-11-18" rel="noopener noreferrer">a cloud service</a></td><td>A vendor-run control plane.</td></tr>
 </tbody></table></div>
 <h3 id="slot-access-filter-policy-decision-point">Access filter (policy decision point)</h3>
-<p class="claim-src">Meets <a class="src" href="#req-r1-5">R1.5</a>, <a class="src" href="#req-r1-6">R1.6</a>, <a class="src" href="#req-r1-8">R1.8</a>, <a class="src" href="#req-r1-9">R1.9</a>, <a class="src" href="#req-r2-2">R2.2</a></p>
+<p class="claim-src">Meets <a class="src" href="#req-r1-2">R1.2</a>, <a class="src" href="#req-r1-5">R1.5</a>, <a class="src" href="#req-r1-6">R1.6</a>, <a class="src" href="#req-r1-7">R1.7</a>, <a class="src" href="#req-r1-8">R1.8</a>, <a class="src" href="#req-r1-9">R1.9</a>, <a class="src" href="#req-r2-1">R2.1</a>, <a class="src" href="#req-r2-2">R2.2</a></p>
 <div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
 <tr data-option="O9"><td>Built by the organization</td><td>Access filter</td><td></td><td>No catalog product holds per-root access lists, reads JSON-RPC request bodies and trims tools/list.</td></tr>
 </tbody></table></div>
 <h3 id="slot-item-store-and-pages-host">Item store and pages host</h3>
-<p class="claim-src">Meets <a class="src" href="#req-r2-6">R2.6</a>, <a class="src" href="#req-r2-7">R2.7</a></p>
+<p class="claim-src">Meets <a class="src" href="#req-r2-5">R2.5</a>, <a class="src" href="#req-r2-6">R2.6</a>, <a class="src" href="#req-r2-7">R2.7</a></p>
 <div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O10"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction" title="learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction, read 2026-11-18" rel="noopener noreferrer">Blob Storage behind the proxy, on a separate domain</a></td><td></td><td></td></tr>
+<tr data-option="O11"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html" title="docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html, read 2026-11-18" rel="noopener noreferrer">S3 behind the proxy, on a separate domain</a></td><td></td><td></td></tr>
 <tr data-option="O12"><td>Built by the organization</td><td>Serving layer</td><td></td><td>The serving layer sets the content security policy and headers itself (R2.6); no product is recorded for it.</td></tr>
+</tbody></table></div>
+<h3 id="slot-dashboard-and-hub">Dashboard and hub</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r2-3">R2.3</a>, <a class="src" href="#req-r2-9">R2.9</a>, <a class="src" href="#req-r3-18">R3.18</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O13"><td>Run it yourself</td><td><a class="src" href="../../products/backstage/">Backstage</a></td><td><span title="Where the vendor&#x27;s pages say the product runs: no recorded vendor sentence says">Not stated</span></td><td>A looser fit: a framework for building a developer portal around a software catalog.</td></tr>
+<tr data-option="O14"><td>Built by the organization</td><td>Dashboard and hub <span class="claim-src">Reported in use</span></td><td></td><td>The dashboard is where owners change the access lists the publish service writes (R2.2, R2.3), and no catalog page read says a portal product does that.</td></tr>
 </tbody></table></div>
 <h3 id="slot-secret-scan">Secret scan</h3>
 <p class="claim-src">Meets <a class="src" href="#req-r3-9">R3.9</a>, <a class="src" href="#req-r3-12">R3.12</a></p>
@@ -124,17 +666,46 @@
 <tr data-option="O18"><td>Run it yourself</td><td><a class="src" href="../../products/gitleaks/">Gitleaks</a></td><td><span title="Where the vendor&#x27;s pages say the product runs: no recorded vendor sentence says">Not stated</span></td><td></td></tr>
 <tr data-option="O19"><td>Run it yourself</td><td><a class="src" href="../../products/semgrep/">Semgrep</a></td><td><a class="form-word" href="https://github.com/semgrep/semgrep/blob/cd3b439c36f43a299dffcd1e7544f6ce7ebb03cc/README.md" title="github.com/semgrep/semgrep/blob/cd3b439c36f43a299dffcd1e7544f6ce7ebb03cc/README…, read 2026-11-18" rel="noopener noreferrer">Your machine</a></td><td>Also custom rules for the heuristic scan for code reaching other apps&#x27; secrets.</td></tr>
 <tr data-option="O20"><td>Hosted</td><td><a class="src" href="../../products/semgrep-appsec-platform/">Semgrep AppSec Platform</a></td><td><span title="Where the vendor&#x27;s pages say the product runs: no recorded vendor sentence says">Not stated</span></td><td></td></tr>
+<tr data-option="O162"><td>Hosted</td><td><a class="src" href="../../products/github-secret-protection-github-advanced-security/">GitHub Secret Protection (GitHub Advanced Security)</a></td><td><span title="Where the vendor&#x27;s pages say the product runs: no recorded vendor sentence says">Not stated</span></td><td>Secret scanning and push protection on the app repository. Secret scanning on private and internal repositories an organization owns needs GitHub Secret Protection on a Team or Enterprise Cloud plan, and push protection for repositories needs Secret Protection enabled.</td></tr>
 <tr data-option="O21"><td>Built by the organization</td><td>Secret name check</td><td></td><td>Secret names are &lt;root&gt;-&lt;name&gt; and a mismatch is refused at load (R3.10); no product is recorded for the check.</td></tr>
+</tbody></table></div>
+<h3 id="slot-image-and-iac-scan">Image and IaC scan</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r3-3">R3.3</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O22"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction" title="learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-intr…, read 2026-11-18" rel="noopener noreferrer">Defender for Containers</a></td><td></td><td></td></tr>
+<tr data-option="O24"><td>Run it yourself</td><td><a class="src" href="../../products/trivy/">Trivy</a></td><td><span title="Where the vendor&#x27;s pages say the product runs: no recorded vendor sentence says">Not stated</span></td><td></td></tr>
 </tbody></table></div>
 <h3 id="slot-signing-and-admission">Signing and admission</h3>
 <p class="claim-src">Meets <a class="src" href="#req-r3-4">R3.4</a>, <a class="src" href="#req-r3-7">R3.7</a></p>
 <div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O26"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/azure/aks/image-integrity" title="learn.microsoft.com/en-us/azure/aks/image-integrity, read 2026-11-18" rel="noopener noreferrer">Notation and Ratify, or AKS image integrity</a></td><td></td><td>The page marks Image Integrity as Preview.</td></tr>
+<tr data-option="O27"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html" title="docs.aws.amazon.com/signer/latest/developerguide/Welcome.html, read 2026-11-18" rel="noopener noreferrer">AWS Signer (signing only; admission is a separate policy)</a></td><td></td><td></td></tr>
 <tr data-option="O28"><td>Built by the organization</td><td>Signer service</td><td></td><td>The signer sits outside the isolated builder (R3.4); the catalog has no signing or admission product.</td></tr>
 </tbody></table></div>
-<h3 id="slot-secrets">Secrets</h3>
-<p class="claim-src">Meets <a class="src" href="#req-r8-3">R8.3</a></p>
+<h3 id="slot-gitops-controller">GitOps controller</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r3-6">R3.6</a></p>
 <div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O29"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2" title="learn.microsoft.com/en-us/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2, read 2026-11-18" rel="noopener noreferrer">Flux (AKS extension)</a></td><td></td><td></td></tr>
+<tr data-option="O30"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/eks/latest/userguide/argocd.html" title="docs.aws.amazon.com/eks/latest/userguide/argocd.html, read 2026-11-18" rel="noopener noreferrer">EKS managed Argo CD</a></td><td></td><td></td></tr>
+<tr data-option="O31"><td>Run it yourself</td><td><a class="src" href="../../products/argo-cd/">Argo CD</a> <span class="claim-src">Reported in use</span></td><td><a class="form-word" href="https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/" title="argo-cd.readthedocs.io/en/stable/operator-manual/installation, read 2026-11-18" rel="noopener noreferrer">A container environment you run</a></td><td></td></tr>
+<tr data-option="O32"><td>Run it yourself</td><td><a class="src" href="../../products/flux/">Flux</a></td><td><a class="form-word" href="https://fluxcd.io/flux/installation/" title="fluxcd.io/flux/installation, read 2026-11-18" rel="noopener noreferrer">A container environment you run</a></td><td></td></tr>
+</tbody></table></div>
+<h3 id="slot-secrets">Secrets</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r3-10">R3.10</a>, <a class="src" href="#req-r3-11">R3.11</a>, <a class="src" href="#req-r8-3">R8.3</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O34"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_iam-policies.html" title="docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_iam-policie…, read 2026-11-18" rel="noopener noreferrer">Secrets Manager (a &lt;root&gt;-* prefix policy)</a></td><td></td><td></td></tr>
 <tr data-option="O36"><td>Built by the organization</td><td>Write-only secret entry</td><td></td><td>Secret values are write-only in the user interface (R3.11); no product is recorded for that screen.</td></tr>
+</tbody></table></div>
+<h3 id="slot-per-app-workload-identity">Per-app workload identity</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r3-14">R3.14</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O38"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-identities.html" title="docs.aws.amazon.com/eks/latest/userguide/pod-identities.html, read 2026-11-18" rel="noopener noreferrer">EKS Pod Identity</a></td><td></td><td></td></tr>
+</tbody></table></div>
+<h3 id="slot-network-isolation-and-egress">Network isolation and egress</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r3-13">R3.13</a>, <a class="src" href="#req-r3-15">R3.15</a>, <a class="src" href="#req-r8-1">R8.1</a>, <a class="src" href="#req-r8-2">R8.2</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O39"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/azure/aks/limit-egress-traffic" title="learn.microsoft.com/en-us/azure/aks/limit-egress-traffic, read 2026-11-18" rel="noopener noreferrer">Azure Firewall, NSGs and AKS network policy</a></td><td></td><td></td></tr>
+<tr data-option="O40"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html" title="docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-…, read 2026-11-18" rel="noopener noreferrer">Network Firewall, security groups and VPC CNI policy</a></td><td></td><td></td></tr>
 </tbody></table></div>
 <h3 id="slot-spec-workspaces">Spec workspaces</h3>
 <p class="claim-src">Meets <a class="src" href="#req-r4-1">R4.1</a>, <a class="src" href="#req-r4-2">R4.2</a></p>
@@ -148,8 +719,14 @@
 <tr data-option="O46"><td>Run it yourself</td><td><a class="src" href="../../products/librechat/">LibreChat</a> <span class="claim-src">Reported in use</span></td><td><a class="form-word" href="https://www.librechat.ai/docs/local/docker" title="www.librechat.ai/docs/local/docker, read 2026-10-24" rel="noopener noreferrer">A container environment you run</a></td><td></td></tr>
 <tr data-option="O47"><td>Run it yourself</td><td><a class="src" href="../../products/open-webui/">Open WebUI</a></td><td><a class="form-word" href="https://github.com/open-webui/open-webui" title="github.com/open-webui/open-webui, read 2026-10-24" rel="noopener noreferrer">A container environment you run</a></td><td></td></tr>
 </tbody></table></div>
+<h3 id="slot-agent-evaluation-and-tracing">Agent evaluation and tracing</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r4-1">R4.1</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O48"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/azure/foundry/concepts/observability" title="learn.microsoft.com/en-us/azure/foundry/concepts/observability, read 2026-11-18" rel="noopener noreferrer">Foundry evaluations</a></td><td></td><td></td></tr>
+<tr data-option="O51"><td>Run it yourself</td><td><a class="src" href="../../products/promptfoo/">promptfoo</a></td><td><a class="form-word" href="https://github.com/promptfoo/promptfoo" title="github.com/promptfoo/promptfoo, read 2026-10-24" rel="noopener noreferrer">Your machine</a></td><td></td></tr>
+</tbody></table></div>
 <h3 id="slot-mcp-server-framework">MCP server framework</h3>
-<p class="claim-src">Meets <a class="src" href="#req-r5-1">R5.1</a>, <a class="src" href="#req-r5-3">R5.3</a></p>
+<p class="claim-src">Meets <a class="src" href="#req-r5-1">R5.1</a>, <a class="src" href="#req-r5-2">R5.2</a>, <a class="src" href="#req-r5-3">R5.3</a></p>
 <div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
 <tr data-option="O57"><td>Run it yourself</td><td><a class="src" href="../../products/fastmcp/">FastMCP</a> <span class="claim-src">Reported in use</span></td><td><a class="form-word" href="https://gofastmcp.com/docs/deployment/running-server" title="gofastmcp.com/docs/deployment/running-server, read 2026-11-18" rel="noopener noreferrer">Your machine</a></td><td></td></tr>
 <tr data-option="O58"><td>Hosted</td><td><a class="src" href="../../products/fastmcp-gateway/">FastMCP Gateway</a></td><td><a class="form-word" href="https://gofastmcp.com/docs/deployment/fastmcp-gateway" title="gofastmcp.com/docs/deployment/fastmcp-gateway, read 2026-11-18" rel="noopener noreferrer">A cloud service</a></td><td></td></tr>
@@ -158,6 +735,8 @@
 <h3 id="slot-agent-to-agent-messaging">Agent-to-agent messaging</h3>
 <p class="claim-src">Meets <a class="src" href="#req-r5-5">R5.5</a></p>
 <div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O63"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview" title="learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-ove…, read 2026-11-18" rel="noopener noreferrer">Service Bus</a> <span class="claim-src">Reported in use</span></td><td></td><td></td></tr>
+<tr data-option="O64"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html" title="docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html, read 2026-11-18" rel="noopener noreferrer">SQS and SNS</a></td><td></td><td></td></tr>
 <tr data-option="O66"><td>Built by the organization</td><td>Message signer</td><td></td><td>Messages are signed by the tool layer (R5.5); no product is recorded that signs them.</td></tr>
 </tbody></table></div>
 <h3 id="slot-knowledge-base-endpoint">Knowledge-base endpoint</h3>
@@ -167,9 +746,16 @@
 <tr data-option="O72"><td>Run it yourself</td><td><a class="src" href="../../products/graphify-cli/">Graphify CLI</a></td><td><a class="form-word" href="https://docs.graphify.com/platform/graphify-vs-local.md" title="docs.graphify.com/platform/graphify-vs-local.md, read 2026-11-17" rel="noopener noreferrer">Your machine</a> and <a class="form-word" href="https://docs.graphify.com/open-source/self-host.md" title="docs.graphify.com/open-source/self-host.md, read 2026-11-17" rel="noopener noreferrer">a container environment you run</a></td><td>A code graph.</td></tr>
 <tr data-option="O75"><td>Built by the organization</td><td>Resolver</td><td></td><td>The knowledge-base endpoint has its own resolver (R6.1).</td></tr>
 </tbody></table></div>
-<h3 id="slot-model-service">Model service</h3>
-<p class="claim-src">Meets <a class="src" href="#req-r7-1">R7.1</a></p>
+<h3 id="slot-metadata-catalog-optional-endpoint">Metadata catalog (optional endpoint)</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r6-3">R6.3</a></p>
 <div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O77"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html" title="docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html, read 2026-11-18" rel="noopener noreferrer">DataZone or Glue Data Catalog</a></td><td></td><td></td></tr>
+</tbody></table></div>
+<h3 id="slot-model-service">Model service</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r7-1">R7.1</a>, <a class="src" href="#req-r7-2">R7.2</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O80"><td>Native, Azure</td><td><a class="src" href="../../products/azure-ai-foundry-azure-openai/">Microsoft Foundry</a></td><td><a class="form-word" href="https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/claude-models/data-privacy" title="learn.microsoft.com/en-us/azure/foundry/responsible-ai/claude-models/data-priva…, read 2026-11-18" rel="noopener noreferrer">A cloud service</a></td><td>Claude has two hosting options here.</td></tr>
+<tr data-option="O81"><td>Native, AWS</td><td><a class="src" href="../../products/aws-bedrock/">Amazon Bedrock</a></td><td><a class="form-word" href="https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html" title="docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html, read 2026-11-18; docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html, read 2026-11-18" rel="noopener noreferrer">A cloud service</a></td><td></td></tr>
 <tr data-option="O82"><td>Run it yourself</td><td><a class="src" href="../../products/vllm/">vLLM</a></td><td><a class="form-word" href="https://docs.vllm.ai/en/latest/deployment/docker/" title="docs.vllm.ai/en/latest/deployment/docker, read 2026-10-24" rel="noopener noreferrer">A container environment you run</a></td><td>Local models.</td></tr>
 <tr data-option="O83"><td>Run it yourself</td><td><a class="src" href="../../products/ollama-app-and-cloud-models/">Ollama (app and cloud models)</a></td><td><a class="form-word" href="https://docs.ollama.com/" title="docs.ollama.com, read 2026-10-24" rel="noopener noreferrer">Your machine</a> and <a class="form-word" href="https://github.com/ollama/ollama" title="github.com/ollama/ollama, read 2026-10-24" rel="noopener noreferrer">a container environment you run</a></td><td>Local models.</td></tr>
 </tbody></table></div>
@@ -178,14 +764,57 @@
 <div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
 <tr data-option="O87"><td>Run it yourself</td><td><a class="src" href="../../products/litellm/">LiteLLM</a></td><td><a class="form-word" href="https://docs.litellm.ai/docs/" title="docs.litellm.ai/docs, read 2026-10-26" rel="noopener noreferrer">Your machine</a> and <a class="form-word" href="https://github.com/BerriAI/litellm" title="github.com/BerriAI/litellm, read 2026-10-24; docs.litellm.ai/docs, read 2026-10-26" rel="noopener noreferrer">a container environment you run</a></td><td></td></tr>
 </tbody></table></div>
+<h3 id="slot-fact-sources-and-lineage">Fact sources and lineage</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r9-1">R9.1</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O113"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/datazone/latest/userguide/datazone-data-lineage.html" title="docs.aws.amazon.com/datazone/latest/userguide/datazone-data-lineage.html, read 2026-11-18" rel="noopener noreferrer">Amazon DataZone or the Glue Data Catalog</a></td><td></td><td></td></tr>
+</tbody></table></div>
+<h3 id="slot-triggers-and-event-delivery">Triggers and event delivery</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r9-14">R9.14</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O114"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/azure/event-grid/overview" title="learn.microsoft.com/en-us/azure/event-grid/overview, read 2026-11-18" rel="noopener noreferrer">Event Grid and Service Bus</a></td><td></td><td></td></tr>
+<tr data-option="O115"><td>Hosted</td><td><a class="src" href="../../products/amazon-eventbridge/">Amazon EventBridge</a></td><td><a class="form-word" href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html" title="docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html, read 2026-11-18" rel="noopener noreferrer">A cloud service</a></td><td></td></tr>
+</tbody></table></div>
+<h3 id="slot-actions-and-approval-stages">Actions and approval stages</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r9-7">R9.7</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O119"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview" title="learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview, read 2026-11-18" rel="noopener noreferrer">Logic Apps (manual review steps)</a></td><td></td><td></td></tr>
+<tr data-option="O120"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html" title="docs.aws.amazon.com/step-functions/latest/dg/welcome.html, read 2026-11-18" rel="noopener noreferrer">Step Functions</a></td><td></td><td></td></tr>
+</tbody></table></div>
+<h3 id="slot-definition-engine">Definition engine</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r9-9">R9.9</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O125"><td>Built by the organization</td><td>Definition-authoring agent team</td><td></td><td>Owners state the rule in plain language and an agent may draft the Definition for their approval (R9.9).</td></tr>
+</tbody></table></div>
+<h3 id="slot-private-service-access">Private service access</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r8-7">R8.7</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O135"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/azure/foundry/how-to/configure-private-link" title="learn.microsoft.com/en-us/azure/foundry/how-to/configure-private-link, read 2026-11-18" rel="noopener noreferrer">Private endpoints (Private Link) for the model service, storage and Key Vault</a></td><td></td><td></td></tr>
+<tr data-option="O136"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/usingVPC.html" title="docs.aws.amazon.com/bedrock/latest/userguide/usingVPC.html, read 2026-11-18" rel="noopener noreferrer">VPC interface endpoints (PrivateLink) for Bedrock, S3 and Secrets Manager</a></td><td></td><td></td></tr>
+</tbody></table></div>
+<h3 id="slot-identity-based-access-at-the-service">Identity-based access at the service</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r8-7">R8.7</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O137"><td>Native, Azure</td><td><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/authorize-access-azure-active-directory" title="learn.microsoft.com/en-us/azure/storage/blobs/authorize-access-azure-active-dir…, read 2026-11-18" rel="noopener noreferrer">Microsoft Entra authorization on the service itself (Azure RBAC on Storage, Key Vault and Foundry)</a></td><td></td><td></td></tr>
+<tr data-option="O138"><td>Native, AWS</td><td><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/security-iam.html" title="docs.aws.amazon.com/bedrock/latest/userguide/security-iam.html, read 2026-11-18" rel="noopener noreferrer">IAM authorization on the service itself (IAM policies on Bedrock, S3 and Secrets Manager)</a></td><td></td><td></td></tr>
+</tbody></table></div>
+<h3 id="slot-event-envelope">Event envelope</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r5-9">R5.9</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O156"><td>Built by the organization</td><td>Envelope carried through the MCP <span class="claim-src">Reported in use</span></td><td></td><td>The reported build created an envelope that passed through the MCP while its message traveled on the service bus; no catalog product is recorded for it.</td></tr>
+</tbody></table></div>
 </div>
 <div class="small-print pattern-notes">
 <p>A requirement or option no second reader has read, a cloud service with no recorded source, and a catalog product whose page carries no line a second reader has read are held back from this page until they have one.</p>
-<p>&quot;Reported in use&quot; marks an option one build used, as that build was reported to us. The report is testimony: we did not observe the build, and the page names no organization or person.</p>
-<p>Each product links its catalog page, which carries the readings behind it. This page adds no reading of its own about any product.</p>
+<p>&quot;Reported in use&quot; marks an option one build used, as that build was reported to us. The report is testimony: we did not observe the build, and the page names no organization or person. The requirements, their numbers and their classes are our reasoning from that report and from vendors&#x27; pages; nobody here built, ran or attacked the platform.</p>
+<p>Each product links its catalog page, which carries the readings behind it. A short note beside a product is this page&#x27;s own wording of how it fits that part, not the vendor&#x27;s.</p>
 <dl><dt>Structural</dt><dd>enforced outside the actor it constrains.</dd><dt>Policy</dt><dd>holds only while someone follows it.</dd><dt>Detective</dt><dd>finds a breach after it happens.</dd><dt>Open question</dt><dd>the requirement&#x27;s own source leaves it undecided.</dd><dt>Native</dt><dd>the cloud&#x27;s own service, named as the cloud names it, with the page it rests on.</dd><dt>Run it yourself</dt><dd>a catalog product you run in your own environment.</dd><dt>Hosted</dt><dd>a catalog product its vendor runs for you.</dd><dt>Built by the organization</dt><dd>a part no product fills, with the reason.</dd><dt>Runs on</dt><dd>the product page&#x27;s own fact, shown only where that page shows it.</dd></dl>
 </div>
 <p class="written">Rendered 2026-11-18</p>
+<h2>Attribution</h2>
+<div class="attribution">
+<p>Some lines here restate, in the catalog's own words, pages licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer">Creative Commons Attribution 4.0 International</a>: MicrosoftDocs/azure-ai-docs (license stated on <span data-host="learn.microsoft.com"><a href="https://github.com/MicrosoftDocs/azure-ai-docs" title="github.com/MicrosoftDocs/azure-ai-docs" rel="noopener noreferrer">this github.com page</a>, read 2026-09-25</span>). Some lines here restate, in the catalog's own words, pages licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International</a>: docs.aws.amazon.com (license stated on <span data-host="docs.aws.amazon.com"><a href="https://aws.amazon.com/terms/" title="aws.amazon.com/terms" rel="noopener noreferrer">this aws.amazon.com page</a>, read 2026-09-26</span>). Our lines that summarize those pages are changed from the originals and are offered under Creative Commons Attribution-ShareAlike 4.0 International, not under the catalog's own license. Each license applies as its page states it. Our lines are summaries, not the publishers' text, and the publishers do not endorse them.</p>
+</div>
 <div class="foot">
 <p class="linkrow"><a class="src" href="../../terms/">Terms</a><span class="sep">&middot;</span><a class="src" href="../../index.html">Catalog home</a></p>
 <p>Our reading of vendors' pages, as of the dates shown. Confirm on the vendor's page before relying on any line that cites it. To report an error write to <a class="src" href="mailto:report@crinaro.ai">report@crinaro.ai</a> <!-- privacy-ok: public business address, not a personal one --></p>
