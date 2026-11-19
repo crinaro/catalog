@@ -27,7 +27,157 @@
 <p class="standfirst">A reference pattern for a governed engineering platform: the requirements it has to meet, numbered, and for each part of the platform the cloud services, catalog products and parts built in-house that can fill it.</p>
 <p>Use this page to look things up. A list of requirements says what a platform has to do; it does not say how to build one, in what order, or whether to.</p>
 <div class="pattern">
-<p>Nothing on this page has had its second read. Each requirement and option appears here once someone other than its writer has read it.</p>
+<h2 id="requirements">The requirements</h2>
+<h3 id="cap-r1">R1. Identity and one access decision</h3>
+<div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r1-3" data-req="R1.3"><td>R1.3</td><td>It fails closed: if the filter, the list store or token validation is down, the request is refused.</td><td>Structural</td><td><a class="src" href="#slot-front-door-proxy">Front-door proxy</a></td></tr>
+<tr id="req-r1-4" data-req="R1.4"><td>R1.4</td><td>It is the only path in: network policy admits traffic only from the proxy.</td><td>Structural</td><td><a class="src" href="#slot-front-door-proxy">Front-door proxy</a></td></tr>
+<tr id="req-r1-5" data-req="R1.5"><td>R1.5</td><td>For the MCP it reads the tools/call body, trims tools/list, and denies by default.</td><td>Structural</td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
+<tr id="req-r1-6" data-req="R1.6"><td>R1.6</td><td>Allow-lists only, no deny rules.</td><td>Structural</td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
+<tr id="req-r1-8" data-req="R1.8"><td>R1.8</td><td>Users are matched by object ID and groups by ID, with names kept for display.</td><td>Structural</td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
+<tr id="req-r1-9" data-req="R1.9"><td>R1.9</td><td>MCP tool entitlements are app roles, not groups.</td><td>Structural</td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
+<tr id="req-r1-10" data-req="R1.10"><td>R1.10</td><td>Session groups are reconciled against the directory.</td><td>Detective</td><td>None recorded</td></tr>
+<tr id="req-r1-11" data-req="R1.11"><td>R1.11</td><td>Maximum decision and session lifetimes, which set the revocation delay.</td><td>Policy</td><td>None recorded</td></tr>
+<tr id="req-r1-12" data-req="R1.12"><td>R1.12</td><td>The proxy is pinned to a release with a named owner, and has no routes that skip authentication.</td><td>Policy</td><td><a class="src" href="#slot-front-door-proxy">Front-door proxy</a></td></tr>
+<tr id="req-r1-13" data-req="R1.13"><td>R1.13</td><td>Directory-read consent for the people and group picker is recorded.</td><td>Policy</td><td>None recorded</td></tr>
+</tbody></table></div>
+<h3 id="cap-r2">R2. Per-item publishing</h3>
+<div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r2-2" data-req="R2.2"><td>R2.2</td><td>Only the publish service writes access lists, only owners and co-owners can change them, and every change is logged.</td><td>Structural</td><td><a class="src" href="#slot-access-filter-policy-decision-point">Access filter (policy decision point)</a></td></tr>
+<tr id="req-r2-3" data-req="R2.3"><td>R2.3</td><td>Adding a co-owner, widening an audience, or making an item public returns pending plus step-up.</td><td>Structural</td><td></td></tr>
+<tr id="req-r2-4" data-req="R2.4"><td>R2.4</td><td>Public is refused by default and needs a second approver.</td><td>Structural</td><td>None recorded</td></tr>
+<tr id="req-r2-6" data-req="R2.6"><td>R2.6</td><td>The serving layer, not the author, sets the content security policy and headers.</td><td>Structural</td><td><a class="src" href="#slot-item-store-and-pages-host">Item store and pages host</a></td></tr>
+<tr id="req-r2-7" data-req="R2.7"><td>R2.7</td><td>No presigned or SAS links for scoped access.</td><td>Structural</td><td><a class="src" href="#slot-item-store-and-pages-host">Item store and pages host</a></td></tr>
+<tr id="req-r2-8" data-req="R2.8"><td>R2.8</td><td>An owner fallback when the last owner leaves.</td><td>Policy</td><td>None recorded</td></tr>
+<tr id="req-r2-9" data-req="R2.9"><td>R2.9</td><td>A hub view of what is running and who published what, as a query over the item records.</td><td></td><td></td></tr>
+</tbody></table></div>
+<h3 id="cap-r3">R3. Apps, from a folder to a running app</h3>
+<div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r3-2" data-req="R3.2"><td>R3.2</td><td>Two repositories, user code with no secrets and GitOps; the uploader&#x27;s identity cannot deploy or edit workflows.</td><td>Structural</td><td></td></tr>
+<tr id="req-r3-4" data-req="R3.4"><td>R3.4</td><td>An isolated builder with no credentials, and a signer outside it.</td><td>Structural</td><td><a class="src" href="#slot-signing-and-admission">Signing and admission</a></td></tr>
+<tr id="req-r3-5" data-req="R3.5"><td>R3.5</td><td>Only the platform renderer writes the GitOps repository, from templates.</td><td>Structural</td><td></td></tr>
+<tr id="req-r3-6" data-req="R3.6"><td>R3.6</td><td>One GitOps project per app, pinned to its namespace, with no cluster-scoped resources.</td><td>Structural</td><td></td></tr>
+<tr id="req-r3-7" data-req="R3.7"><td>R3.7</td><td>Admission verifies image signatures.</td><td>Structural</td><td><a class="src" href="#slot-signing-and-admission">Signing and admission</a></td></tr>
+<tr id="req-r3-8" data-req="R3.8"><td>R3.8</td><td>An update requires owning the record.</td><td>Structural</td><td>None recorded</td></tr>
+<tr id="req-r3-9" data-req="R3.9"><td>R3.9</td><td>Strip .env, .git and local settings; refuse on a secret hit.</td><td>Structural</td><td><a class="src" href="#slot-secret-scan">Secret scan</a></td></tr>
+<tr id="req-r3-12" data-req="R3.12"><td>R3.12</td><td>A heuristic scan for code reaching other apps&#x27; secrets.</td><td>Policy</td><td><a class="src" href="#slot-secret-scan">Secret scan</a></td></tr>
+<tr id="req-r3-13" data-req="R3.13"><td>R3.13</td><td>A namespace per app, default-deny both ways, a separate node pool, and the metadata service blocked.</td><td>Structural</td><td></td></tr>
+<tr id="req-r3-14" data-req="R3.14"><td>R3.14</td><td>A workload identity per app, scoped to its storage prefix.</td><td>Structural</td><td></td></tr>
+<tr id="req-r3-15" data-req="R3.15"><td>R3.15</td><td>Egress only through the firewall, to hosts the manifest declares.</td><td>Structural</td><td></td></tr>
+<tr id="req-r3-16" data-req="R3.16"><td>R3.16</td><td>The person&#x27;s bearer token is never forwarded to a published app.</td><td>Structural</td><td>None recorded</td></tr>
+<tr id="req-r3-18" data-req="R3.18"><td>R3.18</td><td>Check results are shown to the publisher without echoing secrets or naming other roots.</td><td>Structural</td><td></td></tr>
+</tbody></table></div>
+<h3 id="cap-r4">R4. Spec workspaces</h3>
+<div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r4-1" data-req="R4.1"><td>R4.1</td><td>Template-built workspaces for editing spec, context and tests, and running tests concurrently; the same template serves unattended runs.</td><td></td><td><a class="src" href="#slot-spec-workspaces">Spec workspaces</a></td></tr>
+<tr id="req-r4-2" data-req="R4.2"><td>R4.2</td><td>Workspaces cannot reach app namespaces or storage, and hold no standing renderer, GitOps or MCP credential.</td><td>Structural</td><td><a class="src" href="#slot-spec-workspaces">Spec workspaces</a></td></tr>
+<tr id="req-r4-3" data-req="R4.3"><td>R4.3</td><td>Never open an uploaded folder with a live agent.</td><td>Policy</td><td>None recorded</td></tr>
+<tr id="req-r4-4" data-req="R4.4"><td>R4.4</td><td>A chat front end that exercises agents against the platform&#x27;s model path.</td><td></td><td><a class="src" href="#slot-chat-front-end-for-agent-testing">Chat front end for agent testing</a></td></tr>
+</tbody></table></div>
+<h3 id="cap-r5">R5. Governed MCP</h3>
+<div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r5-1" data-req="R5.1"><td>R5.1</td><td>The MCP is its own token audience, with no passthrough.</td><td>Structural</td><td><a class="src" href="#slot-mcp-server-framework">MCP server framework</a></td></tr>
+<tr id="req-r5-3" data-req="R5.3"><td>R5.3</td><td>Reachable only through the proxy; per-tool decisions come from the access filter.</td><td>Structural</td><td><a class="src" href="#slot-mcp-server-framework">MCP server framework</a></td></tr>
+<tr id="req-r5-5" data-req="R5.5"><td>R5.5</td><td>Agent-to-agent messages are signed by the tool layer (person, agent, audience, expiry, replay ID) and typed.</td><td>Structural</td><td><a class="src" href="#slot-agent-to-agent-messaging">Agent-to-agent messaging</a></td></tr>
+<tr id="req-r5-6" data-req="R5.6"><td>R5.6</td><td>No second resolver, made checkable with a two-caller test.</td><td>Policy</td><td>None recorded</td></tr>
+<tr id="req-r5-7" data-req="R5.7"><td>R5.7</td><td>The identity of unattended runs.</td><td>Open question</td><td>None recorded</td></tr>
+</tbody></table></div>
+<h3 id="cap-r6">R6. Knowledge-base endpoint and other content areas</h3>
+<div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r6-1" data-req="R6.1"><td>R6.1</td><td>The knowledge base is an MCP endpoint with its own resolver; the platform only routes.</td><td></td><td><a class="src" href="#slot-knowledge-base-endpoint">Knowledge-base endpoint</a></td></tr>
+<tr id="req-r6-2" data-req="R6.2"><td>R6.2</td><td>Other content areas plug in the same way (asserted, not shown).</td><td></td><td>None recorded</td></tr>
+</tbody></table></div>
+<h3 id="cap-r7">R7. Model path</h3>
+<div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r7-1" data-req="R7.1"><td>R7.1</td><td>Native identity to the model endpoint; no stored provider keys.</td><td>Structural</td><td><a class="src" href="#slot-model-service">Model service</a></td></tr>
+<tr id="req-r7-3" data-req="R7.3"><td>R7.3</td><td>Egress uses the narrowest endpoint address or endpoint policy.</td><td>Structural</td><td>None recorded</td></tr>
+<tr id="req-r7-4" data-req="R7.4"><td>R7.4</td><td>The choice of model, platform, region, tier and retention per data class.</td><td>Policy</td><td>None recorded</td></tr>
+<tr id="req-r7-5" data-req="R7.5"><td>R7.5</td><td>A native gateway or a gateway product, decided by per-team budgets.</td><td>Policy</td><td><a class="src" href="#slot-model-gateway">Model gateway</a></td></tr>
+</tbody></table></div>
+<h3 id="cap-r8">R8. Network, landing zone and secrets</h3>
+<div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r8-2" data-req="R8.2"><td>R8.2</td><td>One chain of model egress, a per-app egress allow-list, default-deny, and DNS through the firewall.</td><td>Structural</td><td></td></tr>
+<tr id="req-r8-3" data-req="R8.3"><td>R8.3</td><td>No long-lived secret in a workload&#x27;s environment.</td><td>Structural</td><td><a class="src" href="#slot-secrets">Secrets</a></td></tr>
+<tr id="req-r8-4" data-req="R8.4"><td>R8.4</td><td>Design rule: the cloud&#x27;s own service first, and a third party only where none exists.</td><td></td><td>None recorded</td></tr>
+</tbody></table></div>
+<h2 id="options">What can fill each part</h2>
+<h3 id="slot-front-door-proxy">Front-door proxy</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r1-3">R1.3</a>, <a class="src" href="#req-r1-4">R1.4</a>, <a class="src" href="#req-r1-12">R1.12</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O6"><td>Run it yourself</td><td><a class="src" href="../../products/oauth2-proxy/">OAuth2 Proxy</a> <span class="claim-src">Reported in use</span></td><td><a class="form-word" href="https://oauth2-proxy.github.io/oauth2-proxy/installation" title="oauth2-proxy.github.io/oauth2-proxy/installation, read 2026-11-18" rel="noopener noreferrer">A container environment you run</a></td><td></td></tr>
+<tr data-option="O7"><td>Run it yourself</td><td><a class="src" href="../../products/pomerium/">Pomerium</a></td><td><a class="form-word" href="https://www.pomerium.com/docs/deploy/core" title="www.pomerium.com/docs/deploy/core, read 2026-11-18" rel="noopener noreferrer">A container environment you run</a></td><td></td></tr>
+<tr data-option="O8"><td>Hosted</td><td><a class="src" href="../../products/pomerium-zero/">Pomerium Zero</a></td><td><a class="form-word" href="https://www.pomerium.com/docs" title="www.pomerium.com/docs, read 2026-11-18" rel="noopener noreferrer">A container environment you run</a> and <a class="form-word" href="https://www.pomerium.com/docs" title="www.pomerium.com/docs, read 2026-11-18" rel="noopener noreferrer">a cloud service</a></td><td>A vendor-run control plane.</td></tr>
+</tbody></table></div>
+<h3 id="slot-access-filter-policy-decision-point">Access filter (policy decision point)</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r1-5">R1.5</a>, <a class="src" href="#req-r1-6">R1.6</a>, <a class="src" href="#req-r1-8">R1.8</a>, <a class="src" href="#req-r1-9">R1.9</a>, <a class="src" href="#req-r2-2">R2.2</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O9"><td>Built by the organization</td><td>Access filter</td><td></td><td>No catalog product holds per-root access lists, reads JSON-RPC request bodies and trims tools/list.</td></tr>
+</tbody></table></div>
+<h3 id="slot-item-store-and-pages-host">Item store and pages host</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r2-6">R2.6</a>, <a class="src" href="#req-r2-7">R2.7</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O12"><td>Built by the organization</td><td>Serving layer</td><td></td><td>The serving layer sets the content security policy and headers itself (R2.6); no product is recorded for it.</td></tr>
+</tbody></table></div>
+<h3 id="slot-secret-scan">Secret scan</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r3-9">R3.9</a>, <a class="src" href="#req-r3-12">R3.12</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O18"><td>Run it yourself</td><td><a class="src" href="../../products/gitleaks/">Gitleaks</a></td><td><span title="Where the vendor&#x27;s pages say the product runs: no recorded vendor sentence says">Not stated</span></td><td></td></tr>
+<tr data-option="O19"><td>Run it yourself</td><td><a class="src" href="../../products/semgrep/">Semgrep</a></td><td><a class="form-word" href="https://github.com/semgrep/semgrep/blob/cd3b439c36f43a299dffcd1e7544f6ce7ebb03cc/README.md" title="github.com/semgrep/semgrep/blob/cd3b439c36f43a299dffcd1e7544f6ce7ebb03cc/README…, read 2026-11-18" rel="noopener noreferrer">Your machine</a></td><td>Also custom rules for the heuristic scan for code reaching other apps&#x27; secrets.</td></tr>
+<tr data-option="O20"><td>Hosted</td><td><a class="src" href="../../products/semgrep-appsec-platform/">Semgrep AppSec Platform</a></td><td><span title="Where the vendor&#x27;s pages say the product runs: no recorded vendor sentence says">Not stated</span></td><td></td></tr>
+<tr data-option="O21"><td>Built by the organization</td><td>Secret name check</td><td></td><td>Secret names are &lt;root&gt;-&lt;name&gt; and a mismatch is refused at load (R3.10); no product is recorded for the check.</td></tr>
+</tbody></table></div>
+<h3 id="slot-signing-and-admission">Signing and admission</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r3-4">R3.4</a>, <a class="src" href="#req-r3-7">R3.7</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O28"><td>Built by the organization</td><td>Signer service</td><td></td><td>The signer sits outside the isolated builder (R3.4); the catalog has no signing or admission product.</td></tr>
+</tbody></table></div>
+<h3 id="slot-secrets">Secrets</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r8-3">R8.3</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O36"><td>Built by the organization</td><td>Write-only secret entry</td><td></td><td>Secret values are write-only in the user interface (R3.11); no product is recorded for that screen.</td></tr>
+</tbody></table></div>
+<h3 id="slot-spec-workspaces">Spec workspaces</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r4-1">R4.1</a>, <a class="src" href="#req-r4-2">R4.2</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O44"><td>Hosted</td><td><a class="src" href="../../products/e2b/">E2B</a></td><td><a class="form-word" href="https://e2b.dev/security" title="e2b.dev/security, read 2026-10-24" rel="noopener noreferrer">A cloud service</a></td><td></td></tr>
+<tr data-option="O45"><td>Built by the organization</td><td>Workspace templates</td><td></td><td>The workspaces are built from the organization&#x27;s own templates (R4.1).</td></tr>
+</tbody></table></div>
+<h3 id="slot-chat-front-end-for-agent-testing">Chat front end for agent testing</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r4-4">R4.4</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O46"><td>Run it yourself</td><td><a class="src" href="../../products/librechat/">LibreChat</a> <span class="claim-src">Reported in use</span></td><td><a class="form-word" href="https://www.librechat.ai/docs/local/docker" title="www.librechat.ai/docs/local/docker, read 2026-10-24" rel="noopener noreferrer">A container environment you run</a></td><td></td></tr>
+<tr data-option="O47"><td>Run it yourself</td><td><a class="src" href="../../products/open-webui/">Open WebUI</a></td><td><a class="form-word" href="https://github.com/open-webui/open-webui" title="github.com/open-webui/open-webui, read 2026-10-24" rel="noopener noreferrer">A container environment you run</a></td><td></td></tr>
+</tbody></table></div>
+<h3 id="slot-mcp-server-framework">MCP server framework</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r5-1">R5.1</a>, <a class="src" href="#req-r5-3">R5.3</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O57"><td>Run it yourself</td><td><a class="src" href="../../products/fastmcp/">FastMCP</a> <span class="claim-src">Reported in use</span></td><td><a class="form-word" href="https://gofastmcp.com/docs/deployment/running-server" title="gofastmcp.com/docs/deployment/running-server, read 2026-11-18" rel="noopener noreferrer">Your machine</a></td><td></td></tr>
+<tr data-option="O58"><td>Hosted</td><td><a class="src" href="../../products/fastmcp-gateway/">FastMCP Gateway</a></td><td><a class="form-word" href="https://gofastmcp.com/docs/deployment/fastmcp-gateway" title="gofastmcp.com/docs/deployment/fastmcp-gateway, read 2026-11-18" rel="noopener noreferrer">A cloud service</a></td><td></td></tr>
+<tr data-option="O59"><td>Built by the organization</td><td>Tool code and token exchange</td><td></td><td>The tools and the on-behalf-of exchange per downstream (R5.2) are the organization&#x27;s own code.</td></tr>
+</tbody></table></div>
+<h3 id="slot-agent-to-agent-messaging">Agent-to-agent messaging</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r5-5">R5.5</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O66"><td>Built by the organization</td><td>Message signer</td><td></td><td>Messages are signed by the tool layer (R5.5); no product is recorded that signs them.</td></tr>
+</tbody></table></div>
+<h3 id="slot-knowledge-base-endpoint">Knowledge-base endpoint</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r6-1">R6.1</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O71"><td>Run it yourself</td><td><a class="src" href="../../products/sourcegraph/">Sourcegraph</a></td><td><a class="form-word" href="https://sourcegraph.com/docs/self-hosted/deploy.md" title="sourcegraph.com/docs/self-hosted/deploy.md, read 2026-11-18" rel="noopener noreferrer">A container environment you run</a> and <a class="form-word" href="https://sourcegraph.com/docs/self-hosted/deploy.md" title="sourcegraph.com/docs/self-hosted/deploy.md, read 2026-11-18" rel="noopener noreferrer">a cloud service</a></td><td></td></tr>
+<tr data-option="O72"><td>Run it yourself</td><td><a class="src" href="../../products/graphify-cli/">Graphify CLI</a></td><td><a class="form-word" href="https://docs.graphify.com/platform/graphify-vs-local.md" title="docs.graphify.com/platform/graphify-vs-local.md, read 2026-11-17" rel="noopener noreferrer">Your machine</a> and <a class="form-word" href="https://docs.graphify.com/open-source/self-host.md" title="docs.graphify.com/open-source/self-host.md, read 2026-11-17" rel="noopener noreferrer">a container environment you run</a></td><td>A code graph.</td></tr>
+<tr data-option="O75"><td>Built by the organization</td><td>Resolver</td><td></td><td>The knowledge-base endpoint has its own resolver (R6.1).</td></tr>
+</tbody></table></div>
+<h3 id="slot-model-service">Model service</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r7-1">R7.1</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O82"><td>Run it yourself</td><td><a class="src" href="../../products/vllm/">vLLM</a></td><td><a class="form-word" href="https://docs.vllm.ai/en/latest/deployment/docker/" title="docs.vllm.ai/en/latest/deployment/docker, read 2026-10-24" rel="noopener noreferrer">A container environment you run</a></td><td>Local models.</td></tr>
+<tr data-option="O83"><td>Run it yourself</td><td><a class="src" href="../../products/ollama-app-and-cloud-models/">Ollama (app and cloud models)</a></td><td><a class="form-word" href="https://docs.ollama.com/" title="docs.ollama.com, read 2026-10-24" rel="noopener noreferrer">Your machine</a> and <a class="form-word" href="https://github.com/ollama/ollama" title="github.com/ollama/ollama, read 2026-10-24" rel="noopener noreferrer">a container environment you run</a></td><td>Local models.</td></tr>
+</tbody></table></div>
+<h3 id="slot-model-gateway">Model gateway</h3>
+<p class="claim-src">Meets <a class="src" href="#req-r7-5">R7.5</a></p>
+<div class="table-wrap"><table class="lines pattern-opt"><thead><tr><th>Kind</th><th>Option</th><th>Runs on</th><th>Note</th></tr></thead><tbody>
+<tr data-option="O87"><td>Run it yourself</td><td><a class="src" href="../../products/litellm/">LiteLLM</a></td><td><a class="form-word" href="https://docs.litellm.ai/docs/" title="docs.litellm.ai/docs, read 2026-10-26" rel="noopener noreferrer">Your machine</a> and <a class="form-word" href="https://github.com/BerriAI/litellm" title="github.com/BerriAI/litellm, read 2026-10-24; docs.litellm.ai/docs, read 2026-10-26" rel="noopener noreferrer">a container environment you run</a></td><td></td></tr>
+</tbody></table></div>
 </div>
 <div class="small-print pattern-notes">
 <p>A requirement or option no second reader has read, a cloud service with no recorded source, and a catalog product whose page carries no line a second reader has read are held back from this page until they have one.</p>
