@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&quot;We have controls&quot; is true, and it is not enough · Crinaro.AI</title>
+<meta name="description" content="Why an organization needs a governed environment for the AI work its people do, and where it starts">
+<meta property="og:title" content="&quot;We have controls&quot; is true, and it is not enough">
+<meta property="og:description" content="Why an organization needs a governed environment for the AI work its people do, and where it starts">
+<meta property="og:url" content="https://crinaro.ai/catalog/views/why-an-environment/we-have-controls/">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<div class="note-wrap">
+<a class="note-home" href="https://crinaro.ai/" aria-label="Crinaro.AI"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 86" width="680" height="86" role="img" aria-label="Crinaro">
+  <title>Crinaro.AI · horizontal</title>
+  <g transform="translate(10,4) scale(0.46)">
+    <path d="M52 132 L150 132 L212 86 L252 104 L320 38 L376 106 L416 84 L466 132 L568 132" fill="none" stroke="#1B5C46" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="212" cy="86" r="9.1" fill="#0B2545" stroke="#F2F6F8" stroke-width="4.55"/>
+  <circle cx="320" cy="38" r="13.65" fill="#0B2545" stroke="#F2F6F8" stroke-width="4.55"/>
+  <circle cx="416" cy="84" r="9.1" fill="#0B2545" stroke="#F2F6F8" stroke-width="4.55"/>
+  </g>
+  <text x="300" y="66" fill="#0B2545" font-family="Futura, 'Century Gothic', 'Avenir Next', Avenir, sans-serif" font-size="40" font-weight="500" letter-spacing="0.26em" dx="0 0 0 0 0 0 0 -5.20 -5.20 0">CRINARO<tspan fill="#1B5C46">.AI</tspan></text>
+</svg></a>
+<h1>&quot;We have controls&quot; is true, and it is not enough</h1>
+<nav class="guide-nav" aria-label="This guide">
+<ol>
+<li><a class="src" href="../">1. What happens today</a></li>
+<li><a class="src" href="../why-it-matters/">2. Why it matters</a></li>
+<li><a class="src" href="./" aria-current="page">3. Controls</a></li>
+<li><a class="src" href="../with-an-environment/">4. The difference</a></li>
+<li><a class="src" href="../get-there/">5. First steps</a></li>
+<li><a class="src" href="../our-offering/">6. Our offering</a></li>
+</ol>
+</nav>
+<p class="standfirst">A security lead may say this, and the controls are real. A company may route every AI call through a proxy, or point its AI desktop app at the company&#x27;s own cloud account. Each answers a real question. Each leaves two open: what is inside the call, and what the work does once it leaves the person&#x27;s machine. A <strong>proxy</strong> is a server between people&#x27;s machines and the internet that decides which services they may reach.</p>
+<figure class="figure">
+<svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 600" role="img" aria-labelledby="why-proxy-title why-proxy-desc">
+<title id="why-proxy-title">What a proxy can and cannot see</title>
+<desc id="why-proxy-desc">Two panels. Above, a proxy only: on a workstation, a person&#x27;s AI assistant opens a browser and, with the person&#x27;s own login, pulls customer data out of a production system. It then sends that data through the company proxy to an AI service the proxy allows. A proxy that checks only where a call goes has no rule about what is in it, and it never sees the browser&#x27;s trip to the production system. Below, an environment, once workstation access to production data is removed: the workstation&#x27;s path to the production system is closed, and AI work reaches production data only from inside the environment, which reaches only the AI service the company approved. The closed path holds only if that access is actually removed.</desc>
+<defs><marker id="dg-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-head" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<defs><marker id="why-head-deny" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="why-head-deny" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="dg-bg" x="0" y="0" width="360" height="600"/>
+<rect class="dg-panel" x="10" y="10" width="340" height="300" rx="12"/>
+<text class="dg-label" x="24" y="34">A proxy only</text>
+<rect class="dg-box" x="22" y="48" width="150" height="92" rx="10"/>
+<text class="dg-t" x="97" y="72">Workstation</text>
+<text class="dg-s" x="97" y="90">assistant opens a</text>
+<text class="dg-s" x="97" y="108">browser with the</text>
+<text class="dg-s" x="97" y="126">person&#x27;s own login</text>
+<rect class="dg-group" x="208" y="48" width="130" height="92" rx="10"/>
+<text class="dg-t" x="273" y="81">System X</text>
+<text class="dg-s" x="273" y="99">production</text>
+<text class="dg-s" x="273" y="117">customer data</text>
+<path class="dg-arrow dg-deny why-deny" d="M172,80 L206,80"/>
+<path class="dg-arrow dg-deny why-deny" d="M206,112 L174,112"/>
+<text class="dg-s" x="190" y="160">data comes back</text>
+<rect class="dg-box" x="22" y="178" width="150" height="60" rx="10"/>
+<text class="dg-t" x="97" y="204">Company proxy</text>
+<text class="dg-s" x="97" y="222">service allowed</text>
+<path class="dg-arrow dg-deny why-deny" d="M97,140 L97,176"/>
+<rect class="dg-box dg-opt" x="208" y="178" width="130" height="60" rx="10"/>
+<text class="dg-t" x="273" y="204">AI service</text>
+<text class="dg-s" x="273" y="222">receives the data</text>
+<path class="dg-arrow dg-deny why-deny" d="M172,208 L206,208"/>
+<text class="dg-s" x="180" y="264">the proxy checks where the call goes,</text>
+<text class="dg-s" x="180" y="282">not what is in it, and it never</text>
+<text class="dg-s" x="180" y="300">sees the trip to System X</text>
+<rect class="dg-panel" x="10" y="324" width="340" height="266" rx="12"/>
+<text class="dg-label" x="24" y="348">An environment</text>
+<text class="dg-s" x="180" y="368">once workstation access is removed</text>
+<rect class="dg-box dg-opt" x="22" y="382" width="150" height="60" rx="10"/>
+<text class="dg-t" x="97" y="408">Workstation</text>
+<text class="dg-s" x="97" y="426">discovery only</text>
+<rect class="dg-group" x="208" y="382" width="130" height="60" rx="10"/>
+<text class="dg-t" x="273" y="399">System X</text>
+<text class="dg-s" x="273" y="417">AI work: only</text>
+<text class="dg-s" x="273" y="435">from inside</text>
+<path class="why-closed" d="M172,412 L206,412"/>
+<path class="why-x" d="M182,404 L196,420 M196,404 L182,420"/>
+<rect class="dg-group" x="22" y="470" width="150" height="60" rx="10"/>
+<text class="dg-t" x="97" y="496">Environment</text>
+<text class="dg-s" x="97" y="514">for AI work</text>
+<path class="dg-arrow" d="M172,500 L272,500 L272,444"/>
+<rect class="dg-box" x="208" y="518" width="130" height="60" rx="10"/>
+<text class="dg-t" x="273" y="544">AI service</text>
+<text class="dg-s" x="273" y="562">approved by you</text>
+<path class="dg-arrow" d="M97,530 L97,548 L206,548"/>
+<text class="dg-s" x="97" y="566">holds only if that</text>
+<text class="dg-s" x="97" y="582">access is truly removed</text>
+</svg>
+<figcaption>A proxy that checks only where a call goes decides which AI services may be called, not what data is in the call, and it does not see how the data reached the workstation. Removing workstation access to production data closes the browser&#x27;s trip to System X, once the access is actually removed.</figcaption>
+</figure>
+<h2 id="proxy-decides">A proxy that checks only where a call goes has no rule about what is in it</h2>
+<p>A proxy with a list of approved services would stop the service rep&#x27;s personal tool and the seller&#x27;s unknown one. It would not stop the support engineer. Her service was on the list, so a customer&#x27;s records went to an allowed service and the proxy passed the call. The control did what it was built to do.</p>
+<p>It gets worse where people are inventive. In an example we have seen, but not measured, people asked the tool to launch a browser and pull information out of a production system. The assistant opens a browser on the person&#x27;s laptop, signs in with their own login, reads the data, and sends it to an AI service the proxy allows. The proxy never sees the trip to the production system.</p>
+<p>While people can reach production data from their laptops, the proxy guards the call and not the source.</p>
+<h2 id="own-account">Pointing the desktop app at your own cloud covers the model call, not the work</h2>
+<p>This second answer is a good one. <a class="src" href="https://claude.com/docs/third-party/claude-desktop/overview" rel="noopener noreferrer">Anthropic&#x27;s page on Claude Desktop with a third-party provider</a>, read 2026-11-20, says Claude Desktop can send all its model calls to a cloud provider the company configures, such as Amazon Bedrock or Microsoft Foundry. That governs which provider takes the model calls, while the app stays in the managed setup. Three things stay where they were:</p>
+<ul>
+<li><strong>The work stays on one machine.</strong> The same page says conversation history is stored on the person&#x27;s device. The page someone built still reaches colleagues as a picture in a slide, so reuse does not start. Claude&#x27;s own sharing does not fill the gap: <a class="src" href="https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans" rel="noopener noreferrer">Anthropic&#x27;s admin guide for artifacts</a>, read 2026-11-20, says artifacts are unavailable on third-party cloud platforms.</li>
+<li><strong>The laptop still reaches production data.</strong> The browser example works the same way. What reaches the model is better governed. What leaves the production system is not.</li>
+<li><strong>The setting covers one app.</strong> The page also says a person can leave the managed setup by signing in to claude.ai, unless the device profile restricts it. Other assistants on the same machine have settings of their own.</li>
+</ul>
+<h2 id="secrets">The passwords sit in files on laptops</h2>
+<p>Apps people build with AI need passwords and keys to reach data. In our experience they usually sit in a plain text file next to the app, and people building their first app probably do not know to put them anywhere else. The file goes wherever the folder goes: a backup, a shared drive, a zip sent to a colleague. No proxy or desktop setting looks there.</p>
+<h2 id="governs">What closes the gap</h2>
+<p>Lock down access to production data so that AI work reaches it only from inside an environment built for AI work. Then a laptop has no path of its own to the production system. That holds only once workstation access to production data is actually removed. Until it is, the browser trip in the figure is still open.</p>
+<p>One limit stays: a page a person can open on their own screen, a shared one included, can still be read by their assistant or pasted into one. That stays with your rules, which step 1 of the path starts with.</p>
+<h2 id="means">What this means for you</h2>
+<p>Keep the controls. Do not read them as the whole answer. The question from the first page is the test: if anyone can reach customer data in a production system from a laptop, the proxy is guarding the call and not the source.</p>
+<p class="guide-next"><a class="src" href="../with-an-environment/">Next: The difference</a></p>
+<p class="guide-cta">Weighing this for your organization? <a class="src" href="../our-offering/#talk">Talk to us</a></p>
+<div class="small-print">
+<p class="written">Rendered 2026-11-20</p>
+</div>
+<div class="foot">
+<p class="linkrow"><a class="src" href="../../../terms/">Terms</a><span class="sep">&middot;</span><a class="src" href="../../../index.html">Catalog home</a></p>
+<p>Our reading of vendors' pages, as of the dates shown. Confirm on the vendor's page before relying on any line that cites it. To report an error write to <a class="src" href="mailto:report@crinaro.ai">report@crinaro.ai</a> <!-- privacy-ok: public business address, not a personal one --></p>
+</div>
+</div>
+</body>
+</html>

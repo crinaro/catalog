@@ -865,6 +865,17 @@ CwAA") format('woff2')}
   @media (min-width:64rem) {
     .panels { grid-template-columns:repeat(3, minmax(0, 1fr)); width:min(100vw - 3rem, 72rem); margin-left:calc((100% - min(100vw - 3rem, 72rem)) / 2); }
   }
+  /* the "why an environment" guide's own navigation (owner, 2026-11-19: pages to navigate between) */
+  .guide-nav ol { list-style:none; padding:0; margin:.4rem 0 1.4rem; display:flex; flex-wrap:wrap; gap:.4rem .6rem; }
+  .guide-nav a { display:inline-block; padding:.3rem .7rem; border:1.5px solid #DCE4EA; border-radius:999px; text-decoration:none; font-size:.92rem; }
+  .guide-nav a[aria-current="page"] { border-color:#1B5C46; background:#E4F0EA; color:#0B2545; font-weight:600; }
+  .guide-next { margin-top:2rem; font-weight:600; }
+  .guide-cta { margin-top:.5rem; font-size:.95rem; }
+  .why-deny { stroke:#A6452F; marker-end:url(#why-head-deny); }
+  .why-head-deny { fill:#A6452F; }
+  .why-closed { fill:none; stroke:#A6452F; stroke-width:2; stroke-dasharray:5 4; }
+  .why-x { fill:none; stroke:#A6452F; stroke-width:3; }
+  @media (prefers-color-scheme: dark) { .guide-nav a { border-color:#2A4B73; } .guide-nav a[aria-current="page"] { border-color:#4FA98A; background:#1F5A44; color:#F2F6F8; } }
   /* The pattern page's data-protection figures (owner, 2026-11-19: "a visual with flow. How you protect your data.", then "make the page
      work similar to the catalog, highlight the sections of the digrams and have the requirments to the right of it"): each flow a section,
      its drawing on the left and the requirements its steps cite on the right, stacked on a phone. A dashed outline is a refusal, a tinted

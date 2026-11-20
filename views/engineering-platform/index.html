@@ -627,6 +627,16 @@
 <tr id="req-r9-14" data-req="R9.14"><td>R9.14</td><td>Agents and teams subscribe to Fact events through the governed MCP and the message bus.</td><td></td><td><a class="src" href="#slot-triggers-and-event-delivery">Triggers and event delivery</a></td></tr>
 <tr id="req-r9-15" data-req="R9.15"><td>R9.15</td><td>A Fact is verified, contradicted or unverifiable, an unverifiable Fact is not carried forward, and a Fact derived from a modeled or agent-inferred source cannot satisfy a designated condition.</td><td></td><td></td></tr>
 </tbody></table></div>
+<h3 id="cap-r10">R10. Administration</h3>
+<div class="table-wrap"><table class="lines pattern-req"><thead><tr><th>Number</th><th>Requirement</th><th>Kind</th><th>Options</th></tr></thead><tbody>
+<tr id="req-r10-1" data-req="R10.1"><td>R10.1</td><td>Administration of the environment, folders, people and model access belongs to the platform itself rather than to one cloud&#x27;s security tools.</td><td></td><td></td></tr>
+<tr id="req-r10-2" data-req="R10.2"><td>R10.2</td><td>An organization is onboarded with proof that it controls its domain or directory tenant.</td><td></td><td></td></tr>
+<tr id="req-r10-3" data-req="R10.3"><td>R10.3</td><td>Roles include organization administrator, folder owner and co-owner, and viewer.</td><td></td><td></td></tr>
+<tr id="req-r10-4" data-req="R10.4"><td>R10.4</td><td>Every administrative action is written to an audit log the organization can read.</td><td></td><td></td></tr>
+<tr id="req-r10-5" data-req="R10.5"><td>R10.5</td><td>Offboarding removes a person&#x27;s access and passes on what they own; an organization that leaves has its data deleted on a stated schedule.</td><td></td><td></td></tr>
+<tr id="req-r10-6" data-req="R10.6"><td>R10.6</td><td>Each folder has usage and cost limits and a cost report, and each organization has an allowlist of models.</td><td></td><td></td></tr>
+<tr id="req-r10-8" data-req="R10.8"><td>R10.8</td><td>Break-glass administrator access, and any support access the organization grants the vendor, are time-limited and logged.</td><td></td><td></td></tr>
+</tbody></table></div>
 <h2 id="options">What can fill each part</h2>
 <h3 id="slot-identity-provider">Identity provider</h3>
 <p class="claim-src">Meets <a class="src" href="#req-r1-1">R1.1</a>, <a class="src" href="#req-r1-14">R1.14</a></p>
@@ -810,7 +820,7 @@
 <p>Each product links its catalog page, which carries the readings behind it. A short note beside a product is this page&#x27;s own wording of how it fits that part, not the vendor&#x27;s.</p>
 <dl><dt>Structural</dt><dd>enforced outside the actor it constrains.</dd><dt>Policy</dt><dd>holds only while someone follows it.</dd><dt>Detective</dt><dd>finds a breach after it happens.</dd><dt>Open question</dt><dd>the requirement&#x27;s own source leaves it undecided.</dd><dt>Native</dt><dd>the cloud&#x27;s own service, named as the cloud names it, with the page it rests on.</dd><dt>Run it yourself</dt><dd>a catalog product you run in your own environment.</dd><dt>Hosted</dt><dd>a catalog product its vendor runs for you.</dd><dt>Built by the organization</dt><dd>a part no product fills, with the reason.</dd><dt>Runs on</dt><dd>the product page&#x27;s own fact, shown only where that page shows it.</dd></dl>
 </div>
-<p class="written">Rendered 2026-11-18</p>
+<p class="written">Rendered 2026-11-19</p>
 <h2>Attribution</h2>
 <div class="attribution">
 <p>Some lines here restate, in the catalog's own words, pages licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer">Creative Commons Attribution 4.0 International</a>: MicrosoftDocs/azure-ai-docs (license stated on <span data-host="learn.microsoft.com"><a href="https://github.com/MicrosoftDocs/azure-ai-docs" title="github.com/MicrosoftDocs/azure-ai-docs" rel="noopener noreferrer">this github.com page</a>, read 2026-09-25</span>). Some lines here restate, in the catalog's own words, pages licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International</a>: docs.aws.amazon.com (license stated on <span data-host="docs.aws.amazon.com"><a href="https://aws.amazon.com/terms/" title="aws.amazon.com/terms" rel="noopener noreferrer">this aws.amazon.com page</a>, read 2026-09-26</span>). Our lines that summarize those pages are changed from the originals and are offered under Creative Commons Attribution-ShareAlike 4.0 International, not under the catalog's own license. Each license applies as its page states it. Our lines are summaries, not the publishers' text, and the publishers do not endorse them.</p>
