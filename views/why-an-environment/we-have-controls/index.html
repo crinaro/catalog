@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>&quot;We have controls&quot; is true, and it is not enough · Crinaro.AI</title>
-<meta name="description" content="Why an organization needs a governed environment for the AI work its people do, and where it starts">
+<meta name="description" content="A proxy, data-loss prevention or a company cloud account each answers a real question. Why each still leaves open what the work does after.">
 <meta property="og:title" content="&quot;We have controls&quot; is true, and it is not enough">
-<meta property="og:description" content="Why an organization needs a governed environment for the AI work its people do, and where it starts">
+<meta property="og:description" content="A proxy, data-loss prevention or a company cloud account each answers a real question. Why each still leaves open what the work does after.">
 <meta property="og:url" content="https://crinaro.ai/catalog/views/why-an-environment/we-have-controls/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://crinaro.ai/icons/crinaro-catalog-og-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body>
@@ -31,7 +32,7 @@
 <li><a class="src" href="./" aria-current="page">3. Controls</a></li>
 <li><a class="src" href="../with-an-environment/">4. The difference</a></li>
 <li><a class="src" href="../get-there/">5. First steps</a></li>
-<li><a class="src" href="../our-offering/">6. Our offering</a></li>
+<li><a class="src" href="../closing-the-gaps/">6. Closing the gaps</a></li>
 </ol>
 </nav>
 <p class="standfirst">A security lead may say this, and the controls are real. A company may route every AI call through a proxy, or point its AI desktop app at the company&#x27;s own cloud account. Each answers a real question. Each leaves two open: what is inside the call, and what the work does once it leaves the person&#x27;s machine. A <strong>proxy</strong> is a server between people&#x27;s machines and the internet that decides which services they may reach.</p>
@@ -96,6 +97,9 @@
 <p>A proxy with a list of approved services would stop the service rep&#x27;s personal tool and the seller&#x27;s unknown one. It would not stop the support engineer. Her service was on the list, so a customer&#x27;s records went to an allowed service and the proxy passed the call. The control did what it was built to do.</p>
 <p>It gets worse where people are inventive. In an example we have seen, but not measured, people asked the tool to launch a browser and pull information out of a production system. The assistant opens a browser on the person&#x27;s laptop, signs in with their own login, reads the data, and sends it to an AI service the proxy allows. The proxy never sees the trip to the production system.</p>
 <p>While people can reach production data from their laptops, the proxy guards the call and not the source.</p>
+<h2 id="dlp">&quot;Our data-loss prevention inspects what goes out&quot;</h2>
+<p>Data-loss prevention is a real control, and it answers a different question from the proxy: it looks at content leaving through the channels it monitors and matches it against patterns or labels it knows.</p>
+<p>It leaves three things open. Channels it does not monitor, such as a personal device. Data it does not recognize as sensitive: in the browser example above, it sees the records only on their way to the AI service, and catches them only if it recognizes them. And it gives no shared place for the work, so reuse does not start. Both paragraphs are our reasoning about the category, not a claim about any product.</p>
 <h2 id="own-account">Pointing the desktop app at your own cloud covers the model call, not the work</h2>
 <p>This second answer is a good one. <a class="src" href="https://claude.com/docs/third-party/claude-desktop/overview" rel="noopener noreferrer">Anthropic&#x27;s page on Claude Desktop with a third-party provider</a>, read 2026-11-20, says Claude Desktop can send all its model calls to a cloud provider the company configures, such as Amazon Bedrock or Microsoft Foundry. That governs which provider takes the model calls, while the app stays in the managed setup. Three things stay where they were:</p>
 <ul>
@@ -111,7 +115,7 @@
 <h2 id="means">What this means for you</h2>
 <p>Keep the controls. Do not read them as the whole answer. The question from the first page is the test: if anyone can reach customer data in a production system from a laptop, the proxy is guarding the call and not the source.</p>
 <p class="guide-next"><a class="src" href="../with-an-environment/">Next: The difference</a></p>
-<p class="guide-cta">Weighing this for your organization? <a class="src" href="../our-offering/#talk">Talk to us</a></p>
+<p class="guide-cta">Weighing this for your organization? <a class="src" href="mailto:john@crinaro.ai">Talk to us</a> <!-- privacy-ok: public business address, not a personal one --></p>
 <div class="small-print">
 <p class="written">Rendered 2026-11-20</p>
 </div>

@@ -8,7 +8,8 @@
 <meta property="og:title" content="Governed engineering platform: requirements and options">
 <meta property="og:description" content="Requirements for a governed engineering platform, and what can fill each part">
 <meta property="og:url" content="https://crinaro.ai/catalog/views/engineering-platform/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://crinaro.ai/icons/crinaro-catalog-og-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
@@ -24,6 +25,7 @@
   <text x="300" y="66" fill="#0B2545" font-family="Futura, 'Century Gothic', 'Avenir Next', Avenir, sans-serif" font-size="40" font-weight="500" letter-spacing="0.26em" dx="0 0 0 0 0 0 0 -5.20 -5.20 0">CRINARO<tspan fill="#1B5C46">.AI</tspan></text>
 </svg></a>
 <h1>Governed engineering platform: requirements and options</h1>
+<p class="lead-note">These are the requirements for the environment for AI work that <a class="src" href="../why-an-environment/">the walkthrough</a> describes, for the work of people outside engineering as well as engineers.</p>
 <p class="standfirst">A reference pattern for a governed engineering platform: the requirements it has to meet, numbered, and for each part of the platform the cloud services, catalog products and parts built in-house that can fill it.</p>
 <p>Use this page to look things up. A list of requirements says what a platform has to do; it does not say how to build one, in what order, or whether to.</p>
 <div class="pattern">
@@ -178,14 +180,12 @@
 <li class="fp-req" id="fq-access-handoff-r5-2"><a class="fp-n" href="#fq-access-handoff-r5-2">R5.2</a> An on-behalf-of exchange per downstream, where the downstream accepts one, so a data source sees the person. <a class="src fp-row" href="#req-r5-2">In the table</a></li>
 <li class="fp-req" id="fq-access-handoff-r8-7"><a class="fp-n" href="#fq-access-handoff-r8-7">R8.7</a> Where a service accepts the caller&#x27;s own identity, access is also authorized by that identity, so a destination the firewall admits still refuses a caller without the right. <a class="src fp-row" href="#req-r8-7">In the table</a></li>
 </ul>
-<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
 </div>
 <div class="fp-step fp-band-b" id="fp-access-source">
 <h4><a href="#fp-access-source">Data source</a></h4>
 <ul class="fp-reqs">
 <li class="fp-req" id="fq-access-source-r8-7"><a class="fp-n" href="#fq-access-source-r8-7">R8.7</a> Where a service accepts the caller&#x27;s own identity, access is also authorized by that identity, so a destination the firewall admits still refuses a caller without the right. <a class="src fp-row" href="#req-r8-7">In the table</a></li>
 </ul>
-<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
 </div>
 </div>
 </div>
@@ -307,7 +307,6 @@
 </div>
 <div class="fp-step fp-band-a" id="fp-egress-ingress">
 <h4><a href="#fp-egress-ingress">Cluster ingress</a></h4>
-<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
 </div>
 <div class="fp-step fp-band-a" id="fp-egress-front">
 <h4><a href="#fp-egress-front">Proxy and filter</a></h4>
@@ -321,19 +320,16 @@
 <ul class="fp-reqs">
 <li class="fp-req" id="fq-egress-emcp-r5-9"><a class="fp-n" href="#fq-egress-emcp-r5-9">R5.9</a> Workspace apps also call the MCP, and one MCP request, internal or external, may cascade into several authenticated events. <a class="src fp-row" href="#req-r5-9">In the table</a></li>
 </ul>
-<p class="fp-held">2 more at this step are not shown yet: no second reader has read them.</p>
 </div>
 <p class="eyebrow fp-band">Leaving the cluster</p>
 <div class="fp-step fp-band-b" id="fp-egress-hub">
 <h4><a href="#fp-egress-hub">Hub firewall</a></h4>
-<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
 </div>
 <div class="fp-step fp-band-b" id="fp-egress-list">
 <h4><a href="#fp-egress-list">Firewall rules</a></h4>
 <ul class="fp-reqs">
 <li class="fp-req" id="fq-egress-list-r3-15"><a class="fp-n" href="#fq-egress-list-r3-15">R3.15</a> Egress only through the firewall, to hosts the manifest declares. <a class="src fp-row" href="#req-r3-15">In the table</a></li>
 </ul>
-<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
 </div>
 <div class="fp-step fp-band-b" id="fp-egress-model">
 <h4><a href="#fp-egress-model">Model services</a></h4>
@@ -342,11 +338,9 @@
 <li class="fp-req" id="fq-egress-model-r7-2"><a class="fp-n" href="#fq-egress-model-r7-2">R7.2</a> No cross-cloud model call (Foundry on Azure, Bedrock on AWS); the rule keeps the call in one cloud and does not say where processing happens. <a class="src fp-row" href="#req-r7-2">In the table</a></li>
 <li class="fp-req" id="fq-egress-model-r7-3"><a class="fp-n" href="#fq-egress-model-r7-3">R7.3</a> Egress uses the narrowest endpoint address or endpoint policy. <a class="src fp-row" href="#req-r7-3">In the table</a></li>
 </ul>
-<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
 </div>
 <div class="fp-step fp-band-b" id="fp-egress-cloud">
 <h4><a href="#fp-egress-cloud">Cloud services</a></h4>
-<p class="fp-held">2 more at this step are not shown yet: no second reader has read them.</p>
 </div>
 <div class="fp-step fp-band-b" id="fp-egress-store">
 <h4><a href="#fp-egress-store">Internal services</a></h4>
@@ -354,7 +348,6 @@
 <li class="fp-req" id="fq-egress-store-r8-7"><a class="fp-n" href="#fq-egress-store-r8-7">R8.7</a> Where a service accepts the caller&#x27;s own identity, access is also authorized by that identity, so a destination the firewall admits still refuses a caller without the right. <a class="src fp-row" href="#req-r8-7">In the table</a></li>
 <li class="fp-req" id="fq-egress-store-r3-14"><a class="fp-n" href="#fq-egress-store-r3-14">R3.14</a> A workload identity per app, scoped to its storage prefix. <a class="src fp-row" href="#req-r3-14">In the table</a></li>
 </ul>
-<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
 </div>
 </div>
 </div>
@@ -483,11 +476,9 @@
 <p class="eyebrow fp-band">Envelope and bus</p>
 <div class="fp-step fp-band-b" id="fp-event-envelope">
 <h4><a href="#fp-event-envelope">The envelope</a></h4>
-<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
 </div>
 <div class="fp-step fp-band-b" id="fp-event-bus">
 <h4><a href="#fp-event-bus">Message bus</a></h4>
-<p class="fp-held">2 more at this step are not shown yet: no second reader has read them.</p>
 </div>
 <p class="eyebrow fp-band">At each subscriber</p>
 <div class="fp-step fp-band-a" id="fp-event-verify">
@@ -513,12 +504,10 @@
 <ul class="fp-reqs">
 <li class="fp-req" id="fq-event-definition-r9-14"><a class="fp-n" href="#fq-event-definition-r9-14">R9.14</a> Agents and teams subscribe to Fact events through the governed MCP and the message bus. <a class="src fp-row" href="#req-r9-14">In the table</a></li>
 </ul>
-<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
 </div>
 <p class="eyebrow fp-band">Cascade</p>
 <div class="fp-step fp-band-b" id="fp-event-cascade">
 <h4><a href="#fp-event-cascade">Further events</a></h4>
-<p class="fp-held">1 more at this step is not shown yet: no second reader has read it.</p>
 </div>
 </div>
 </div>
@@ -815,12 +804,11 @@
 </tbody></table></div>
 </div>
 <div class="small-print pattern-notes">
-<p>A requirement or option no second reader has read, a cloud service with no recorded source, and a catalog product whose page carries no line a second reader has read are held back from this page until they have one.</p>
 <p>&quot;Reported in use&quot; marks an option one build used, as that build was reported to us. The report is testimony: we did not observe the build, and the page names no organization or person. The requirements, their numbers and their classes are our reasoning from that report and from vendors&#x27; pages; nobody here built, ran or attacked the platform.</p>
 <p>Each product links its catalog page, which carries the readings behind it. A short note beside a product is this page&#x27;s own wording of how it fits that part, not the vendor&#x27;s.</p>
-<dl><dt>Structural</dt><dd>enforced outside the actor it constrains.</dd><dt>Policy</dt><dd>holds only while someone follows it.</dd><dt>Detective</dt><dd>finds a breach after it happens.</dd><dt>Open question</dt><dd>the requirement&#x27;s own source leaves it undecided.</dd><dt>Native</dt><dd>the cloud&#x27;s own service, named as the cloud names it, with the page it rests on.</dd><dt>Run it yourself</dt><dd>a catalog product you run in your own environment.</dd><dt>Hosted</dt><dd>a catalog product its vendor runs for you.</dd><dt>Built by the organization</dt><dd>a part no product fills, with the reason.</dd><dt>Runs on</dt><dd>the product page&#x27;s own fact, shown only where that page shows it.</dd></dl>
+<dl><dt>Structural</dt><dd>enforced outside the actor it constrains.</dd><dt>Policy</dt><dd>holds only while someone follows it.</dd><dt>Detective</dt><dd>finds a breach after it happens.</dd><dt>Open question</dt><dd>the requirement&#x27;s own source leaves it undecided.</dd><dt>Native</dt><dd>the cloud&#x27;s own service, named as the cloud names it, with the page it rests on.</dd><dt>Run it yourself</dt><dd>a catalog product you run in your own environment.</dd><dt>Hosted</dt><dd>a catalog product its vendor runs for you.</dd><dt>Built by the organization</dt><dd>a part no product fills, with the reason.</dd><dt>Runs on</dt><dd>the product page&#x27;s own fact, shown only where that page shows it.</dd><dt>Held back</dt><dd>a requirement or option no second reader has read, a cloud service with no recorded source, or a catalog product whose page carries no line a second reader has read. It is left off this page until it has one, so a requirement&#x27;s number is skipped in the tables and a step in a diagram may cite more than its panel lists.</dd></dl>
 </div>
-<p class="written">Rendered 2026-11-19</p>
+<p class="written">Rendered 2026-11-20</p>
 <h2>Attribution</h2>
 <div class="attribution">
 <p>Some lines here restate, in the catalog's own words, pages licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer">Creative Commons Attribution 4.0 International</a>: MicrosoftDocs/azure-ai-docs (license stated on <span data-host="learn.microsoft.com"><a href="https://github.com/MicrosoftDocs/azure-ai-docs" title="github.com/MicrosoftDocs/azure-ai-docs" rel="noopener noreferrer">this github.com page</a>, read 2026-09-25</span>). Some lines here restate, in the catalog's own words, pages licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International</a>: docs.aws.amazon.com (license stated on <span data-host="docs.aws.amazon.com"><a href="https://aws.amazon.com/terms/" title="aws.amazon.com/terms" rel="noopener noreferrer">this aws.amazon.com page</a>, read 2026-09-26</span>). Our lines that summarize those pages are changed from the originals and are offered under Creative Commons Attribution-ShareAlike 4.0 International, not under the catalog's own license. Each license applies as its page states it. Our lines are summaries, not the publishers' text, and the publishers do not endorse them.</p>
